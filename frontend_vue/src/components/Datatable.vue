@@ -96,7 +96,7 @@
 
             <!-- legend -->
             <div :style="{paddingRight: '10px', fontSize: '12px', display:'flex', flexDirection: 'row', justifyContent: 'flex-end'}"  >
-                <div :style="{paddingTop: '10px'}">{ props.expressions.legend } : <span :style="{backgroundColor: 'red'}">&nbsp;&nbsp;&nbsp;</span>= {props.expressions.inactive }</div>
+                <div :style="{paddingTop: '10px'}"> {{expressions.legend}}  : <span :style="{backgroundColor: 'red'}">&nbsp;&nbsp;&nbsp;</span>= {{expressions.inactive}}</div>
             </div>
 
          </div>
@@ -292,7 +292,7 @@ watch([currentStatus, filterApplied], () => {
 //*************************************************************************** 
 async function fetchData() {
   emit('showLoading')
-
+   
   $('#rowsContainer').height('0')
 
   // in the case of expressions being fetched, once the json parameter is sent,   
@@ -305,7 +305,7 @@ async function fetchData() {
   let stringSearch = $.trim( $('#txtTableSearchText').val() )
   let route
   if ( props.currentViewedDatatable === 'expressions')   
-    route = `${props.backendUrl}/expressions/json/__no_matter__/${currentStatus.value}` 
+    route = `${props.backendUrl}/expressions/json/both/${currentStatus.value}` 
 
   else 
     route = `${props.backendUrl}/${props.currentViewedDatatable}/${currentStatus.value}`  

@@ -34,7 +34,7 @@ class Cars
   //***************************************************************************************************************************************
   //***************************************************************************************************************************************
 
-  public function getCarById($id): void   {
+  public function getCarById($id): void   {  
     $sql =  "select description, concat('car_', id, '.png') as car_image, id, plate, ifnull(active, false) as active ".
             "from cars  ".
             "where id=$id ";
@@ -168,6 +168,5 @@ class Cars
     http_response_code(200);   // 200= it was ok
     if ($dbOperation == 'update')   die( '__success__' );
     else die( $result );    // __success__|id registro
-
   }
 }

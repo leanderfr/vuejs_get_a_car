@@ -8,9 +8,10 @@ class Expressions
 
   public function getExpressions(string $resultformat, string $country, string $status, string $searchbox): void   {
 
-    if ($country!='usa' && $country!='brazil' )   routeError();
+    // both, fetch expressions from both countries
+    if ( $country!='both' && $country!='usa' && $country!='brazil' )   routeError();
 
-    $language = $country=='usa' ? 'english' : 'portuguese';
+    $language = (($country=='usa') ? 'english' : 'portuguese');
 
     if ( $resultformat=='reference')
       $sql =  "select $language as expression, item ".
@@ -49,22 +50,24 @@ class Expressions
   //***************************************************************************************************************************************
   //***************************************************************************************************************************************
 
-  public function getExpressionById($id): void   {
+  public function getExpressionById($id=""): void   {
+
     $sql =  "select item, english, portuguese  ".
             "from expressions  ".
-            "where id=$id ";
+            "where id = $id ";
 
     executeFetchQueryAndReturnJsonResult( $sql, true);
   }
-
+ 
 
 
 
 
   //***************************************************************************************************************************************
   //***************************************************************************************************************************************
-  public function changeStatus($id): void   {
+  public function changeStatus($id=''): void    {
     global $dbConnection;
+
 
     if (! is_numeric($id)) {
       internalError( 'Not numeric' );

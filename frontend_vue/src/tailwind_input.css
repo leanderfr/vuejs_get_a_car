@@ -29,7 +29,7 @@ though this was thought to be a tailwind file, I use some moments vanilla css to
   display: flex;
   flex-basis: 33%;
   height: 100%;
-  background-position: 10px ;
+  background-position: 10px 5px ;
 }
 .headerText {
 @apply text-2xl  text-center  basis-[33%]
