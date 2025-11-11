@@ -19,16 +19,21 @@ $LOCAL_TMP_FOLDER= '/tmp';
 // show errors when developing
 if ( strpos($_SERVER['HTTP_HOST'], 'localhost')!==false || strpos($_SERVER['HTTP_HOST'], '127.0.0.1')!==false ) {
 
-  ini_set('display_errors', '1');
-  ini_set('display_startup_errors', '1');
-  error_reporting(E_ALL);
+  //ini_set('display_errors', '1');
+  //ini_set('display_startup_errors', '1');
+  //error_reporting(E_ALL);
 
 }
 // dont in production 
 else {  
-  error_reporting(0);
-  ini_set('display_errors', 0);
+  //error_reporting(0);
+  //ini_set('display_errors', 0);
 }
+
+  ini_set('display_errors', '1');
+  ini_set('display_startup_errors', '1');
+  error_reporting(E_ALL);
+
 
   
 // share connection throghout the app 

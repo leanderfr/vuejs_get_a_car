@@ -101,7 +101,13 @@ if ($getRequest) {
 
 //*********************************************************************************************************************************************************
 // update record, bookings cannot be updated, just created or deleted
-if ($patchRequest) {
+//if ($patchRequest) {
+
+//*********************************************************************************************************************************************************
+// PHP prior than 8.4 doesnt deal with PATCH method!
+//*********************************************************************************************************************************************************
+if ($postRequest) {
+
     $router->Patch("/expression/{id}", function($id) use($handlerExpressions)  {  
       $handlerExpressions->postOrPatchExpression($id);
     });

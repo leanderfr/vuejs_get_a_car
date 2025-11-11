@@ -97,6 +97,8 @@ import { onMounted, ref  } from 'vue';
 import { makeWindowDraggable, slidingMessage, dateToIsoStringConsideringLocalUTC, formatDate  } from '../assets/js/utils.js'
 const emit = defineEmits( ['showLoading', 'hideLoading', 'closeCarForm','refreshDatatable'] );
 
+const strToAvoidCache = ref('')
+
 import moment from 'moment';
 
 const fileCarImage = ref(null)
@@ -104,6 +106,7 @@ const fileCarImage = ref(null)
 const props = defineProps( ['expressions', 'backendUrl', 'currentCountry', 'formHttpMethodApply', 'currentId', 'imagesUrl'] )
 
 onMounted( () => {
+  strToAvoidCache.value = (Math.random() + 1).toString(36).substring(7);
   getCarFormPopulatedAndReady()
 })
 
@@ -159,7 +162,7 @@ async function getCarFormPopulatedAndReady() {
           $('#txtDescription').val( car.description )
           $('#txtPlate').val( car.plate )
 
-          $('#carPicture').attr('src', props.imagesUrl + car.car_image )
+          $('#carPicture').attr('src', props.imagesUrl + car.car_image + '?'+strToAvoidCache)
 
           putFocusInFirstInputText_AndOthersParticularitiesOfTheCarForm() 
 
@@ -242,7 +245,8 @@ async function saveCar()  {
   }, 10);
   
   // PHP doesnt work well with PATCH (laravel does), need to send all with POST here
-  await fetch(`${props.backendUrl}/${route}`, {method: props.formHttpMethodApply, body: formData})
+  //  await fetch(`${props.backendUrl}/${route}`, {method: props.formHttpMethodApply, body: formData})
+  await fetch(`${props.backendUrl}/${route}`, {method: "POST", body: formData})
 
   .then(response => {
     if (!response.ok) {

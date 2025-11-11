@@ -158,10 +158,10 @@
 
   // it changes depending if the app is running as a container (AWS EC2) or locally
   //const backendUrl = ref('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8073')  
-  const backendUrl = ref('http://localhost')  
+  const backendUrl = ref('http://leanderdeveloper.store/hiring_machine/backend_php')  
 
   //const imagesUrl = ref('https://devs-app.s3.sa-east-1.amazonaws.com/hiring_machine/')  
-  const imagesUrl = ref('http://leanderdeveloper.store/hiring_machine/backend_php/images/')  
+  const imagesUrl = ref('http://leanderdeveloper.store/hiring_machine/backend_php/car_images/')  
 
   // currently selected car (starts with 0= show schedule of all cars)
   const selectedCar = ref(0)

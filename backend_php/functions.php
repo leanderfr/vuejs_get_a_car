@@ -147,6 +147,8 @@ function executeCrudQueryAndReturnResult($sql, $needToReturnId = false  ) {
 //***********************************************************************
 // write car image file in the AWS S3 repository
 //***********************************************************************
+
+/*
 function uploadImageToAWS_S3($fileName, $recordId)  {
 
   global $AWS_S3_APIKEY, $AWS_S3_SECRETKEY, $AWS_S3_BUCKET, $AWS_S3_IMAGES_FOLDER;
@@ -185,6 +187,24 @@ function uploadImageToAWS_S3($fileName, $recordId)  {
   }
 
 }
+*/
+
+
+
+
+//***********************************************************************
+// write car image in the repository
+//***********************************************************************
+function uploadImageToFtpRepository($fileName, $recordId)  {
+
+  // file name locally written 
+  $localFile = "car_$recordId.png";
+
+  if (! move_uploaded_file( $_FILES[$fileName]['tmp_name'], "car_images/$localFile"))  
+    internalError( "Image upload failed => tmp/$localFile");
+
+}
+
 
 
 

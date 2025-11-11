@@ -100,13 +100,15 @@ class Expressions
 
     // if it is posting ($expression_id==''), get the usual $_POST from php
     if ($expression_id=='')    {
-      $_FIELDS = $_POST;
+//      $_FIELDS = $_POST;
     }
 
     // otherwise, use the PHP 8.4 request_parse_body() 
     else {
-      [$_FIELDS] = request_parse_body();
+//      [$_FIELDS] = request_parse_body();
     }
+
+    $_FIELDS = $_POST;
 
     $dataError = '';
     for ($i=0; $i < count($fields); $i++)  {

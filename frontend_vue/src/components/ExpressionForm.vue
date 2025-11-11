@@ -206,8 +206,12 @@ async function saveExpression()  {
     emit('showLoading')    
   }, 10);
   
+  /*********************************************************************************************/
   // PHP doesnt work well with PATCH (laravel does), need to send all with POST here
-  await fetch(`${props.backendUrl}/${route}`, {method: props.formHttpMethodApply, body: formData})
+  /*********************************************************************************************/
+  //await fetch(`${props.backendUrl}/${route}`, {method: props.formHttpMethodApply, body: formData})
+  await fetch(`${props.backendUrl}/${route}`, {method: "POST", body: formData})
+
 
   .then(response => {
     if (!response.ok) {

@@ -69,6 +69,7 @@ class Cars
   public function postOrPatchCar($car_id=''): void   {
     global $dbConnection;
 
+
     // only method PATCH will worry about record_id, method POST, wont
   	if ($car_id!='' && ! is_numeric($car_id))   routeError();
 
@@ -79,13 +80,15 @@ class Cars
 
     // if it is posting ($car_id==''), get the usual $_POST from php
     if ($car_id=='')    {
-      $_FIELDS = $_POST;
+//      $_FIELDS = $_POST;
     }
 
     // otherwise, use the PHP 8.4 request_parse_body() 
     else {
-      [$_FIELDS, $_FILES] = request_parse_body();
+    //  [$_FIELDS, $_FILES] = request_parse_body();
     }
+
+    $_FIELDS = $_POST;
 
     $dataError = '';
     for ($i=0; $i < count($fields); $i++)  {
@@ -164,6 +167,12 @@ class Cars
 //    if (! $bypassImage)      {
   //    uploadImageToAWS_S3('image', $car_id);
     //}
+
+    // uploads the image to the repository
+    if (! $bypassImage)      {
+      uploadImageToFtpRepository('image', $car_id);
+    }
+
 
     http_response_code(200);   // 200= it was ok
     if ($dbOperation == 'update')   die( '__success__' );
