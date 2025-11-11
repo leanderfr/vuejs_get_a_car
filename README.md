@@ -1,5 +1,5 @@
 
-This is a small rent-a-car web app that has been made to showcase Vue.js and PHP laravel.<br><br>
+This is a small rent-a-car web app that has been made to showcase Vue.js and PHP laravel skills.<br><br>
 
 Today is november, 11, 2025 - I'm working in the Laravel backend to showcase Laravel skills too.<br><br>
 
