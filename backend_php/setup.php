@@ -2,10 +2,10 @@
 <?php
 
 // database 
-$server = 'autogestor.ckv6s00ampaj.us-east-1.rds.amazonaws.com';
-$login = 'admin';
-$password = "Sucesso123#";  
-$database = 'hiring_machine';
+$server = 'mysql30-farm10.kinghost.net';
+$login = 'leanderdevelop04';
+$password = "Vtnc123";  
+$database = 'leanderdevelop04';
 
 // aws s3 access
 $AWS_S3_APIKEY = 'AKIA5MSUBQX4PGLJV4NH';

@@ -5,21 +5,39 @@ const fs = require('fs')
 const _ = require('lodash')
 const express = require('express')
 
+const morgan = require('morgan')
+
+const mysql = require('mysql')
+
+//const router = express.Router()
+
+const routes = require('./routes/carRoutes')
 const app = express()
 
 app.set('view engine','ejs')
 app.listen(3000)
 
+app.use( morgan('dev') )
 
-app.get('/', (req, res) => {
-  //res.send('teste 123...')
-//  res.sendFile('./views/index.html', {root: __dirname})
-  res.render('index', {title: 'titulo teste'})
+app.use( express.json() )    //converte para req.body
+
+app.get('/teste', (req, res) => {
+res.send('teste ok')
+
 })
 
-app.use((req, res) => {
-  res.render('404')
-})
+
+
+app.use(routes)
+
+//app.use('/blogs', routes)
+
+//app.use((req, res) => {
+  //res.render('404')
+//})
+
+
+const conexao = require('./database/setup')
 
 
 /*

@@ -1,0 +1,631 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body { 
+font-family: Arial, Helvetica, sans-serif;
+overflow: hidden !important;
+
+}
+html { 
+overflow: hidden !important;
+}
+
+
+/*****************************************************************************************************
+though this was thought to be a tailwind file, I use some moments vanilla css to prove I know it too 
+*****************************************************************************************************/
+.headerBar {
+@apply flex flex-row  justify-between w-full  h-16 items-center p-0 mb-2;
+}
+
+#headerLogo {
+  background-image: url("./assets/images/hiringmachine_io_logo.jpeg");
+  background-repeat: no-repeat;
+  background-size: 60px 60px;
+  display: flex;
+  flex-basis: 33%;
+  height: 100%;
+  background-position: 10px ;
+}
+.headerText {
+@apply text-2xl  text-center  basis-[33%]
+}
+
+.headerRight {
+display: flex;
+flex-direction: row;
+flex-basis: 33%;
+flex:1;
+justify-content: end;
+gap: 10px;
+padding-right: 10px;
+}
+
+.flagClicked {
+  background-color: #d6e5fc;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.flagUnclicked {
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+}
+.flagUnclicked:hover {
+  background-color: lightgray;
+}
+
+
+/*********************************************************************************************************************************
+customized input type='checkbox' to select language/country, switcher button appearance 
+*********************************************************************************************************************************/
+.switch_language {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 1px;
+}
+
+.switch_language input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider_language {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: lightgray;
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+    border: solid 1px transparent;
+}
+
+.slider_language:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white; /* cor da bolinha */
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+}
+
+input:checked + .slider_language {
+    background-color: lightgray;
+}
+
+input:focus + .slider_language {
+    box-shadow: 0 0 1px yellow;
+}
+
+input:checked + .slider_language:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+}
+
+.slider_language.round {
+    border-radius: 30px;
+    height: 30px;
+}
+
+.slider_language.round:before {
+    border-radius: 50%;
+}
+/*********************************************************************************************************************************
+*********************************************************************************************************************************/
+
+
+.backdropTransparent {
+position: absolute;
+background-color: transparent;
+left: 0;
+top: 0;
+  overflow: visible;
+width: 100%;
+height: 100%;
+z-index: 8001;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+.backdropGray {
+position: absolute;
+  overflow: visible;
+background-color: rgba(0,0,0,0.1);
+width: 100%;
+height: 100%;
+left: 0;
+top: 0;
+z-index: 8001;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
+
+#divLoading {
+    width: 120px;
+    height: 70px;
+    position: fixed;
+    z-index: 1020999;
+    background: rgba(100, 149, 237, 0.4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 29px;
+}
+
+
+#messagesSlidingDiv {
+    position: absolute;
+    height: 70px;
+    line-height: 70px;
+    z-index: 10000;
+    left: 4%;
+    display: none;
+    text-align: center;
+    bottom: 25px;
+    margin: auto;
+    background-color: #ffebeb;
+    border-color: #b40000;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    color: #c40000;
+    font-size: 1.3em;
+    width: 90%;
+}
+
+
+.carsBrowserContainer {
+@apply w-full  h-[100px] border-t-[1px] border-gray-400 border-b-[1px] flex overflow-x-auto 
+}
+
+.carsBrowser {
+  @apply flex flex-row   grow h-full items-center pl-2
+}
+
+.carCard {
+  @apply bg-[#E6F0FF] hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center pr-2
+      border-transparent border-[3px] flex flex-col h-full w-[230px] pl-2 text-right text-gray-500
+}
+.carCardSelected { 
+  @apply border-[navy] border-[3px]
+}
+
+
+
+#mainContainer {
+@apply flex flex-col w-full grow 
+}
+.appBody {
+@apply flex flex-col w-full h-screen 
+}
+
+.btnBOOKING_ADD_CAR_RESERVATION {
+    /* icon-ask-car is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-ask-car  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnBOOKING_CALENDAR {
+    /* icon-left-arrow is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-schedule  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnBOOKING_ALL_CARS {
+    /* icon-all-cars is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-all-cars  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnBOOKING_ALL_CARS_ACTIVE {
+    @apply border-[navy] border-2
+}
+
+
+.btnBOOKING_LEFT_ARROW {
+    /* icon-left-arrow is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-left-arrow  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnBOOKING_RIGHT_ARROW {
+    /* icon-left-arrow is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-right-arrow  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnCARS_TABLE {
+    /* icon-car is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-car  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnEXPRESSIONS_TABLE {
+    /* icon-expressions is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-expressions  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnSCHEDULE_TABLE {
+    /* icon-schedule is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-schedule  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+
+
+.tdBookingHeader {
+    @apply hover:border-2 hover:border-gray-500 border-2 border-transparent  h-full flex items-center justify-center;
+}
+
+.tdBookingCell {
+    @apply border-l-2 border-gray-300  h-full flex items-center justify-center;
+}
+.bottomToolbar {
+  @apply h-[30px]
+}
+
+
+/* puppy icon, bottom right corner */
+div._doggy {
+  bottom: 5px;
+  right: 5px;
+  z-index: 11;
+  position: fixed;
+  width: 65px;
+  height: 40px;
+  float: right;
+  cursor: pointer;
+  background: url('https://leanderdeveloper.store/hiring_machine/images/_dog.png') no-repeat top left;
+}
+
+
+div._doggy_1 {
+  bottom: 1px;
+  display: none;
+  right: 80px;
+  z-index: 2000;
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  float: right;
+  background: url('https://leanderdeveloper.store/hiring_machine/images/thought_1.png') no-repeat top left;
+}
+
+div._doggy_2 {
+  bottom: 1px;
+  display: none;
+  right: 80px;
+  z-index: 2000;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  float: right;
+  background: url('https://leanderdeveloper.store/hiring_machine/images/thought_2.png') no-repeat top left;
+}
+
+div._doggy_3_portuguese {
+  display: none;
+  bottom: -100px;
+  right: 80px;
+  z-index: 2001;
+  position: absolute;
+  background-color: red;
+  width: 342px;
+  height: 133px;
+  background: url('https://leanderdeveloper.store/hiring_machine/images/thought_3.png') no-repeat top left;
+  float: right;
+}
+
+div._doggy_3_english {
+  display: none;
+  bottom: -100px;
+  right: 80px;
+  z-index: 2001;
+  position: absolute;
+  background-color: red;
+  width: 342px;
+  height: 133px;
+  background: url('https://leanderdeveloper.store/hiring_machine/images/thought_3_english.png') no-repeat top left;
+  float: right;
+}
+
+/* prettier tooltip to highlight buttons */
+.prettierTitle_black {
+    background-color: #333333 !important;
+    border-color: #333333 !important ;
+    border-bottom-left-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    color: white !important;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 13px !important;
+    line-height: 15px !important;
+    white-space: nowrap !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    position: relative !important;
+    display: inline-block !important;
+    z-index: 1000004 !important;
+}
+
+#divWINDOW_TOP {
+    @apply flex flex-row w-full h-[40px] bg-gray-300 leading-10 items-center justify-between cursor-pointer rounded-t-lg;
+}
+
+.divWINDOW_BUTTON {
+    font-size: 1.3em;
+    cursor: pointer;
+    color: black;
+}
+.divWINDOW_BUTTON:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+#divWINDOW_DRAG {
+    @apply bg-icon-div-draggable w-7 bg-transparent bg-no-repeat bg-contain bg-center mr-6  text-gray-700;
+}
+
+
+/* modal form title */
+#divWINDOW_TITLE {
+    font-size: 1.2em;
+    color: black;
+    margin-left: 20px;
+}
+
+
+
+
+/****************************************************************************
+buttons
+****************************************************************************/
+button.btnCANCEL {
+    @apply bg-gray-300 border-transparent border-[1px] text-black  text-center h-[30px] cursor-pointer w-[150px] hover:border-black
+ bg-icon-button-cancel  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] rounded-[6px];
+}
+
+
+button.btnSAVE {
+    /* icon-button-save is defined in tailwind.config.js */
+    @apply bg-blue-500 border-transparent border-[1px] text-white  text-center h-[30px] cursor-pointer w-[170px] hover:border-red-950
+ bg-icon-button-save  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px];
+}
+
+button.btnUPLOAD {
+    /* icon-button-upload is defined in tailwind.config.js */
+    @apply bg-gray-300 border-transparent border-[1px] text-black  text-center h-[30px] cursor-pointer w-[170px] hover:border-black
+ bg-icon-button-upload  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px];
+}
+
+button.btnDELETE {
+    /* icon-button-delete is defined in tailwind.config.js */
+    @apply bg-red-500 border-transparent border-[1px] text-white  text-center h-[30px] cursor-pointer w-auto  hover:border-red-950
+ bg-icon-button-delete  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px] px-[20px] min-w-[150px];
+}
+
+.btnTABLE_NEW_RECORD {
+    /* icon-new-record is defined in tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-new-record  bg-center hover:border-gray-500 h-9;
+}
+
+.btnTABLE_ONLY_ACTIVE_RECORDS_ON {
+  /* ON= with border */
+  /* icon-only-active-records is defined in tailwind.config.js */
+  @apply cursor-pointer w-[70px] box-border border-2 border-gray-500  rounded-md bg-transparent bg-no-repeat 
+      bg-icon-only-active-records  bg-center hover:border-gray-500 h-9;
+}
+/* OFF= without border */
+.btnTABLE_ONLY_ACTIVE_RECORDS_OFF {
+    /* icon-only-active-records is defined in  tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-white  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-only-active-records   bg-center hover:border-gray-500 h-9;
+}
+
+.btnTABLE_ONLY_INACTIVE_RECORDS_ON {
+    /* ON= with borders */
+    /* icon-only-inactive-records is defined in  tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-gray-500  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-only-inactive-records  bg-center hover:border-gray-500 h-9;
+}
+/* OFF= without borders */
+.btnTABLE_ONLY_INACTIVE_RECORDS_OFF {
+    /* icon-only-inactive-records is defined in tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-white  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-only-inactive-records  bg-center hover:border-gray-500 h-9;
+}
+
+
+/* div (when active) resets the datatable searchbox filter if clicked */
+.btnTABLE_CANCEL_FILTER_ACTIVE {
+    /* icon-filter-cancel-active é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-filter-cancel-active  bg-contain bg-center hover:border-gray-500 h-9;
+}
+
+/* div (when active) resets the datatable searchbox filter if clicked */
+.btnTABLE_CANCEL_FILTER_INACTIVE {
+    /* icon-filter-cancel-inactive é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-filter-cancel-inactive  bg-contain bg-center  h-9;
+}
+
+
+
+/****************************************************************************
+ input type text
+****************************************************************************/
+input[type="text"].text_formFieldValue {
+    font-size: 1em;
+    vertical-align: middle;
+    border-top: 1px solid rgb(146, 186, 167);
+    border-bottom: 1px solid rgb(146, 186, 167);
+    border-left: 1px solid rgb(146, 186, 167);
+    border-right: 1px solid rgb(146, 186, 167);
+    background-color: white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    cursor: pointer;
+    margin-top: 2px;
+    padding-left: 5px;
+    color: black;
+    width: 100%;
+    line-height: 25px;
+}
+input[type="text"].text_formFieldValue:hover {
+    border-color: green;
+    background-color: #e6e6ff;
+}
+input[type="text"].text_formFieldValue:focus {
+    background-color: #ffffcc;
+    border-color: green;
+}
+
+/****************************************************************************
+datatable main parts
+****************************************************************************/
+.datatableTitle {
+height: 80px;
+font-size: 25px  ;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+justify-items: center;
+ align-items: center;
+padding-left:10px;
+}
+.datatableHeader {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  width: 100%;
+  color: white;
+  height: 40px;
+  align-items: center;
+  padding-left:10px;
+}
+
+#rowsContainer {
+overflow-y: scroll;
+height:30px;
+}
+
+.datatableColumn {
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis; 
+
+}
+
+.DatatableRows {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  color: black;
+  align-items: center;
+  overflow: auto;
+  border-bottom: solid 1px lightgray;  
+}
+
+
+.DatatableRow {
+    @apply flex flex-row w-full cursor-pointer items-center hover:bg-[#ffedcc] leading-10 ;
+}
+
+/* selected= qdo usuario clicar na divTR, coloca em cor diferente e coloca sua respectiva coluna 'checkbox' como marcada */
+.DatatableRow_selected {
+    @apply flex flex-row w-full cursor-pointer items-center bg-[#FFC266] hover:bg-[#FFC266];
+}
+
+
+
+.actionColumn {
+display: flex;
+flex-direction: row;
+padding-left: 5px;
+justify-content: space-between;
+align-items: center;
+}
+.actionIcon { 
+border: solid 1px transparent;
+display: flex;
+justify-content: center;
+align-items: center;
+height:100%;
+flex:1;
+height: 40px;
+}
+.actionIconNull { 
+border: solid 1px transparent;
+display: flex;
+height:100%;
+flex:1;
+}
+
+.actionIcon:hover { 
+border: solid 1px navy;
+}
+
+/****************************************************************************
+****************************************************************************/
+.crudForm {
+width: auto;
+height: auto;
+border: solid 1x gray;
+border-radius: 5px;
+background-color: white;
+display:flex;
+}
+
+/* searchBox => textbox to search  , magnifying icon at the right corner */
+.txtTABLE_SEARCHBOX {
+    /* magnifying-icon is defined in tailwind.config.js */
+    @apply cursor-pointer w-[400px] box-border border-2 border-gray-400 hover:border-black rounded-md bg-transparent bg-no-repeat 
+        bg-position-right-corner-icon p-searchbox bg-icon-magnifying h-9;
+}
+
+.txtTABLE_SEARCHBOX:focus {
+    @apply bg-[#ebf6f9];
+}

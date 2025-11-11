@@ -23,7 +23,7 @@ header("HTTP/1.0 200 OK");
 
 require 'setup.php';
 require 'functions.php';
-require __DIR__.'/vendor/autoload.php';
+//require __DIR__.'/vendor/autoload.php';
 require "Router.php";
 require "handlers/Expressions.php";  
 require "handlers/Cars.php";  
@@ -34,6 +34,9 @@ require "handlers/Bookings.php";
 // analyse the received route and points what to do
 //********************************************************************
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+
+// remove disposable url string
+$path = str_replace('/hiring_machine/backend_php', '', $path);
 
 // prepare handlers
 $handlerExpressions = new Expressions;
