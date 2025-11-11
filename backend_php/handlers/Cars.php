@@ -161,9 +161,9 @@ class Cars
     }
     
     // uploads the image to AWS S3
-    if (! $bypassImage)      {
-      uploadImageToAWS_S3('image', $car_id);
-    }
+//    if (! $bypassImage)      {
+  //    uploadImageToAWS_S3('image', $car_id);
+    //}
 
     http_response_code(200);   // 200= it was ok
     if ($dbOperation == 'update')   die( '__success__' );
