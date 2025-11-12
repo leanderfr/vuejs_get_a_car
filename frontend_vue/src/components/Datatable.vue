@@ -172,7 +172,7 @@
         :formHttpMethodApply = 'formHttpMethodApply'  
         @closeExpressionForm="showExpressionForm=false"  
         @showLoading="emit('showLoading')" 
-        @hideLoading="emit('hideLoading')"  juca
+        @hideLoading="emit('hideLoading')"  
         @refreshDatatable = "fetchData();emit('toRefreshExpressions');"   />
   </div>
 
@@ -377,7 +377,12 @@ async function changeStatus (id) {
 
   emit('showLoading')
 
-  await fetch(route, {method: 'PATCH'})
+  //***************************************************************************
+  // PHP prior than 8.4 cant handle the PATH method accurately
+  // needs to be used the POST METHOD here
+  //*************************************************************************** 
+  //await fetch(route, {method: 'PATCH'})
+  await fetch(route, {method: 'POST'})
 
   .then(response => {
     if (!response.ok) {

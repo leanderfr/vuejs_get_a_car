@@ -113,7 +113,7 @@
     <div v-if='! isUSASelected' class='_doggy_3_portuguese' id='divDoggy_3'></div>
 
 
-    <div class='absolute bottom-1  flex flex-row left-4 text-[20px] font-bold gap-7 h-[70px] '>
+    <div class='absolute bottom-1  flex flex-row left-4 text-[20px] font-bold gap-7 h-[68px] '>
       <div class='flex flex-row items-center gap-3' >
         Frontend:
         <img src="./assets/images/vue.svg" alt='' />
@@ -123,15 +123,15 @@
         <img src="./assets/images/php.svg" alt='' />
       </div>
       <div class='flex flex-row w-20' ></div>
-      <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[300px] rounded-lg'
+      <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg'
         @click="openNewTab('https://github.com/leanderfr/hm_vue_php_test')"  >
-        Source code:
+        {{ expressions.source_code }}
         <img src="./assets/images/github.png" alt='' class="pl-3"  />
       </div>
       <div class='flex flex-row w-20' ></div>
-      <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[300px] rounded-lg' 
-        @click="openNewTab('https://youtube.com')"  >  
-        About the code:
+      <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg' 
+        @click="openNewTab('https://www.youtube.com/watch?v=3UCXnT7TfMs')"  >  
+        {{ expressions.about_app }}
         <img src="./assets/images/youtube.png" alt='' class="pl-3"  />
       </div>
 
