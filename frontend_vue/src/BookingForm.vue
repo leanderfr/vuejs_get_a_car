@@ -29,7 +29,7 @@
             &nbsp;&nbsp;[ ? ]&nbsp;&nbsp;
           </div>
 
-          <div class='divWINDOW_BUTTON mr-6'  @click="this.$emit('closeBookingForm')"  aria-hidden="true" > 
+          <div class='divWINDOW_BUTTON mr-6'  @click="$emit('closeBookingForm')"  aria-hidden="true" > 
             &nbsp;&nbsp;[ X ]&nbsp;&nbsp;
           </div>
       </div>

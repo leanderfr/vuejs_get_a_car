@@ -162,7 +162,7 @@ async function getCarFormPopulatedAndReady() {
           $('#txtDescription').val( car.description )
           $('#txtPlate').val( car.plate )
 
-          $('#carPicture').attr('src', props.imagesUrl + car.car_image + '?'+strToAvoidCache)
+          $('#carPicture').attr('src', props.imagesUrl + car.car_image + `?${strToAvoidCache.value}`)
 
           putFocusInFirstInputText_AndOthersParticularitiesOfTheCarForm() 
 

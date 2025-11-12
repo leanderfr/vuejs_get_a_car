@@ -23,7 +23,7 @@ though this was thought to be a tailwind file, I use some moments vanilla css to
 }
 
 #headerLogo {
-  background-image: url("./assets/images/hiringmachine_io_logo.jpeg");
+  background-image: url("https://leanderdeveloper.store/hiring_machine/images/hiringmachine_io_logo.jpeg");
   background-repeat: no-repeat;
   background-size: 60px 60px;
   display: flex;

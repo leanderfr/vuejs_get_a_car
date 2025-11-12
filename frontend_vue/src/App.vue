@@ -17,7 +17,7 @@
         <div class="headerRight">    
 
           <div :class="! isUSASelected ? 'flagClicked' : 'flagUnclicked' "   id='flagBRAZIL'  @click="isUSASelected = false"  >         
-            <img src="./assets/images/brazil_flag.svg" alt='' />
+            <img src="https://leanderdeveloper.store/hiring_machine/images/brazil_flag.svg" alt='' />
           </div>
 
           <label for="chkLanguageSelector" class="switch_language"  >
@@ -26,7 +26,7 @@
           </label>
 
           <div :class="isUSASelected ? 'flagClicked' : 'flagUnclicked' "   id='flagUSA'  @click="isUSASelected = true"  >         
-            <img src="./assets/images/usa_flag.svg" alt='' />
+            <img src="https://leanderdeveloper.store/hiring_machine/images/usa_flag.svg" alt='' />
           </div>
 
         </div>
@@ -102,7 +102,7 @@
     </div>
 
     <audio id="alertBeep" >
-      <source src="./assets/sounds/error_beep.mp3" type="audio/mpeg">    
+      <source src="https://leanderdeveloper.store/hiring_machine/sounds/error_beep.mp3" type="audio/mpeg">    
     </audio>
 
     <!-- puppy icon bottom right corner  -->
@@ -113,7 +113,7 @@
     <div v-if='! isUSASelected' class='_doggy_3_portuguese' id='divDoggy_3'></div>
 
 
-    <div class='absolute bottom-0  flex flex-row left-4 text-[20px] font-bold gap-7 h-[50px]'>
+    <div class='absolute bottom-1  flex flex-row left-4 text-[20px] font-bold gap-7 h-[70px] '>
       <div class='flex flex-row items-center gap-3' >
         Frontend:
         <img src="./assets/images/vue.svg" alt='' />
@@ -122,6 +122,19 @@
         Backend:
         <img src="./assets/images/php.svg" alt='' />
       </div>
+      <div class='flex flex-row w-20' ></div>
+      <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[300px] rounded-lg'
+        @click="openNewTab('https://github.com/leanderfr/hm_vue_php_test')"  >
+        Source code:
+        <img src="./assets/images/github.png" alt='' class="pl-3"  />
+      </div>
+      <div class='flex flex-row w-20' ></div>
+      <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[300px] rounded-lg' 
+        @click="openNewTab('https://youtube.com')"  >  
+        About the code:
+        <img src="./assets/images/youtube.png" alt='' class="pl-3"  />
+      </div>
+
 
     </div>
 
@@ -158,10 +171,10 @@
 
   // it changes depending if the app is running as a container (AWS EC2) or locally
   //const backendUrl = ref('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8073')  
-  const backendUrl = ref('http://leanderdeveloper.store/hiring_machine/backend_php')  
+  const backendUrl = ref('https://leanderdeveloper.store/hiring_machine/backend_php')  
 
   //const imagesUrl = ref('https://devs-app.s3.sa-east-1.amazonaws.com/hiring_machine/')  
-  const imagesUrl = ref('http://leanderdeveloper.store/hiring_machine/backend_php/car_images/')  
+  const imagesUrl = ref('https://leanderdeveloper.store/hiring_machine/backend_php/car_images/')  
 
   // currently selected car (starts with 0= show schedule of all cars)
   const selectedCar = ref(0)
@@ -204,6 +217,13 @@
   const displaySchedule = () => {
     toDisplaySchedule.value = true
     toDisplayDatatable.value = false
+  }
+
+  //***************************************************************************
+  //  opens an url in a new tab
+  //***************************************************************************
+  const openNewTab = (url) => { 
+    window.open(url, '_blank');
   }
 
 
