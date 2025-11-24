@@ -18,8 +18,9 @@ scheduleContainer
           <!-- display calendar -->
           <div  class='btnBOOKING_CALENDAR putPrettierTooltip' :title="expressions.choose_date" @click="forceHideToolTip();showCalendar=true" aria-hidden="true"></div>    
 
-          <!-- display all the cars reservations -->
-          <div  class='btnBOOKING_ALL_CARS putPrettierTooltip'  :class="{btnBOOKING_ALL_CARS_ACTIVE: props.selectedCar==0}"
+          <!-- icon previously used to mark/display all the cars reservations 
+          deprecated, now the 'all cars' button in the carsBrowser does this, but the button below will still exist to perform the action -->
+          <div  class='invisible'  
                 :title="expressions.display_all_cars" 
                 @click="forceHideToolTip();emit('setNewSelectedCar', 0)"  aria-hidden="true"></div>    
 
@@ -27,6 +28,9 @@ scheduleContainer
           <div  class='btnBOOKING_LEFT_ARROW putPrettierTooltip'  :title="expressions.previous_week" @click="forceHideToolTip();browseBookingCalendar(-7)" aria-hidden="true"></div>   
           <!-- forward 1 week -->
           <div  class='btnBOOKING_RIGHT_ARROW putPrettierTooltip' :title="expressions.next_week" @click="forceHideToolTip();browseBookingCalendar(+7)" aria-hidden="true"></div>   
+
+          <!-- schedule icon  -->
+          <div  class='btnSCHEDULE_TABLE putPrettierTooltip' :title="expressions.schedule" @click="forceHideToolTip();emit('toDisplaySchedule')" aria-hidden="true"></div>   
 
           <!-- cars table -->
           <div  class='btnCARS_TABLE putPrettierTooltip' 

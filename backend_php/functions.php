@@ -7,7 +7,8 @@ use Aws\S3\Exception\S3Exception as S3;
 // informs the received route is incorrect
 //*********************************************************************************
 function routeError($detail='') {
-  http_response_code(500);     
+  //http_response_code(500);     
+  header("HTTP/1.1 500 Internal Server Error");
   die('Error with the route= '.$detail);
 }
 
@@ -17,7 +18,10 @@ function routeError($detail='') {
 //*********************************************************************************************************
 
 function internalError($message = 'Internal Error') {
-  http_response_code(500);   
+  //http_response_code(500);   
+  header("HTTP/1.1 500 Internal Server Error");
+
+  // showing error message because this is just a demonstration app, not a comercial software
   die( $message );
 }
 
@@ -73,11 +77,12 @@ function executeFetchQueryAndReturnJsonResult($sql, $simplifyJSON=false, $toRetu
   global $dbConnection;
    
   try {
-    $result = mysqli_query($dbConnection, $sql) or internalError('[1] Database error / Erro na base de dados');    
+    $result = mysqli_query($dbConnection, $sql); 
 
-  } catch(Exception $e)  {
+  } catch(Exception $e)  { 
     internalError( mysqli_error($dbConnection) );
   }
+
 
   $anyData = mysqli_num_rows($result) > 0;
 
@@ -128,9 +133,9 @@ function executeCrudQueryAndReturnResult($sql, $needToReturnId = false  ) {
   global $dbConnection;
 
   try {
-    mysqli_query($dbConnection, $sql) or internalError('[2] Database error');  
+    mysqli_query($dbConnection, $sql);
 
-    $lastId = mysqli_query($dbConnection, "select LAST_INSERT_ID() as record_id" ) or internalError('[3] Database error');    
+    $lastId = mysqli_query($dbConnection, "select LAST_INSERT_ID() as record_id" );
     if ($___lastID = mysqli_fetch_object($lastId))   $newRecordId = $___lastID->record_id;
     else internalError('[4] Database error');    
 

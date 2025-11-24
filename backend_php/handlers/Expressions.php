@@ -15,12 +15,12 @@ class Expressions
 
     if ( $resultformat=='reference')
       $sql =  "select $language as expression, item ".
-              "from expressions  ".
+              "from expression  ".
               "where ifnull(active, false)= true and deleted_at is null ";
 
     if ( $resultformat=='json')    
       $sql =  "select id, english, portuguese, item, ifnull(active, false) as active ".
-              "from expressions  ".
+              "from expression  ".
               "where deleted_at is null ";
 
     // priority is filter whatever came from the searchbox
@@ -53,7 +53,7 @@ class Expressions
   public function getExpressionById($id=""): void   {
 
     $sql =  "select item, english, portuguese  ".
-            "from expressions  ".
+            "from expression  ".
             "where id = $id ";
 
     executeFetchQueryAndReturnJsonResult( $sql, true);
@@ -73,7 +73,7 @@ class Expressions
       internalError( 'Not numeric' );
     }
 
-    $crudSql = "update expressions set active = if(active, false, true) where id = $id ";
+    $crudSql = "update expression set active = if(active, false, true) where id = $id ";
     $dbConnection -> autocommit(true);    // record without need to transaction
 
     $result = executeCrudQueryAndReturnResult($crudSql, true);    
@@ -145,14 +145,14 @@ class Expressions
 
     // if no ID's been informed, its a POST, new record
     if ($expression_id=='')    {
-      $crudSql = "insert into expressions(item, english, portuguese, created_at, updated_at, active) ". 
+      $crudSql = "insert into expression(item, english, portuguese, created_at, updated_at, active) ". 
                 "select '$item', '$english', '$portuguese', now(), now(), true "; 
       $dbOperation = 'insert';
     }
 
     // if ID's been informed, its a PATCH, update
     else {
-      $crudSql = "update expressions set item='$item', english='$english', portuguese='$portuguese', updated_at=now() ". 
+      $crudSql = "update expression set item='$item', english='$english', portuguese='$portuguese', updated_at=now() ". 
                 "where id = $expression_id ";
       $dbOperation = 'update';
     }

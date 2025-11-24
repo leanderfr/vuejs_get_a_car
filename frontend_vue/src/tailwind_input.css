@@ -243,8 +243,9 @@ align-items: center;
 
 .btnBOOKING_CALENDAR {
     /* icon-left-arrow is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
-        bg-icon-schedule  bg-contain bg-center hover:border-gray-500 h-12;
+    @apply cursor-pointer w-[130px] box-border border-2 border-white  rounded-md bg-transparent bg-no-repeat 
+        bg-[url('https://leanderdeveloper.store/hiring_machine/images/choosedate.png')]   bg-contain  hover:border-gray-500 h-12
+        bg-[center_-2px];
 }
 
 .btnBOOKING_ALL_CARS {

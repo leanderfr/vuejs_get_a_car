@@ -3,6 +3,19 @@
 
   <div class='carsBrowser' id='carsBrowser' > 
 
+    <div :id='carCard0' class='carCard' :class='{carCardSelected: props.selectedCar==0}'  :key='0' 
+        :style="{ 
+          backgroundImage: `url(https://leanderdeveloper.store/hiring_machine/images/allcars.png)` ,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '130px 80px',
+          backgroundPositionY: 'center'
+
+        }" 
+        @click="emit('setNewSelectedCar', 0)"   >
+        <span class='text-2xl' >{{expressions.allcars}}</span>
+    </div>
+
+
     <!-- car images hosted in AWS S3 -->
     <template v-if='cars.length!=0' >
         <div :id="'carCard' + car.id" class='carCard' :class='{carCardSelected: props.selectedCar==car.id}' v-for='car in cars' :key='car.id' 
@@ -27,7 +40,7 @@
 <script setup>
 import { onMounted, ref  } from 'vue';
 import { slidingMessage, toWheelCarsBrowser } from './assets/js/utils.js'
-const props = defineProps( ['selectedCar', 'backendUrl'] )
+const props = defineProps( ['selectedCar', 'backendUrl', 'expressions'] )
 
 const cars = ref([])
 const strToAvoidCache = ref('')

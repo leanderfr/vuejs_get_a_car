@@ -39,6 +39,7 @@
           :key='toRefreshCarsBrowser' 
           :selectedCar='selectedCar' 
           :backendUrl='backendUrl'    
+          :expressions='expressions' 
           @showLoading="isLoading=true" 
           @hideLoading="isLoading=false"
           @setNewSelectedCar='setNewSelectedCar'            /> 
@@ -128,12 +129,14 @@
         {{ expressions.source_code }}
         <img src="./assets/images/github.png" alt='' class="pl-3"  />
       </div>
+<!--
       <div class='flex flex-row w-20' ></div>
       <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg' 
         @click="openNewTab('https://www.youtube.com/watch?v=3UCXnT7TfMs')"  >  
         {{ expressions.about_app }}
         <img src="./assets/images/youtube.png" alt='' class="pl-3"  />
       </div>
+-->
 
 
     </div>
@@ -197,6 +200,7 @@
   //***************************************************************************
   const setNewSelectedCar = (carId) => {
     selectedCar.value = carId
+    //displaySchedule()
   }
 
   //***************************************************************************
@@ -205,6 +209,8 @@
   const setDatatableToDisplay = (datatable) => {
     toDisplaySchedule.value = false;
     toDisplayDatatable.value = true;
+
+    selectedCar.value = -1  // removes highlight border from currently selected car
 
     toRefreshDatatable.value++
 
@@ -217,6 +223,8 @@
   const displaySchedule = () => {
     toDisplaySchedule.value = true
     toDisplayDatatable.value = false
+
+    selectedCar.value = 0  // puts highlight border in the 'all cars' icon
   }
 
   //***************************************************************************
