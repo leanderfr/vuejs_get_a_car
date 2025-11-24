@@ -9,7 +9,7 @@ class Cars
   public function getCars($status, $searchbox): void   {
 
     $sql =  "select description, concat('car_', id, '.png') as car_image, id, plate, ifnull(active, false) as active ".
-            "from cars  ".
+            "from car  ".
             "where deleted_at is null ";
 
     // priority is filter whatever came from the searchbox
@@ -36,7 +36,7 @@ class Cars
 
   public function getCarById($id): void   {  
     $sql =  "select description, concat('car_', id, '.png') as car_image, id, plate, ifnull(active, false) as active ".
-            "from cars  ".
+            "from car  ".
             "where id=$id ";
 
     executeFetchQueryAndReturnJsonResult( $sql, true);
@@ -53,7 +53,7 @@ class Cars
       internalError( 'Not numeric' );
     }
 
-    $crudSql = "update cars set active = if(active, false, true) where id = $id ";
+    $crudSql = "update car set active = if(active, false, true) where id = $id ";
     $dbConnection -> autocommit(true);    // record without need to transaction
 
     $result = executeCrudQueryAndReturnResult($crudSql, true);    
@@ -143,14 +143,14 @@ class Cars
 
     // if no ID's been informed, its a POST, new record
     if ($car_id=='')    {
-      $crudSql = "insert into cars(description, plate, created_at, updated_at, active) ". 
+      $crudSql = "insert into car(description, plate, created_at, updated_at, active) ". 
                 "select '$description', '$plate', now(), now(), true "; 
       $dbOperation = 'insert';
     }
 
     // if ID's been informed, its a PATCH, update
     else {
-      $crudSql = "update cars set description='$description', plate='$plate', updated_at=now() ". 
+      $crudSql = "update car set description='$description', plate='$plate', updated_at=now() ". 
                 "where id = $car_id ";
       $dbOperation = 'update';
     }

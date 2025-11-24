@@ -1,22 +1,34 @@
 
-const carModel = require('../models/carModel')
+const { Car } = require('../models')
 
-class carsController {
-/*
-      const blogsIndex = (req, res) => {
-        //res.send('teste 123...')
-      //  res.sendFile('./views/index.html', {root: __dirname})
-        res.send(req.body.name+'<br>'+req.body.email)
-      //  res.end('** executado ** ')
-      }
-*/
+//************************************************************************************
+//************************************************************************************
 
-  listar() {
+exports.getAllCars = async (req, res) => {
+    const cars = await Car.findAll({
+      where: {
+        active: true,
+      },
+    })
+    res.json(cars);
+};  
 
-    return carModel.listar()
+//************************************************************************************
+//************************************************************************************
 
-  }
-}
+exports.novo = async (req, res) => {
+    const cars = await Car.create( {  
+      description: 'Teste', 
+      plate: 'placa',
+    })
+    .then(user => {
+        console.log('User created successfully:', user.toJSON());
+        res.end
+      })
+    .catch((err)=> {
+      console.log(err)
+    })
 
-module.exports = new carsController()
-  
+};
+
+

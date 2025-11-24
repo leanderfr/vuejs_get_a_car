@@ -1,0 +1,31 @@
+# BashNodeJS auto-generated * DO NOT EDIT * 
+echo -e 'Diretorio principal de apps: \033[1;32m~/apps_nodejs/\e[0m'
+echo -e 'Diretorio principal de logs: \033[1;32m~/.pm2/logs/\e[0m'
+echo -e '\e[1mComandos do NVM para selecionar a versão do Node\e[0m:'
+echo -e '    nvm \e[32mls\e[0m'
+echo -e '    nvm \e[32muse\e[0m <version>'
+echo -e '\e[1mComandos úteis do NPM:\e[0m'
+echo -e '    npm \e[32minstall\e[0m <module>'
+echo -e '\e[1mComandos do PM2 para gerenciar aplicações:\e[0m'
+echo -e '    pm2 \e[32mlist\e[0m'
+echo -e '    pm2 \e[32mstart\e[0m <app.js>'
+echo -e '    pm2 \e[32mstop\e[0m  <app.js>'
+echo -e '    pm2 \e[32minfo\e[0m  <app.js>'
+echo -e '    pm2 \e[32msave\e[0m'
+echo -e '    pm2 \e[32mressurect\e[0m'
+echo -e '    pm2 \e[32mmonit\e[0m'
+echo -e '    pm2 \e[32mkill\e[0m'
+echo -e '\e[1;31mLembre de selecionar a versão Node (nvm use <version>) antes de realizar alterações em sua app. \e[0m'
+echo -e '\e[1;31mAs configurações feitas no painel de controle sempre sobrescreverão aquelas feitas via terminal.\e[0m'
+nvm use --silent
+
+nvm_alias() {
+            if [[ "$1" == "ls" || "$1" == "list" ]]; then
+                ls /opt/nvm/versions/node/ | sed "s/ /\n/g"
+            else
+                nvm "$@"
+            fi
+            }
+alias nvm="nvm_alias"
+
+export PORT_APP=21008
