@@ -23,3 +23,7 @@ frontend/*.sw?
 
 # php passwords 
 backend_php/setup.php
+
+# nodejs passwords 
+backend_node_js/config/config.json
+backend_node_js/node_modules
