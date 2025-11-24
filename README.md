@@ -1,7 +1,7 @@
 
 This is a small rent-a-car web app that has been made to showcase Vue.js and PHP laravel skills.<br><br>
 
-Today is november, 11, 2025 - I'm working in the Laravel backend to showcase Laravel skills too.<br><br>
+Today is november, 23, 2025 - I'm working in the Laravel and Node.js backends (which functionally does the same thing) to showcase those specific skills too.<br><br>
 
 Some screens:<br><br>
 
