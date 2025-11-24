@@ -200,7 +200,7 @@
   //***************************************************************************
   const setNewSelectedCar = (carId) => {
     selectedCar.value = carId
-    //displaySchedule()
+    displaySchedule()
   }
 
   //***************************************************************************
@@ -224,7 +224,7 @@
     toDisplaySchedule.value = true
     toDisplayDatatable.value = false
 
-    selectedCar.value = 0  // puts highlight border in the 'all cars' icon
+    //selectedCar.value = 0  // puts highlight border in the 'all cars' icon
   }
 
   //***************************************************************************

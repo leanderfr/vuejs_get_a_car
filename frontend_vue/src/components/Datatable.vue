@@ -216,7 +216,7 @@ if (props.currentViewedDatatable === 'cars')   {
 
 if (props.currentViewedDatatable === 'expressions')   {
   columns.push({ fieldname: "id", width: "5%", title: 'Id', id: 'col1', boolean: false },
-              { fieldname: "item", width: "calc(25% - 150px)", title: props.expressions.item, id: 'col2', boolean: false},
+              { fieldname: "item", width: "calc(25% - 150px)", title: props.expressions.field_item, id: 'col2', boolean: false},
               { fieldname: "english", width: "35%", title: props.expressions.field_english, id: 'col3', boolean: false},
               { fieldname: "portuguese", width: "35%", title: props.expressions.field_portuguese, id: 'col4', boolean: false} )
   title = props.expressions.expressions_table
