@@ -75,6 +75,9 @@ $toReturnExpressions = true
 function executeFetchQueryAndReturnJsonResult($sql, $simplifyJSON=false, $toReturnExpressions=false) {
 
   global $dbConnection;
+
+  header('Content-type: application/json');
+
    
   try {
     $result = mysqli_query($dbConnection, $sql); 
@@ -117,6 +120,8 @@ function executeFetchQueryAndReturnJsonResult($sql, $simplifyJSON=false, $toRetu
   // send data to frontend
   //********************************************************************************************
   http_response_code(200);   // 200= everything's ok
+  
+
 
   if ($anyData)     {
       die( json_encode($json) );     

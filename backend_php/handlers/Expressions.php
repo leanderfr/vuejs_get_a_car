@@ -17,7 +17,7 @@ class Expressions
       $sql =  "select $language as expression, item ".
               "from expression  ".
               "where ifnull(active, false)= true and deleted_at is null ";
-
+  
     if ( $resultformat=='json')    
       $sql =  "select id, english, portuguese, item, ifnull(active, false) as active ".
               "from expression  ".
