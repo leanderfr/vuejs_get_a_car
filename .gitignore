@@ -1,25 +1,25 @@
 .DS_Store
-frontend/node_modules
-frontend/dist
+frontend_vue/node_modules
+frontend_vue/dist
 
 # local env files
-frontend/.env.local
-frontend/.env.*.local
+frontend_vue/.env.local
+frontend_vue/.env.*.local
 
 # Log files
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/yarn-error.log*
-frontend/pnpm-debug.log*
+frontend_vue/npm-debug.log*
+frontend_vue/yarn-debug.log*
+frontend_vue/yarn-error.log*
+frontend_vue/pnpm-debug.log*
 
 # Editor directories and files
-frontend/.idea
-frontend/.vscode
-frontend/*.suo
-frontend/*.ntvs*
-frontend/*.njsproj
-frontend/*.sln
-frontend/*.sw?
+frontend_vue/.idea
+frontend_vue/.vscode
+frontend_vue/*.suo
+frontend_vue/*.ntvs*
+frontend_vue/*.njsproj
+frontend_vue/*.sln
+frontend_vue/*.sw?
 
 # php passwords 
 backend_php/setup.php
