@@ -5,6 +5,8 @@ const { Sequelize, Op } = require('sequelize');
 
 const { isStringInteger } = require('../utils/utils');
 
+const _ = require("lodash");
+
 
 
 //************************************************************************************
@@ -14,14 +16,18 @@ exports.getAll = async (req, res) => {
 
     // the minimun required for the route
     if ( (req.params.active!='active' && req.params.active!='inactive' && req.params.active!='all') )  {
-      res.status(500).send('Error with the router')
+      res.status(500).send('Invalid route')
       return
     }
 
     res.setHeader('Content-Type', 'application/json');
 
+    // generates random string to concatenate with the link to the car image and avoid browser cache
+    let tempLink = _.random(10000,99999)
+
+
     let fieldsToSelect = [
-      'description','id', 'plate','active', [Sequelize.fn('CONCAT', 'car_', Sequelize.col('id'), '.png'), 'car_image']
+      'description','id', 'plate','active', [Sequelize.fn('CONCAT', 'car_', Sequelize.col('id'), '.png?', tempLink), 'car_image']
     ]
 
     let where = []
@@ -66,20 +72,24 @@ exports.getById = async (req, res) => {
 
     // the minimum required for the route
     if ( ! isStringInteger( req.params.id ) ) {
-      res.status(500).send('Error with the router')
+      res.status(500).send('Invalid route')
       return
     }
+
+    // generates random string to concatenate with the link to the car image and avoid browser cache
+    let tempLink = _.random(10000,99999)
+
 
     // run the mounted query
     const car = await Car.findOne({
       where: { id: req.params.id },
-      attributes: [ 'description','id', 'plate','active', [Sequelize.fn('CONCAT', 'car_', Sequelize.col('id'), '.png'), 'car_image'] ], 
+      attributes: [ 'description','id', 'plate','active', [Sequelize.fn('CONCAT', 'car_', Sequelize.col('id'), '.png?', tempLink), 'car_image'] ], 
     })
 
     res.setHeader('Content-Type', 'application/json');
 
     if (car==null)  {
-      res.status(500).send('Error with the router')
+      res.status(500).send('Invalid route')
       return
     }
 

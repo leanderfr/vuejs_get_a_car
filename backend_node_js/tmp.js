@@ -3,24 +3,7 @@
 // get record(s)
 if ($getRequest) {
 
-  $router->Get("/expression/{id}", function($id) use($handlerExpressions)  {
-    $handlerExpressions->getExpressionById($id);
-  });
-
-  // with searchbox
-  $router->Get("/cars/{status}/{searchbox}", function($status, $searchbox) use($handlerCars)  {
-    $handlerCars->getCars($status, $searchbox);
-  });
-
-  // no searchbox
-  $router->Get("/cars/{status}", function($status) use($handlerCars)  {
-    $handlerCars->getCars($status, '');
-  });
-
-  $router->Get("/car/{id}", function($id) use($handlerCars)  {
-    $handlerCars->getCarById($id);
-  });
-
+  
 
   $router->Get("/bookings/{country}/{car_id}/{firstday}/{lastday}",
         function($country, $car_id, $firstday, $lastday) use($handlerBookings)  {
@@ -106,43 +89,57 @@ $router->dispatch($path);
 
 
 
+    if ($country!='brazil' && $country!='usa' )   routeError('country');
+        if (! is_numeric($car_id))   routeError('id');
 
+    // generates random string to concatenate with the link to the car image and avoid browser cache
+    $tempLink = rand(10000,99999);
 
- // both, fetch expressions from both countries
-    if ( $country!='both' && $country!='usa' && $country!='brazil' )   routeError();
+    // the date format depends on the country informed by the frontend
+    $sql = " select booking.driver_name,  booking.car_id, concat('car_', car.id, '.png?$tempLink') as car_image, " .
+          " if('$country'='usa', date_format(pickup_datetime, '%m/%d %h:%i - %p'), date_format(pickup_datetime, '%d/%m - %H:%i')) as pickup_formatted,   " .
+          " if('$country'='usa', date_format(dropoff_datetime, '%m/%d %h:%i - %p'), date_format(dropoff_datetime, '%d/%m - %H:%i')) as dropoff_formatted,   " .
+          " date_format(pickup_datetime, '%Y-%m-%d|%H:%i') as pickup_reference,   date_format(dropoff_datetime, '%Y-%m-%d|%H:%i') as dropoff_reference, " .
+          " booking.id as booking_id ".
+          " from booking ".
+          " left join car on booking.car_id = car.id " .
+          " where 1=1 ";
 
-    $language = (($country=='usa') ? 'english' : 'portuguese');
-
-    if ( $resultformat=='reference')
-      $sql =  "select $language as expression, item ".
-              "from expressions  ".
-              "where ifnull(active, false)= true and deleted_at is null ";
-
-    if ( $resultformat=='json')
-      $sql =  "select id, english, portuguese, item, ifnull(active, false) as active ".
-              "from expressions  ".
-              "where deleted_at is null ";
-
-    // priority is filter whatever came from the searchbox
-    if ($searchbox!='')  {
-      $sql .= "and trim(item) like('%$searchbox%') or trim(portuguese) like('%$searchbox%') or trim(english) like('%$searchbox%') ";
-    }
-
-    // searchbox empty, filter by status
-    else {
-
-        if ($status=='active') $sql .= 'and ifnull(active, false)=true';
-        else if ($status=='inactive') $sql .= 'and ifnull(active, false)=false';
-        else if ($status=='all') $sql .= '';
-        else $sql .= ' and 1=2';  // no status received
-    }
-
-    $sql .= ' order by item';
-
-    // 3th parameter, true= specific to 'expressions', it prepares the result specific way to ease frontend's life
-    if ( $resultformat=='reference')
-      executeFetchQueryAndReturnJsonResult( $sql, false, true );
-
-    if ( $resultformat=='json')
-      executeFetchQueryAndReturnJsonResult( $sql, false, false );
+  // car_id = 0, frontend asks to list all cars reservations, no filter
+        if ($car_id == '0') {
+        }
+        // user defined which car to list
+        if ($car_id != '0') {
+                $sql .= " and booking.car_id = $car_id ";
   }
+
+  $sql .= " and (DATE_FORMAT(pickup_datetime,'%Y-%m-%d') between '$firstday' and '$lastday' or DATE_FORMAT(dropoff_datetime,'%Y-%m-%d') between '$firstday' and '$lastday') ";
+  $sql .= " AND booking.deleted_at IS null ";
+
+   /*
+    result example that will be sent to front
+    [
+        {
+            "booking_id": 56,
+            "car_id": 1462,
+            "pickup_formatted": "27/01 - 16:30",
+            "pickup_reference": "2025-01-27|16:30",
+            "dropoff_formatted": "28/01 - 11:30",
+            "dropoff_reference": "2025-01-28|11:30",
+            "driver_name": "Peter ",
+            "car_image": "Accomplished_car_001462.png"
+        },
+        {
+            "booking_id": 57,
+            "car_id": 1462,
+            "pickup_formatted": "30/01 - 11:45",
+            "pickup_reference": "2025-01-30|11:45",
+            "dropoff_formatted": "30/01 - 16:20",
+            "dropoff_reference": "2025-01-30|16:20",
+            "driver_name": "Liliana",
+            "car_image": "Accomplished_car_001462.png"
+        }
+    ]
+    */
+
+    executeFetchQueryAndReturnJsonResult( $sql, false, false );

@@ -12,7 +12,7 @@ exports.getByCountry = async (req, res) => {
     if ( (req.params.resultformat!='reference' && req.params.resultformat!='json') || 
          (req.params.country!='usa' && req.params.country!='brazil') || 
          (req.params.active!='active' && req.params.active!='inactive' && req.params.active!='all') )  {
-      res.status(500).send('Error with the router')
+      res.status(500).send('Invalid route')
       return
     }
 
@@ -127,7 +127,7 @@ exports.getById = async (req, res) => {
 
     // the minimun required for the route
     if ( ! isStringInteger( req.params.id ) ) {
-      res.status(500).send('Error with the router')
+      res.status(500).send('Invalid route')
       return
     }
 
@@ -140,7 +140,7 @@ exports.getById = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     if (expression==null)  {
-      res.status(500).send('Error with the router')
+      res.status(500).send('Invalid route')
       return
     }
 
