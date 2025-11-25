@@ -72,9 +72,9 @@ exports.getByCountry = async (req, res) => {
 
       // search box at the top left corner of datatable
       if (req.params.searchbox) {
-        filterSearchbox.push({ item: req.params.searchbox });
-        filterSearchbox.push({ portuguese: req.params.searchbox });
-        filterSearchbox.push({ english: req.params.searchbox });
+        filterSearchbox.push({ item: { [Op.like]: `%${req.params.searchbox}%`}  });
+        filterSearchbox.push({ portuguese: { [Op.like]: `%${req.params.searchbox}%`}  });
+        filterSearchbox.push({ english: { [Op.like]: `%${req.params.searchbox}%`}  });
       }
 
       if (req.params.active=='active') where.push( {active: true} )

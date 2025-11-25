@@ -29,8 +29,8 @@ exports.getAll = async (req, res) => {
 
     // search box at the top left corner of datatable
     if (req.params.searchbox) {
-      filterSearchbox.push({ description: req.params.searchbox });
-      filterSearchbox.push({ plate: req.params.searchbox });
+      filterSearchbox.push({ description:  { [Op.like]: `%${req.params.searchbox}%`}  });
+      filterSearchbox.push({ plate:  { [Op.like]: `%${req.params.searchbox}%`}  });
     }
 
     if (req.params.active=='active') where.push( {active: true} )
@@ -55,6 +55,37 @@ exports.getAll = async (req, res) => {
 
     res.status(200).json(cars);
 };  
+
+
+
+
+//************************************************************************************
+//************************************************************************************
+
+exports.getById = async (req, res) => {
+
+    // the minimum required for the route
+    if ( ! isStringInteger( req.params.id ) ) {
+      res.status(500).send('Error with the router')
+      return
+    }
+
+    // run the mounted query
+    const car = await Car.findOne({
+      where: { id: req.params.id },
+      attributes: [ 'description','id', 'plate','active', [Sequelize.fn('CONCAT', 'car_', Sequelize.col('id'), '.png'), 'car_image'] ], 
+    })
+
+    res.setHeader('Content-Type', 'application/json');
+
+    if (car==null)  {
+      res.status(500).send('Error with the router')
+      return
+    }
+
+    res.status(200).json(car);
+};  
+
 
 
 
