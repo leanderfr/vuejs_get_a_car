@@ -1,7 +1,7 @@
 
 const { Booking, Car } = require('../models')
 const { Sequelize, Op } = require('sequelize');
-const { isStringInteger, isValidDateYYYYMMDD, removeSequelizeJsonPrefix } = require('../utils/utils');
+const { isStringInteger, isValidDateYYYYMMDD } = require('../utils/utils');
 
 const _ = require("lodash");
 
@@ -60,7 +60,15 @@ exports.getByCar = async (req, res) => {
 
     let where = []
 
+    // car_id= 0 means user click in ALL CARS button
+    if ( req.params.car_id!=0 ) {
+      where.push( {car_id: req.params.car_id} )
+    }
+
     // run the mounted query
+
+    // search for bookings to use this car (car_id), and whose period is between 'firstday' and 'lastday'
+
     const bookings = await Booking.findAll({
       attributes: fieldsBookingToSelect , 
       include: [ {
@@ -71,17 +79,33 @@ exports.getByCar = async (req, res) => {
         raw: true
       } ],
       raw: true,
+      where: {
+        [Op.and]: [
+          where, 
+          {
+            [Op.or]: [
+              Sequelize.where(
+                Sequelize.fn('DATE_FORMAT', Sequelize.col('pickup_datetime'), '%Y-%m-%d'), {[Op.between]: [req.params.firstday, req.params.lastday]},
+              ),
+              Sequelize.where(
+                Sequelize.fn('DATE_FORMAT', Sequelize.col('dropoff_datetime'), '%Y-%m-%d'), {[Op.between]: [req.params.firstday, req.params.lastday]},
+              ),
+            ]
+          } 
+        ],
+      },
+
     })
 
-const renamedBookings = bookings.map(item => {
-  const { 'Car.description': description, ...rest } = item; 
-  return { description, ...rest };
-});
 
+    // when you make a join using Sequelize, it puts the name of the table (property: 'as') as a prefix in the name of the 'included' field
+    // in the join above, all the fiedls that came from the Car table will start with 'Car.'  , it needs to be remove for the front end to process them
+    // I've tried for hour to find a smarter solution for this, but its impossible
+    const renamedBookings = bookings.map(item => {
+      const { 'Car.description': description, 'Car.plate': plate, 'Car.car_image': car_image, ...rest } = item; 
+      return { ...rest, description, plate, car_image };
+    });
 
-//    const arr = JSON.parse(bookings.toJSON());
-  //  bookings.forEach( obj => removeSequelizeJsonPrefix( obj, 'Car.' ) );
-    //const updatedJson = JSON.stringify( bookings );
 
     res.status(200).json(renamedBookings);
 };  

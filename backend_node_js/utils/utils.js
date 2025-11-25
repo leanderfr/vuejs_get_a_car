@@ -50,16 +50,3 @@ exports.isValidDateYYYYMMDD = (dateString) => {
   );
 }
 
-
-//************************************************************************************
-//************************************************************************************
-
-exports.removeSequelizeJsonPrefix = ( obj, current, prefix ) => {
-  let solvedName = current.replace(prefix, '')
-
-  obj[solvedName] = obj[current];
-
-  delete obj[current];
-}
-
- 
