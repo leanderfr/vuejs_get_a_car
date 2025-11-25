@@ -1,7 +1,7 @@
 
 const { Booking, Car } = require('../models')
 const { Sequelize, Op } = require('sequelize');
-const { isStringInteger, isValidDateYYYYMMDD } = require('../utils/utils');
+const { isStringInteger, isValidDateYYYYMMDD, removeSequelizeJsonPrefix } = require('../utils/utils');
 
 const _ = require("lodash");
 
@@ -50,7 +50,7 @@ exports.getByCar = async (req, res) => {
 
 
     let fieldsCarToSelect = [
-      ['id', 'car_id'],
+      'description', 'plate',
       [Sequelize.fn('CONCAT', 'car_', Sequelize.col('Car.id'), '.png?', tempLink), 'car_image']
     ]
 
@@ -67,11 +67,23 @@ exports.getByCar = async (req, res) => {
         as: 'Car',
         model: Car,
         required: false, 
+        attributes: fieldsCarToSelect,
+        raw: true
       } ],
-      raw: true
+      raw: true,
     })
 
-    res.status(200).json(bookings);
+const renamedBookings = bookings.map(item => {
+  const { 'Car.description': description, ...rest } = item; 
+  return { description, ...rest };
+});
+
+
+//    const arr = JSON.parse(bookings.toJSON());
+  //  bookings.forEach( obj => removeSequelizeJsonPrefix( obj, 'Car.' ) );
+    //const updatedJson = JSON.stringify( bookings );
+
+    res.status(200).json(renamedBookings);
 };  
 
 

@@ -48,7 +48,18 @@ exports.isValidDateYYYYMMDD = (dateString) => {
     date.getMonth() === month - 1 && // Compare with 0-indexed month
     date.getDate() === day
   );
-
-
 }
+
+
+//************************************************************************************
+//************************************************************************************
+
+exports.removeSequelizeJsonPrefix = ( obj, current, prefix ) => {
+  let solvedName = current.replace(prefix, '')
+
+  obj[solvedName] = obj[current];
+
+  delete obj[current];
+}
+
  
