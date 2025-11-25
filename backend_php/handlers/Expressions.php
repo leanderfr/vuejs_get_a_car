@@ -52,6 +52,11 @@ class Expressions
 
   public function getExpressionById($id=""): void   {
 
+    if (! is_numeric($id)) {
+      internalError( 'Not numeric' );
+    }
+
+
     $sql =  "select item, english, portuguese  ".
             "from expression  ".
             "where id = $id ";

@@ -35,6 +35,11 @@ class Cars
   //***************************************************************************************************************************************
 
   public function getCarById($id): void   {  
+
+    if (! is_numeric($id)) {
+      internalError( 'Not numeric' );
+    }
+
     $sql =  "select description, concat('car_', id, '.png') as car_image, id, plate, ifnull(active, false) as active ".
             "from car  ".
             "where id=$id ";

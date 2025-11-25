@@ -56,12 +56,12 @@ if ($getRequest) {
 
   // resultformat =>  json , returns as an array of json,     reference, returns as a simple keyed array,  expressions.tablename, expresssions.title, etc
   // with searchbox
-  $router->Get("/expressions/{resultformat}/{country}/{status}/{searchbox}", function($resultformat, $country, $status, $searchbox) use($handlerExpressions) {  
+  $router->Get("/expression/list/{resultformat}/{country}/{status}/{searchbox}", function($resultformat, $country, $status, $searchbox) use($handlerExpressions) {  
     $handlerExpressions->getExpressions($resultformat, $country, $status, $searchbox);
   });
 
   // no searchbox
-  $router->Get("/expressions/{resultformat}/{country}/{status}", function($resultformat, $country, $status) use($handlerExpressions) {  
+  $router->Get("/expression/list/{resultformat}/{country}/{status}", function($resultformat, $country, $status) use($handlerExpressions) {  
     $handlerExpressions->getExpressions($resultformat, $country, $status, '');
   });
 
@@ -71,12 +71,12 @@ if ($getRequest) {
   });
 
   // with searchbox
-  $router->Get("/cars/{status}/{searchbox}", function($status, $searchbox) use($handlerCars)  {  
+  $router->Get("/car/list/{status}/{searchbox}", function($status, $searchbox) use($handlerCars)  {  
     $handlerCars->getCars($status, $searchbox);
   });
 
   // no searchbox
-  $router->Get("/cars/{status}", function($status) use($handlerCars)  {  
+  $router->Get("/car/list/{status}", function($status) use($handlerCars)  {  
     $handlerCars->getCars($status, '');
   });
   
@@ -85,13 +85,13 @@ if ($getRequest) {
   });
 
 
-  $router->Get("/bookings/{country}/{car_id}/{firstday}/{lastday}", 
+  $router->Get("/booking/list/{country}/{car_id}/{firstday}/{lastday}", 
         function($country, $car_id, $firstday, $lastday) use($handlerBookings)  {  
     $handlerBookings->getBookingsByCarIdAndPeriod( $country, $car_id, $firstday, $lastday );
   });
 
   // need to inform country, because of the date format used in the query
-  $router->Get("/booking/{country}/{id}", function($country, $id) use($handlerBookings)  {  
+  $router->Get("/booking/list/{country}/{id}", function($country, $id) use($handlerBookings)  {  
     $handlerBookings->getBookingById( $country, $id );
   });
 
@@ -112,7 +112,7 @@ if ($postRequest) {
       $handlerExpressions->postOrPatchExpression($id);
     });
 
-    $router->Patch("/expressions/status/{id}", function($id) use($handlerExpressions)  {  
+    $router->Patch("/expression/status/{id}", function($id) use($handlerExpressions)  {  
       $handlerExpressions->ChangeStatus($id);
     });
 
@@ -125,7 +125,7 @@ if ($postRequest) {
     });
 
 
-    $router->Patch("/cars/status/{id}", function($id) use($handlerCars)  {  
+    $router->Patch("/car/status/{id}", function($id) use($handlerCars)  {  
       $handlerCars->ChangeStatus($id);
     });
 

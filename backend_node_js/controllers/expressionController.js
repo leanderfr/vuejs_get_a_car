@@ -1,16 +1,25 @@
 
 const { Expression } = require('../models')
 const { Op } = require('sequelize');
+const { isStringInteger } = require('../utils/utils');
 
 //************************************************************************************
 //************************************************************************************
 
 exports.getByCountry = async (req, res) => {
 
+    // the minimun required for the route
+    if ( (req.params.resultformat!='reference' && req.params.resultformat!='json') || 
+         (req.params.country!='usa' && req.params.country!='brazil') || 
+         (req.params.active!='active' && req.params.active!='inactive' && req.params.active!='all') )  {
+      res.status(500).send('Error with the router')
+      return
+    }
+
     res.setHeader('Content-Type', 'application/json');
 
     let fieldsToSelect = []
-    let conditions = []
+    let where = []
     let filterSearchbox = []
 
 
@@ -35,7 +44,7 @@ exports.getByCountry = async (req, res) => {
         fieldsToSelect.push( ['portuguese', 'language'] );
       }
 
-      conditions.push( {active: true} )
+      where.push( {active: true} )
     }
 
     /* when "resultformat=='json'" =>  response will be an array of json, filtering the active/inactive, searchbox if filled up, etc
@@ -68,15 +77,15 @@ exports.getByCountry = async (req, res) => {
         filterSearchbox.push({ english: req.params.searchbox });
       }
 
-      if (req.params.active=='active') conditions.push( {active: true} )
-      if (req.params.active=='inactive') conditions.push( {active: false} )
+      if (req.params.active=='active') where.push( {active: true} )
+      if (req.params.active=='inactive') where.push( {active: false} )
     }
 
     // run the mounted query
     const expressions = await Expression.findAll({
       where: {
         [Op.and]: [
-          conditions, 
+          where, 
           filterSearchbox.length > 0 ?
           {
             [Op.or]: filterSearchbox 
@@ -93,17 +102,49 @@ exports.getByCountry = async (req, res) => {
     if (req.params.resultformat=='reference') {
       keyedArray = []
 
+      // converts to a simpler keyed json
       for (const expression of expressions) {
         keyedArray[expression.dataValues.item] = expression.dataValues.language
       }
-      res.send( json = Object.assign({}, keyedArray) );
+      res.status(200).send( json = Object.assign({}, keyedArray) );
+      return
     }
 
     //***********************************************************************************************
     if (req.params.resultformat=='json') {
-      res.json(expressions);
+      res.status(200).json(expressions);
+      return
     }
 };  
 
+
+
+
+//************************************************************************************
+//************************************************************************************
+
+exports.getById = async (req, res) => {
+
+    // the minimun required for the route
+    if ( ! isStringInteger( req.params.id ) ) {
+      res.status(500).send('Error with the router')
+      return
+    }
+
+    // run the mounted query
+    const expression = await Expression.findOne({
+      where: { id: req.params.id },
+      attributes: ['item', 'english', 'portuguese'], 
+    })
+
+    res.setHeader('Content-Type', 'application/json');
+
+    if (expression==null)  {
+      res.status(500).send('Error with the router')
+      return
+    }
+
+    res.status(200).json(expression);
+};  
 
 

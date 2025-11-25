@@ -14,6 +14,11 @@ app.use( morgan('dev') )
 app.use('/car', carRoutes)
 app.use('/expression', expressionRoutes)
 
+app.use((req, res) => {
+  res.status(404).send('Sorry, that route does not exist!');
+  return
+});
+
 db.sequelize.sync().then((req) => {
   app.listen(3000)
 

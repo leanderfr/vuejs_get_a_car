@@ -5,8 +5,11 @@ const carController = require('../controllers/carController')
 
 const router = express.Router()
 
-router.get('/', carController.getAllCars)
-  
+// optional searchbox came
+router.get('/list/:active/:searchbox', carController.getAll)  
+
+// no searchbox
+router.get('/list/:active', carController.getAll)  
 
 module.exports = router
 

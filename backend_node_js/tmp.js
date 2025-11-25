@@ -3,18 +3,6 @@
 // get record(s)
 if ($getRequest) {
 
-  // resultformat =>  json , returns as an array of json,     reference, returns as a simple keyed array,  expressions.tablename, expresssions.title, etc
-  // with searchbox
-  $router->Get("/expressions/{resultformat}/{country}/{status}/{searchbox}", function($resultformat, $country, $status, $searchbox) use($handlerExpressions) {
-    $handlerExpressions->getExpressions($resultformat, $country, $status, $searchbox);
-  });
-
-  // no searchbox
-  $router->Get("/expressions/{resultformat}/{country}/{status}", function($resultformat, $country, $status) use($handlerExpressions) {
-    $handlerExpressions->getExpressions($resultformat, $country, $status, '');
-  });
-
-
   $router->Get("/expression/{id}", function($id) use($handlerExpressions)  {
     $handlerExpressions->getExpressionById($id);
   });
