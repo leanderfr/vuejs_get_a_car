@@ -85,13 +85,13 @@ if ($getRequest) {
   });
 
 
+  // need to inform country, because of the date format used in the query 
   $router->Get("/booking/list/{country}/{car_id}/{firstday}/{lastday}", 
         function($country, $car_id, $firstday, $lastday) use($handlerBookings)  {  
     $handlerBookings->getBookingsByCarIdAndPeriod( $country, $car_id, $firstday, $lastday );
   });
 
-  // need to inform country, because of the date format used in the query
-  $router->Get("/booking/list/{country}/{id}", function($country, $id) use($handlerBookings)  {  
+  $router->Get("/booking/{country}/{id}", function($country, $id) use($handlerBookings)  {  
     $handlerBookings->getBookingById( $country, $id );
   });
 

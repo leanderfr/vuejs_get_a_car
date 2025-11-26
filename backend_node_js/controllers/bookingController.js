@@ -28,7 +28,7 @@ exports.getByCar = async (req, res) => {
     let country = req.params.country
 
     let fieldsBookingToSelect = [
-      'driver_name','id', 'car_id',  
+      'driver_name', 'car_id',  
       ['id', 'booking_id'],
       [
         Sequelize.literal(`if('${country}'='usa', date_format(pickup_datetime, '%m/%d %h:%i - %p'), date_format(pickup_datetime, '%d/%m - %H:%i'))`),
@@ -108,6 +108,60 @@ exports.getByCar = async (req, res) => {
 
 
     res.status(200).json(renamedBookings);
+};  
+
+
+
+
+//************************************************************************************
+//************************************************************************************
+
+exports.getById = async (req, res) => {
+
+    // the minimun required for the route
+    if ( ! isStringInteger( req.params.id ) ) {
+      res.status(500).send('Invalid route')
+      return
+    }
+
+    // generates random string to concatenate with the link to the car image and avoid browser cache
+    let tempLink = _.random(10000,99999)
+
+    let country = req.params.country
+
+    // run the mounted query
+    const booking = await Booking.findOne({
+      where: { id: req.params.id },
+      attributes: [
+        'car_id', 'driver_name', ['id', 'booking_id'],
+          [Sequelize.fn('CONCAT', 'car_', Sequelize.col('car_id'), '.png?', tempLink), 'car_image'],
+          [
+            Sequelize.literal(`if('${country}'='usa', date_format(pickup_datetime, '%m/%d/%y'), date_format(pickup_datetime, '%d/%m/%y'))`),
+            'pickup_date' 
+          ],
+          [
+            Sequelize.literal(`if('${country}'='usa', date_format(dropoff_datetime, '%m/%d/%y'), date_format(dropoff_datetime, '%d/%m/%y'))`),
+            'dropoff_date' 
+          ],
+          [
+            Sequelize.literal(`if('${country}'='usa', date_format(pickup_datetime, '%h:%i - %p'), date_format(pickup_datetime, '%H:%i'))`),
+            'pickup_hojjjjur' 
+          ],
+          [
+            Sequelize.literal(`if('${country}'='usa', date_format(dropoff_datetime, '%h:%i - %p'), date_format(dropoff_datetime, '%H:%i'))`),
+            'dropoff_hour' 
+          ],
+      ],
+      raw: true
+    })
+    res.setHeader('Content-Type', 'application/json');
+
+    if (booking==null)  {
+      res.status(500).send('Invalid route')
+      return
+    }
+
+    res.status(200).json(booking);
 };  
 
 
