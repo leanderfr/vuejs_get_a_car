@@ -5,7 +5,7 @@
 
     <div :id='carCard0' class='carCard' :class='{carCardSelected: props.selectedCar==0}'  :key='0' 
         :style="{ 
-          backgroundImage: `url(https://leanderdeveloper.store/hiring_machine/images/allcars.png)` ,
+          backgroundImage: `url(https://leanderdev.com.br/hiring_machine/images/allcars.png)` ,
           backgroundRepeat: 'no-repeat',
           backgroundSize: '130px 80px',
           backgroundPositionY: 'center'
@@ -20,7 +20,7 @@
     <template v-if='cars.length!=0' >
         <div :id="'carCard' + car.id" class='carCard' :class='{carCardSelected: props.selectedCar==car.id}' v-for='car in cars' :key='car.id' 
             :style="{ 
-              backgroundImage: `url(https://leanderdeveloper.store/hiring_machine/backend_php/car_images/car_${car.id}.png?${strToAvoidCache})` ,
+              backgroundImage: `url(https://leanderdev.com.br/hiring_machine/backend_php/car_images/car_${car.id}.png?${strToAvoidCache})` ,
               backgroundRepeat: 'no-repeat',
               backgroundSize: '140px 90px',
               backgroundPositionY: 'center'

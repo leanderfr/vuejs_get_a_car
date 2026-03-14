@@ -193,7 +193,7 @@ async function saveExpression()  {
   var formData = new FormData(); 
   formData.append('item', $('#txtItem').val())
   formData.append('english', $('#txtEnglish').val())
-  formData.append('portuguese', $('#txtPortuguese').val())
+  formData.append('portuguese', $('#txtPortuguese').val()) 
 
   let route = ''
   if (props.formHttpMethodApply=='POST') 
@@ -210,7 +210,8 @@ async function saveExpression()  {
   // PHP doesnt work well with PATCH (laravel does), need to send all with POST here
   /*********************************************************************************************/
   //await fetch(`${props.backendUrl}/${route}`, {method: props.formHttpMethodApply, body: formData})
-  await fetch(`${props.backendUrl}/${route}`, {method: "POST", body: formData})
+  //await fetch(`${props.backendUrl}/${route}`, {method: "POST", body: formData})
+await fetch(`http://localhost:3000/${route}`, {method: "POST", body: formData})
 
 
   .then(response => {

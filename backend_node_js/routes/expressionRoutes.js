@@ -14,6 +14,8 @@ expressionRouter.get('/list/:resultformat/:country/:active', expressionControlle
 
 expressionRouter.get('/:id', expressionController.getById)
 
+expressionRouter.post('/:id', expressionController.update)
+
 
 
 //router.get('/:id', expressionController.getById)

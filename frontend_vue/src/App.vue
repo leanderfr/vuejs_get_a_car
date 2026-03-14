@@ -17,7 +17,7 @@
         <div class="headerRight">    
 
           <div :class="! isUSASelected ? 'flagClicked' : 'flagUnclicked' "   id='flagBRAZIL'  @click="isUSASelected = false"  >         
-            <img src="https://leanderdeveloper.store/hiring_machine/images/brazil_flag.svg" alt='' />
+            <img src="https://leanderdev.com.br/hiring_machine/images/brazil_flag.svg" alt='' />
           </div>
 
           <label for="chkLanguageSelector" class="switch_language"  >
@@ -26,7 +26,7 @@
           </label>
 
           <div :class="isUSASelected ? 'flagClicked' : 'flagUnclicked' "   id='flagUSA'  @click="isUSASelected = true"  >         
-            <img src="https://leanderdeveloper.store/hiring_machine/images/usa_flag.svg" alt='' />
+            <img src="https://leanderdev.com.br/hiring_machine/images/usa_flag.svg" alt='' />
           </div>
 
         </div>
@@ -103,7 +103,7 @@
     </div>
 
     <audio id="alertBeep" >
-      <source src="https://leanderdeveloper.store/hiring_machine/sounds/error_beep.mp3" type="audio/mpeg">    
+      <source src="https://leanderdev.com.br/hiring_machine/sounds/error_beep.mp3" type="audio/mpeg">    
     </audio>
 
     <!-- puppy icon bottom right corner  -->
@@ -174,10 +174,10 @@
 
   // it changes depending if the app is running as a container (AWS EC2) or locally
   //const backendUrl = ref('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8073')  
-  const backendUrl = ref('https://leanderdeveloper.store/hiring_machine/backend_php')  
+  const backendUrl = ref('https://leanderdev.com.br/hiring_machine/backend_php')  
 
   //const imagesUrl = ref('https://devs-app.s3.sa-east-1.amazonaws.com/hiring_machine/')  
-  const imagesUrl = ref('https://leanderdeveloper.store/hiring_machine/backend_php/car_images/')  
+  const imagesUrl = ref('https://leanderdev.com.br/hiring_machine/backend_php/car_images/')  
 
   // currently selected car (starts with 0= show schedule of all cars)
   const selectedCar = ref(0)

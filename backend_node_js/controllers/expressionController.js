@@ -148,3 +148,37 @@ exports.getById = async (req, res) => {
 };  
 
 
+
+
+//************************************************************************************
+//************************************************************************************
+
+exports.update = async (req, res) => {
+
+    // the minimun required for the route
+    if ( ! isStringInteger( req.params.id ) ) {
+      res.status(500).send('Invalid route')
+      return
+    }
+
+const data = req.body;
+console.log('dados= '+JSON.stringify(data));
+/*
+    // run the mounted query
+    const expression = await Expression.findOne({
+      where: { id: req.params.id },
+      attributes: ['item', 'english', 'portuguese'], 
+    })
+
+    res.setHeader('Content-Type', 'application/json');
+
+    if (expression==null)  {
+      res.status(500).send('Invalid route')
+      return
+    }
+*/
+    //res.status(200).json(expression);
+
+ res.type('plain/text');
+res.status(200).send('nada')
+};  
