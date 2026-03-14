@@ -158,7 +158,7 @@
   import 'jquery-ui-bundle';
   import 'jquery-ui-bundle/jquery-ui.min.css';
 
-  import { toWheelCarsBrowser, prepareLoadingAnimation, slidingMessage , preparePuppyIcon, loadScripts } from './assets/js/utils.js'
+  import { prepareLoadingAnimation, toWheelCarsBrowser, slidingMessage , preparePuppyIcon, loadScripts } from './assets/js/utils.js'
 
 
   const neededJsLoaded = ref(false)   
