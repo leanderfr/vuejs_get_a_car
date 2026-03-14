@@ -1298,8 +1298,8 @@ video {
   background-color: rgb(254 252 232 / var(--tw-bg-opacity, 1));
 }
 
-.bg-\[url\(\'https\:\/\/leanderdeveloper\.store\/hiring_machine\/images\/choosedate\.png\'\)\] {
-  background-image: url('https://leanderdeveloper.store/hiring_machine/images/choosedate.png');
+.bg-\[url\(\'https\:\/\/leanderdev\.com\.br\/hiring_machine\/images\/choosedate\.png\'\)\] {
+  background-image: url('https://leanderdev.com.br/hiring_machine/images/choosedate.png');
 }
 
 .bg-icon-all-cars {
@@ -1694,7 +1694,7 @@ though this was thought to be a tailwind file, I use some moments vanilla css to
 }
 
 #headerLogo {
-  background-image: url("https://leanderdeveloper.store/hiring_machine/images/hiringmachine_io_logo.jpeg");
+  background-image: url("https://leanderdev.com.br/hiring_machine/images/hiringmachine_io_logo.jpeg");
   background-repeat: no-repeat;
   background-size: 60px 60px;
   display: flex;
@@ -1974,7 +1974,7 @@ input:checked + .slider_language:before {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
   background-color: transparent;
-  background-image: url('https://leanderdeveloper.store/hiring_machine/images/choosedate.png');
+  background-image: url('https://leanderdev.com.br/hiring_machine/images/choosedate.png');
   background-size: contain;
   background-position: center -2px;
   background-repeat: no-repeat;
@@ -2157,7 +2157,7 @@ div._doggy {
   height: 40px;
   float: right;
   cursor: pointer;
-  background: url('https://leanderdeveloper.store/hiring_machine/images/_dog.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/hiring_machine/images/_dog.png') no-repeat top left;
 }
 
 div._doggy_1 {
@@ -2169,7 +2169,7 @@ div._doggy_1 {
   width: 16px;
   height: 16px;
   float: right;
-  background: url('https://leanderdeveloper.store/hiring_machine/images/thought_1.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/hiring_machine/images/thought_1.png') no-repeat top left;
 }
 
 div._doggy_2 {
@@ -2181,7 +2181,7 @@ div._doggy_2 {
   width: 30px;
   height: 30px;
   float: right;
-  background: url('https://leanderdeveloper.store/hiring_machine/images/thought_2.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/hiring_machine/images/thought_2.png') no-repeat top left;
 }
 
 div._doggy_3_portuguese {
@@ -2193,7 +2193,7 @@ div._doggy_3_portuguese {
   background-color: red;
   width: 342px;
   height: 133px;
-  background: url('https://leanderdeveloper.store/hiring_machine/images/thought_3.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/hiring_machine/images/thought_3.png') no-repeat top left;
   float: right;
 }
 
@@ -2206,7 +2206,7 @@ div._doggy_3_english {
   background-color: red;
   width: 342px;
   height: 133px;
-  background: url('https://leanderdeveloper.store/hiring_machine/images/thought_3_english.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/hiring_machine/images/thought_3_english.png') no-repeat top left;
   float: right;
 }
 
