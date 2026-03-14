@@ -63,7 +63,7 @@ onMounted( () => {
 
 async function fetchCars()  {
     emit('showLoading')
-    await fetch(`${props.backendUrl}/cars/active`)
+    await fetch(`${props.backendUrl}/car/list/active`)
 
     .then(response => {
       if (!response.ok) {

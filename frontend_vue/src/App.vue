@@ -313,7 +313,7 @@
   async function fetchExpressions()  {
     let country = isUSASelected.value ? 'usa' : 'brazil';
 
-    await fetch(`${backendUrl.value}/expressions/reference/${country}/active`)
+    await fetch(`${backendUrl.value}/expression/list/reference/${country}/active`)
 
     .then(response => {
       if (!response.ok) {

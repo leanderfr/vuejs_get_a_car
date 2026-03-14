@@ -35,13 +35,13 @@ scheduleContainer
           <!-- cars table -->
           <div  class='btnCARS_TABLE putPrettierTooltip' 
               :title="expressions.cars" 
-              @click="forceHideToolTip();emit('setDatatableToDisplay', 'cars')" 
+              @click="forceHideToolTip();emit('setDatatableToDisplay', 'car')" 
               aria-hidden="true"></div>   
 
           <!-- expressions table -->
           <div  class='btnEXPRESSIONS_TABLE putPrettierTooltip' 
               :title="expressions.expressions" 
-              @click="forceHideToolTip();emit('setDatatableToDisplay', 'expressions')" 
+              @click="forceHideToolTip();emit('setDatatableToDisplay', 'expression')" 
               aria-hidden="true"></div>   
 
       </div> 
@@ -271,7 +271,7 @@ async function refreshBookingDatesAndContent() {
   // *********************************************************************************************************************************
 
   try {
-      let _route_ = `${props.backendUrl}/bookings/${props.currentCountry}/${props.selectedCar}/${__firstDayWeek}/${__lastDayWeek}`
+      let _route_ = `${props.backendUrl}/booking/list/${props.currentCountry}/${props.selectedCar}/${__firstDayWeek}/${__lastDayWeek}`
       await fetch(_route_, {method: 'GET'})
 
       .then( (response) => {

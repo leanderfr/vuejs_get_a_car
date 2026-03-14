@@ -23,12 +23,12 @@
                   <!-- cars table icon -->
                   <div  class='btnCARS_TABLE putPrettierTooltip' 
                     :title="expressions.cars" 
-                    @click="forceHideToolTip();emit('setDatatableToDisplay', 'cars')" 
+                    @click="forceHideToolTip();emit('setDatatableToDisplay', 'car')" 
                     aria-hidden="true"></div>   
 
 
                   <!-- expressions table icon -->
-                  <div  class='btnEXPRESSIONS_TABLE putPrettierTooltip' :title="expressions.expressions" @click="forceHideToolTip();emit('setDatatableToDisplay', 'expressions')" aria-hidden="true"></div>   
+                  <div  class='btnEXPRESSIONS_TABLE putPrettierTooltip' :title="expressions.expressions" @click="forceHideToolTip();emit('setDatatableToDisplay', 'expression')" aria-hidden="true"></div>   
                 </div>
           </div> 
 
@@ -207,14 +207,14 @@ let columns = []
 // car's datatable
 let title = ''
 
-if (props.currentViewedDatatable === 'cars')   {
+if (props.currentViewedDatatable === 'car')   {
   columns.push({ fieldname: "id", width: "5%", title: 'Id', id: 'col1', boolean: false },
               { fieldname: "description", width: "calc(75% - 150px)", title: props.expressions.description, id: 'col2', boolean: false},
               { fieldname: "plate", width: "20%", title: props.expressions.plate, id: 'col2', boolean: false} )
   title = props.expressions.cars_table
 }
 
-if (props.currentViewedDatatable === 'expressions')   {
+if (props.currentViewedDatatable === 'expression')   {
   columns.push({ fieldname: "id", width: "5%", title: 'Id', id: 'col1', boolean: false },
               { fieldname: "item", width: "calc(25% - 150px)", title: props.expressions.field_item, id: 'col2', boolean: false},
               { fieldname: "english", width: "35%", title: props.expressions.field_english, id: 'col3', boolean: false},
@@ -304,11 +304,11 @@ async function fetchData() {
 
   let stringSearch = $.trim( $('#txtTableSearchText').val() )
   let route
-  if ( props.currentViewedDatatable === 'expressions')   
-    route = `${props.backendUrl}/expressions/json/both/${currentStatus.value}` 
+  if ( props.currentViewedDatatable === 'expression')   
+    route = `${props.backendUrl}/expression/list/json/both/${currentStatus.value}` 
 
   else 
-    route = `${props.backendUrl}/${props.currentViewedDatatable}/${currentStatus.value}`  
+    route = `${props.backendUrl}/${props.currentViewedDatatable}/list/${currentStatus.value}`  
 
   route += (stringSearch!='' ? `/${stringSearch}` : '')
 
@@ -358,11 +358,11 @@ const editForm = (id='') => {
   if (id=='') formHttpMethodApply.value = 'POST'  // add record
   else formHttpMethodApply.value = 'PATCH'  // update record
 
-  if (props.currentViewedDatatable === 'cars')   { 
+  if (props.currentViewedDatatable === 'car')   { 
     showCarForm.value = true
   }
 
-  if (props.currentViewedDatatable === 'expressions')   {  
+  if (props.currentViewedDatatable === 'expression')   {  
     showExpressionForm.value = true
   }
 
