@@ -44,7 +44,7 @@
       ****************************************************************************************************************
       -->
 
-      <div class='flex-row flex w-full  bg-red-400'>
+      <div class='flex-row flex w-full bg-yellow-200  '>
 
           <!-- 
           ****************************************************************************************************************
@@ -98,19 +98,13 @@
           -->
 
 
-          <div class='flex flex-col pr-2 overflow-y-visible'>
               <!-- right corner, cars browser -->
-              <div id='rightCarsBrowserContainer' style='scrollbar-width: thin ;overflow-y:visible' >
-                <CarsBrowser 
-                  :key='toRefreshCarsBrowser' 
-                  :selectedCar='selectedCar' 
-                  :backendUrl='backendUrl'    
-                  :expressions='expressions' 
-                  @showLoading="isLoading=true" 
-                  @hideLoading="isLoading=false"
-                  @setNewSelectedCar='setNewSelectedCar'            /> 
-              </div>
+              <div id='rightCarsBrowserContainer'  >
+      <div class="text-5xl flex-grow overflow-y-auto overflow-x-hidden">
+                  <div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div>
         </div>
+              </div>
+
 
 
       </div>
@@ -122,8 +116,8 @@
       -->
 
 
-      <div class='flex flex-row text-[20px] font-bold gap-7 min-h-[68px] bg-yellow-400'>
-        <div class='flex flex-row items-center gap-3' >
+      <div class='flex flex-row text-[20px] font-bold gap-7 min-h-[88px] align-middle bg-gray-500'>
+        <div class='flex flex-row items-center gap-3 bg-red-400' >
           Frontend:
           <img src="./assets/images/vue.svg" alt='' />
         </div>

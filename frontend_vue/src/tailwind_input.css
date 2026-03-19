@@ -210,11 +210,11 @@ align-items: center;
 
 
 #rightCarsBrowserContainer {
-@apply flex flex-col overflow-y-visible pt-[60px] h-[300px]
+@apply flex flex-col  overflow-y-auto pt-[60px]  bg-red-200 h-[400px] overflow-x-hidden
 }
 
 #carsBrowser {
-  @apply flex flex-col items-center pl-2 
+  @apply flex flex-col items-center pl-2 h-full overflow-y-visible
 }
 
 .carCard {

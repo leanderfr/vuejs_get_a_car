@@ -761,6 +761,10 @@ video {
   height: 30px;
 }
 
+.h-\[400px\] {
+  height: 400px;
+}
+
 .h-\[40px\] {
   height: 40px;
 }
@@ -795,8 +799,12 @@ video {
   max-height: max-content;
 }
 
-.min-h-\[68px\] {
-  min-height: 68px;
+.min-h-0 {
+  min-height: 0px;
+}
+
+.min-h-\[88px\] {
+  min-height: 88px;
 }
 
 .min-h-full {
@@ -923,6 +931,10 @@ video {
   flex-grow: 0;
 }
 
+.basis-1 {
+  flex-basis: 0.25rem;
+}
+
 .basis-\[33\%\] {
   flex-basis: 33%;
 }
@@ -1037,6 +1049,10 @@ video {
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .overflow-y-hidden {
@@ -1265,6 +1281,11 @@ video {
 .bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
 }
 
 .bg-red-200 {
@@ -1589,6 +1610,11 @@ video {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .text-\[20px\] {
@@ -1922,16 +1948,21 @@ input:checked + .slider_language:before {
 
 #rightCarsBrowserContainer {
   display: flex;
-  height: 300px;
+  height: 400px;
   flex-direction: column;
-  overflow-y: visible;
+  overflow-y: auto;
+  overflow-x: hidden;
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity, 1));
   padding-top: 60px;
 }
 
 #carsBrowser {
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
+  overflow-y: visible;
   padding-left: 0.5rem;
 }
 
