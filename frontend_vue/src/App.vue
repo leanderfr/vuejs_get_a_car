@@ -3,11 +3,6 @@
 
   <div>  <!-- fragment -->
 
-      <div style='position:relative' >
-      <div id="divCALENDAR" ></div>
-</div>
-
-
     <div id='appBody'>  
 
       <!-- 

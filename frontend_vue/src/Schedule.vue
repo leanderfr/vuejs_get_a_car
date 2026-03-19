@@ -3,6 +3,10 @@
 
   <div class='flex flex-col grow invisible' id='scheduleContainer'>
 
+    <div id="divCALENDAR" ></div>
+
+
+
     <!-- top tool bar -->
     <div class="flex flex-row h-[60px] w-full justify-between  " id='scheduleToolbar'>
 
