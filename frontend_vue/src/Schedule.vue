@@ -1,7 +1,7 @@
-scheduleContainer
 <template>
 
-  <div class='flex flex-col h-full w-full ' id='scheduleContainer'>
+
+  <div class='flex flex-col grow invisible' id='scheduleContainer'>
 
     <!-- top tool bar -->
     <div class="flex flex-row h-[60px] w-full justify-between  " id='scheduleToolbar'>
@@ -64,7 +64,8 @@ scheduleContainer
     </div>
 
     <!-- help to pick date -->
-    <div id="divCALENDAR"></div>
+
+
     <input type='hidden' id='lastChosenDate' value='' class="datepicker" style='visibility:hidden' /> 
 
     <div v-if="showBookingForm" id='backDrop' class='w-full h-full  absolute flex items-center justify-center left-0 top-0 z-10 bg-[rgba(0,0,0,0.5)]' @click.self='closeBookingForm' aria-hidden="true"  >  
@@ -84,7 +85,6 @@ scheduleContainer
   
   </div>
 
-  
 
 </template>
 
@@ -138,7 +138,7 @@ let draggingBookingDivYet = false
 onMounted( () => {
   refreshBookingDatesAndContent()  // start displaying dates from current week and its reservations
   setTimeout(() => {
-    prepareCalendar()  
+    prepareCalendar()     
   }, 1000);  
 
   improveTooltipLook();
@@ -234,6 +234,7 @@ async function refreshBookingDatesAndContent() {
 
 
     // have no time to make the tailwind's flex divs works as I want right now, will have to use jquery here
+    // matches the width of the schedule data with the schedule header
     setTimeout(() => {
       let width=parseInt($("#scheduleData").width(), 10)
       $("#scheduleHeader").width( width+2 )
@@ -241,13 +242,16 @@ async function refreshBookingDatesAndContent() {
     }, 100);
 
     setTimeout(() => {
-      // match the padding top of the right car's browser 
+      // fix the padding top of the right car's browser to be at the right side (beside) the schedule datatable
       let heightSchedule=$("#bookingsDiv").height()
       let h1=$("#scheduleToolbar").height()
       let h2=$("#scheduleHeader").height()
 
       $("#rightCarsBrowserContainer").height( heightSchedule )
       $("#rightCarsBrowserContainer").css('margin-top', (h1+h2))
+
+      // the datatable was hidden to avoid elements jumps and weird behave while fixing positions and sizes
+      $("#scheduleContainer").css('visibility', 'visible')
     }, 1000);
 
 
@@ -539,8 +543,10 @@ const postItBookingDivs = () => {
       let tableRowBookingBottom = endingHour - 5
 
 
-      // the <div> que contains the schedule (bookingsDiv), has children  <div>'s filhas for each hour (from 05:00 to 23:00)
-      // and each hour has children DIVs with the weekdays (mon - fri)
+console.log('ini='+startingHour+'---fim'+endingHour)
+
+      // the <div> que contains the schedule (bookingsDiv), has children  <div>'s  for each hour (from 05:00 to 23:00)
+      // and each hour has parent DIVs with the weekdays (mon - fri)
 
       let $divBookingTop = $bookingsDiv.children().eq(tableRowBookingTop).children().eq(weekday+1)      // weekday+1 because of the hour column
       let $divBookingBottom = $bookingsDiv.children().eq(tableRowBookingBottom).children().eq(weekday+1)

@@ -3,6 +3,11 @@
 
   <div>  <!-- fragment -->
 
+      <div style='position:relative' >
+      <div id="divCALENDAR" ></div>
+</div>
+
+
     <div id='appBody'>  
 
       <!-- 
@@ -122,9 +127,9 @@
       ****************************************************************************************************************
       -->
 
-
-      <div class='flex flex-row text-[20px] font-bold gap-7 min-h-[88px] align-middle bg-gray-500'>
-        <div class='flex flex-row items-center gap-3 bg-red-400' >
+ 
+      <div class='flex flex-row text-[16px] font-bold gap-7 basis-[120px] align-middle bg-gray-200 absolute bottom-0 w-full py-[2px]'> 
+        <div class='flex flex-row items-center gap-3 pl-4' >
           Frontend:
           <img src="./assets/images/vue.svg" alt='' />
         </div>
