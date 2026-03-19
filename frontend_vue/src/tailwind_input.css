@@ -291,7 +291,7 @@ align-items: center;
 
 
 .tdBookingHeader {
-    @apply border-[1px] border-gray-500  h-full flex items-center justify-center bg-gray-200
+    @apply border-[1px] border-gray-400  h-full flex items-center justify-center bg-gray-200
 }
 
 .tdBookingCell {

@@ -4,7 +4,7 @@ scheduleContainer
   <div class='flex flex-col h-full ' id='scheduleContainer'>
 
     <!-- top tool bar -->
-    <div class="flex flex-row h-[60px] w-full justify-between border-b-2 " id='scheduleToolbar'>
+    <div class="flex flex-row h-[60px] w-full justify-between  " id='scheduleToolbar'>
 
       <!-- current year -->
       <div class="flex flex-row text-[30px] font-bold pt-3 pl-6" id='currentYear'></div>
@@ -49,31 +49,31 @@ scheduleContainer
     </div>
 
     <!-- week days  -->
-    <div class="w-full border-b-2 border-b-gray-300 text-lg py-1 " id='scheduleHeader' >  
-        <div class="w-[calc(100%-17px)] flex flex-row text-gray-500  text-lg font-bold text-center h-12 justify-center cursor-pointer items-center" >
-          <div class='w-[9%] tdBookingHeader' reference='thHour'>&nbsp;</div>
-          <div class='w-[13%] tdBookingHeader' id='datecolumn0' reference='thMon' bookings_this_day='' real_date=''></div> 
-          <div class='w-[13%] tdBookingHeader' id='datecolumn1' reference='thTue' bookings_this_day='' real_date=''></div>
-          <div class='w-[13%] tdBookingHeader' id='datecolumn2' reference='thWed' bookings_this_day='' real_date=''></div>
-          <div class='w-[13%] tdBookingHeader' id='datecolumn3' reference='thThu' bookings_this_day='' real_date=''></div>
-          <div class='w-[13%] tdBookingHeader' id='datecolumn4' reference='thFri' bookings_this_day='' real_date=''></div> 
-          <div class='w-[13%] tdBookingHeader' id='datecolumn5' reference='thSat' bookings_this_day='' real_date=''></div>
-          <div class='w-[13%] tdBookingHeader' id='datecolumn6' reference='thSun' bookings_this_day='' real_date=''></div>
+    <div class="w-full border-b-2 border-b-gray-300 text-lg "  >  
+        <div class="w-full flex flex-row text-gray-500  text-lg font-bold text-center h-12 justify-center cursor-pointer items-center" id='scheduleHeader' >
+          <div class='w-[9%] ' >&nbsp;</div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn0' bookings_this_day='' real_date=''></div> 
+          <div class='w-[13%] tdBookingHeader' id='datecolumn1'  bookings_this_day='' real_date=''></div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn2'  bookings_this_day='' real_date=''></div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn3'  bookings_this_day='' real_date=''></div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn4'  bookings_this_day='' real_date=''></div> 
+          <div class='w-[13%] tdBookingHeader' id='datecolumn5'  bookings_this_day='' real_date=''></div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn6'  bookings_this_day='' real_date=''></div>
         </div>
     </div>
 
     <!-- loop to display times from 05:00 to 23:00  -->
-    <div class="w-full flex flex-col  overflow-y-scroll h-[1px]   border-gray-500 relative  border-2 " id='bookingsTable' alreadyFitToScreen='no'>  
+    <div class="w-full flex flex-col  overflow-y-scroll h-[1px]   border-gray-500 relative  " id='bookingsDiv' >  
 
-      <div v-for="hour in counter(5, 23)" :key="hour" class="w-full flex flex-row  leading-[60px]  justify-center cursor-pointer border-b-2 border-gray-300 hover:bg-gray-100"  >
+      <div v-for="hour in counter(5, 23)" :key="hour" class="w-full flex flex-row  leading-[60px]  justify-center cursor-pointer border-b-2 border-gray-300 hover:bg-gray-100" id='scheduleData' >
         <div class='w-[9%] tdBookingCell flex justify-center' reference='trHour'>{{ hourFormat(hour, currentCountry) }} </div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay0' + hour" reference='trMon'></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay1' + hour" reference='trTue'></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay2' + hour" reference='trWed'></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay3' + hour" reference='trThu'></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay4' + hour" reference='trFri'></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay5' + hour" reference='trSat'></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay6' + hour" reference='trSun'></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay0' + hour" ></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay1' + hour" ></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay2' + hour" ></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay3' + hour" ></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay4' + hour" ></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay5' + hour" ></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay6' + hour" ></div>
       </div>
 
     </div>
@@ -229,6 +229,7 @@ async function refreshBookingDatesAndContent() {
 
     // puts today in border blue
     if (currentDate.getTime() == _today_.getTime()) {
+      $(`#datecolumn${weekday}`).css('background-color', '#CCE0FF')
       $(`#datecolumn${weekday}`).css('border-color', 'blue')
       $(`#datecolumn${weekday}`).attr('today', 'true')
     } else {
@@ -237,14 +238,6 @@ async function refreshBookingDatesAndContent() {
     }
 
 
-    // user puts/takes out mouse over the date <div>
-    $(`#datecolumn${weekday}`).on('mouseleave', function()   {       
-        if ( $(this).attr('today')!='true' )   $(this).css("border-color","transparent")
-    });      
-    $(`#datecolumn${weekday}`).on('mouseenter', function()   {       
-        if ( $(this).attr('today')!='true' )   $(this).css("border-color","black")
-        else    $(this).css("border-color","blue")
-    });      
 
     // concatenate curtrent year to display in the title of the schedule
     if (displayedYears.indexOf(currentDate.getFullYear())==-1)  displayedYears.push(currentDate.getFullYear()  )
@@ -253,10 +246,13 @@ async function refreshBookingDatesAndContent() {
     currentDate.setDate(currentDate.getDate() + 1);
   }
 
-    // match the widths of the columns to their headers, becuase they are separated divs/containers
+
+
+    // match the widths of the columns to their headers, becuase they are separated divs/containers and we have to take into account the vertical scroll bar
     setTimeout(() => {
-      $("div").find(`[reference='trHour']`).css('width', $("div").find(`[reference='thHour']`).width() +'px'  )    
-    }, 1000);
+      let larg=parseInt($("#scheduleData").width(), 10)
+      $("#scheduleHeader").width( larg+2 )
+    }, 100);
     
 
 
@@ -405,8 +401,8 @@ async function refreshBookingDatesAndContent() {
         // exibe as <div>'s de reserva 
         postItBookingDivs()
 
-        while (divStillVisible('#bookingsTable') ) {
-            $('#bookingsTable').height( $('#bookingsTable').height()+10 );     
+        while (divStillVisible('#bookingsDiv') ) {
+            $('#bookingsDiv').height( $('#bookingsDiv').height()+10 );     
         }
 
 
@@ -485,7 +481,7 @@ var $input = $( '.datepicker' ).pickadate({
 
     // put the focus on the table, the component Datepicker.js insists in re(open) alone sometimes
     setTimeout(() => {
-      $('#bookingsTable').focus()  
+      $('#bookingsDiv').focus()  
     }, 1000);
 
   } 
@@ -503,8 +499,8 @@ const postItBookingDivs = () => {
 
 
 
-  let $bookingsTable = $('#bookingsTable') 
-  $bookingsTable.scrollTop(0)
+  let $bookingsDiv = $('#bookingsDiv') 
+  $bookingsDiv.scrollTop(0)
 
   let divCount = 0
 
@@ -546,11 +542,11 @@ const postItBookingDivs = () => {
       let tableRowBookingBottom = endingHour - 5
 
 
-      // the <div> que contains the schedule (bookingsTable), has children  <div>'s filhas for each hour (from 05:00 to 23:00)
+      // the <div> que contains the schedule (bookingsDiv), has children  <div>'s filhas for each hour (from 05:00 to 23:00)
       // and each hour has children DIVs with the weekdays (mon - fri)
 
-      let $divBookingTop = $bookingsTable.children().eq(tableRowBookingTop).children().eq(weekday+1)      // weekday+1 because of the hour column
-      let $divBookingBottom = $bookingsTable.children().eq(tableRowBookingBottom).children().eq(weekday+1)
+      let $divBookingTop = $bookingsDiv.children().eq(tableRowBookingTop).children().eq(weekday+1)      // weekday+1 because of the hour column
+      let $divBookingBottom = $bookingsDiv.children().eq(tableRowBookingBottom).children().eq(weekday+1)
 
       let bookDivWidth = $divBookingTop.width() 
 
@@ -603,7 +599,7 @@ const postItBookingDivs = () => {
           border: `solid 2px ${booking[11]}`,
           height: bookDivHeight,
           width: bookDivWidth ,
-      }).appendTo( $bookingsTable );
+      }).appendTo( $bookingsDiv );
 
       $divBOOKING.attr('id', `bookTemporaryDiv${divCount}`);
       $divBOOKING.addClass('bookTemporaryDiv')    // bookTemporaryDiv is not a real CSS, it works only to identify it is a booking div
@@ -635,14 +631,14 @@ const postItBookingDivs = () => {
       if ( bookingsIDs.indexOf(bookingId) == -1 ) bookingsIDs.push( bookingId )
 
       let bookTopHourDivPosition = document.getElementById( $divBookingTop.attr('id') ).getBoundingClientRect()   // capture position of the <div> initial time of the booking
-      let bookingsTablePosition = document.getElementById( 'bookingsTable' ).getBoundingClientRect()   // capture position of the container (parent) <div> of the bookings
+      let bookingsDivPosition = document.getElementById( 'bookingsDiv' ).getBoundingClientRect()   // capture position of the container (parent) <div> of the bookings
 
-      $divBOOKING.css("left", bookTopHourDivPosition.left - bookingsTablePosition.left + 2);   // position the booking <div> at the correct hour/day
+      $divBOOKING.css("left", bookTopHourDivPosition.left - bookingsDivPosition.left + 2);   // position the booking <div> at the correct hour/day
 
       // if the initial hour is ot 'full hour' if it has minutes, conside those minutes when calculating position of the <div>
       // each hour <div> has 60 pixels, so each more minute= 1 more pixel
 
-      let divTopPosition = parseInt(bookTopHourDivPosition.top, 10) - parseInt(bookingsTablePosition.top, 10)
+      let divTopPosition = parseInt(bookTopHourDivPosition.top, 10) - parseInt(bookingsDivPosition.top, 10)
       divTopPosition += parseInt(startingMinute , 10)    // minutes = pixels
 
       $divBOOKING.css("top", divTopPosition); 
