@@ -223,7 +223,7 @@ if (props.currentViewedDatatable === 'expression')   {
 }
 
 
-// ultima coluna, acoes (editar, excluir, etc)
+// last column (actions, edit, destroy, etc)
 columns.push( {name: 'actions', width: '150px', title: '', id: 3} )
 
 

@@ -895,6 +895,42 @@ video {
   width: 100%;
 }
 
+.w-\[10\%\] {
+  width: 10%;
+}
+
+.w-\[12\%\] {
+  width: 12%;
+}
+
+.w-\[11\.5\%\] {
+  width: 11.5%;
+}
+
+.w-\[9\.5\%\] {
+  width: 9.5%;
+}
+
+.w-\[calc\(100\%\)\] {
+  width: calc(100%);
+}
+
+.w-\[calc\(100\%-18x\)\] {
+  width: calc(100% - 18x);
+}
+
+.w-\[calc\(100\%-19x\)\] {
+  width: calc(100% - 19x);
+}
+
+.w-\[calc\(100\%-19px\)\] {
+  width: calc(100% - 19px);
+}
+
+.w-\[calc\(100\%-17px\)\] {
+  width: calc(100% - 17px);
+}
+
 .min-w-\[150px\] {
   min-width: 150px;
 }
@@ -1237,6 +1273,11 @@ video {
 .bg-gray-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
 }
 
 .bg-red-200 {
@@ -1670,7 +1711,7 @@ video {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto Variable", "Segoe UI", "Helvetica Neue", Helvetica, "Lucida Grande", Arial, Ubuntu, Cantarell, "Fira Sans", sans-serif;
   overflow: hidden !important;
 }
 
@@ -2122,14 +2163,11 @@ input:checked + .slider_language:before {
   height: 100%;
   align-items: center;
   justify-content: center;
-  border-width: 2px;
-  border-color: transparent;
-}
-
-.tdBookingHeader:hover {
-  border-width: 2px;
+  border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1));
 }
 
 .tdBookingCell {
@@ -2220,7 +2258,7 @@ div._doggy_3_english {
   border-top-left-radius: 6px !important;
   border-top-right-radius: 6px !important;
   color: white !important;
-  font-family: "Roboto", sans-serif !important;
+  font-family: "Roboto Variable", sans-serif !important;
   font-size: 13px !important;
   line-height: 15px !important;
   white-space: nowrap !important;
@@ -2722,10 +2760,6 @@ datatable main parts
 
 .hover\:cursor-pointer:hover {
   cursor: pointer;
-}
-
-.hover\:border-2:hover {
-  border-width: 2px;
 }
 
 .hover\:border-4:hover {

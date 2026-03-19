@@ -50,15 +50,15 @@ scheduleContainer
 
     <!-- week days  -->
     <div class="w-full border-b-2 border-b-gray-300 text-lg py-1 " id='scheduleHeader' >  
-        <div class="w-[calc(100%-22px)] flex flex-row text-gray-500  text-lg font-bold text-center h-12 justify-center cursor-pointer items-center" >
-          <div class='w-[9%] tdBookingHeader'>&nbsp;</div>
-          <div class='w-[13%] tdBookingHeader rounded-2xl' id='datecolumn0' bookings_this_day='' real_date=''>s</div> 
-          <div class='w-[13%] tdBookingHeader rounded-2xl' id='datecolumn1' bookings_this_day='' real_date=''></div>
-          <div class='w-[13%] tdBookingHeader rounded-2xl' id='datecolumn2' bookings_this_day='' real_date=''></div>
-          <div class='w-[13%] tdBookingHeader rounded-2xl' id='datecolumn3' bookings_this_day='' real_date=''></div>
-          <div class='w-[13%] tdBookingHeader rounded-2xl' id='datecolumn4' bookings_this_day='' real_date=''></div> 
-          <div class='w-[13%] tdBookingHeader rounded-2xl' id='datecolumn5' bookings_this_day='' real_date=''></div>
-          <div class='w-[13%] tdBookingHeader rounded-2xl' id='datecolumn6' bookings_this_day='' real_date=''></div>
+        <div class="w-[calc(100%-17px)] flex flex-row text-gray-500  text-lg font-bold text-center h-12 justify-center cursor-pointer items-center" >
+          <div class='w-[9%] tdBookingHeader' reference='thHour'>&nbsp;</div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn0' reference='thMon' bookings_this_day='' real_date=''></div> 
+          <div class='w-[13%] tdBookingHeader' id='datecolumn1' reference='thTue' bookings_this_day='' real_date=''></div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn2' reference='thWed' bookings_this_day='' real_date=''></div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn3' reference='thThu' bookings_this_day='' real_date=''></div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn4' reference='thFri' bookings_this_day='' real_date=''></div> 
+          <div class='w-[13%] tdBookingHeader' id='datecolumn5' reference='thSat' bookings_this_day='' real_date=''></div>
+          <div class='w-[13%] tdBookingHeader' id='datecolumn6' reference='thSun' bookings_this_day='' real_date=''></div>
         </div>
     </div>
 
@@ -66,14 +66,14 @@ scheduleContainer
     <div class="w-full flex flex-col  overflow-y-scroll h-[1px]   border-gray-500 relative  border-2 " id='bookingsTable' alreadyFitToScreen='no'>  
 
       <div v-for="hour in counter(5, 23)" :key="hour" class="w-full flex flex-row  leading-[60px]  justify-center cursor-pointer border-b-2 border-gray-300 hover:bg-gray-100"  >
-        <div class='w-[9%] tdBookingCell flex justify-center'>{{ hourFormat(hour, currentCountry) }}</div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay0' + hour"></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay1' + hour"></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay2' + hour"></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay3' + hour"></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay4' + hour"></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay5' + hour"></div>
-        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay6' + hour"></div>
+        <div class='w-[9%] tdBookingCell flex justify-center' reference='trHour'>{{ hourFormat(hour, currentCountry) }} </div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay0' + hour" reference='trMon'></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay1' + hour" reference='trTue'></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay2' + hour" reference='trWed'></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay3' + hour" reference='trThu'></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay4' + hour" reference='trFri'></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay5' + hour" reference='trSat'></div>
+        <div class='w-[13%] tdBookingCell' :id="'bookingHourDay6' + hour" reference='trSun'></div>
       </div>
 
     </div>
@@ -227,14 +227,15 @@ async function refreshBookingDatesAndContent() {
     // use the 'invented' property  'realDate' to save the real date of the column
     $(`#datecolumn${weekday}`).attr('real_date', currentDate.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"})  )    // yyyy-mm-dd
 
-    // puts today in border red
+    // puts today in border blue
     if (currentDate.getTime() == _today_.getTime()) {
       $(`#datecolumn${weekday}`).css('border-color', 'blue')
       $(`#datecolumn${weekday}`).attr('today', 'true')
     } else {
-      $(`#datecolumn${weekday}`).css('border-color', 'transparent')
-      $(`#datecolumn${weekday}`).attr('today', 'false')
+    //  $(`#datecolumn${weekday}`).css('border-color', 'transparent')
+//      $(`#datecolumn${weekday}`).attr('today', 'false')
     }
+
 
     // user puts/takes out mouse over the date <div>
     $(`#datecolumn${weekday}`).on('mouseleave', function()   {       
@@ -251,6 +252,12 @@ async function refreshBookingDatesAndContent() {
     // forward 1 day
     currentDate.setDate(currentDate.getDate() + 1);
   }
+
+    // match the widths of the columns to their headers, becuase they are separated divs/containers
+    setTimeout(() => {
+      $("div").find(`[reference='trHour']`).css('width', $("div").find(`[reference='thHour']`).width() +'px'  )    
+    }, 1000);
+    
 
 
   // if the week is between 2 years, display both years 

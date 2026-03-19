@@ -158,6 +158,9 @@
   import 'jquery-ui-bundle';
   import 'jquery-ui-bundle/jquery-ui.min.css';
 
+  import '@fontsource-variable/roboto';
+
+
   import { prepareLoadingAnimation, toWheelCarsBrowser, slidingMessage , preparePuppyIcon, loadScripts } from './assets/js/utils.js'
 
 
@@ -167,7 +170,7 @@
   const toRefreshDatatable = ref(0)  
   const toRefreshSchedule = ref(0)  
 
-  const isUSASelected = ref(true)
+  const isUSASelected = ref(false)
   const expressions = ref([])  
   const isLoading = ref(true)
   const error = ref(null)

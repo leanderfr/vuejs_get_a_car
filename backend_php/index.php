@@ -23,11 +23,14 @@ header("HTTP/1.0 200 OK");
 
 require 'setup.php';
 require 'functions.php';
+
+
 //require __DIR__.'/vendor/autoload.php';
 require "Router.php";
 require "handlers/Expressions.php";  
 require "handlers/Cars.php";  
 require "handlers/Bookings.php";  
+
 
 
 //********************************************************************
@@ -49,6 +52,9 @@ $getRequest = $_SERVER['REQUEST_METHOD']==='GET';
 $postRequest = $_SERVER['REQUEST_METHOD']==='POST';
 $patchRequest = $_SERVER['REQUEST_METHOD']==='PATCH';
 $deleteRequest = $_SERVER['REQUEST_METHOD']==='DELETE';
+
+
+//die("patch= ".$patchRequest. " - get= ".$getRequest);
 
 //*********************************************************************************************************************************************************
 // get record(s)

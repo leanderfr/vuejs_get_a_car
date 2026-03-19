@@ -15,12 +15,12 @@ class Expressions
 
     if ( $resultformat=='reference')
       $sql =  "select $language as expression, item ".
-              "from expression  ".
+              "from expressions  ".
               "where ifnull(active, false)= true and deleted_at is null ";
   
     if ( $resultformat=='json')    
       $sql =  "select id, english, portuguese, item, ifnull(active, false) as active ".
-              "from expression  ".
+              "from expressions  ".
               "where deleted_at is null ";
 
     // priority is filter whatever came from the searchbox
@@ -58,7 +58,7 @@ class Expressions
 
 
     $sql =  "select item, english, portuguese  ".
-            "from expression  ".
+            "from expressions  ".
             "where id = $id ";
 
     executeFetchQueryAndReturnJsonResult( $sql, true);
@@ -78,7 +78,7 @@ class Expressions
       internalError( 'Not numeric' );
     }
 
-    $crudSql = "update expression set active = if(active, false, true) where id = $id ";
+    $crudSql = "update expressions set active = if(active, false, true) where id = $id ";
     $dbConnection -> autocommit(true);    // record without need to transaction
 
     $result = executeCrudQueryAndReturnResult($crudSql, true);    
@@ -157,7 +157,7 @@ class Expressions
 
     // if ID's been informed, its a PATCH, update
     else {
-      $crudSql = "update expression set item='$item', english='$english', portuguese='$portuguese', updated_at=now() ". 
+      $crudSql = "update expressions set item='$item', english='$english', portuguese='$portuguese', updated_at=now() ". 
                 "where id = $expression_id ";
       $dbOperation = 'update';
     }

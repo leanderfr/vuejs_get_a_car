@@ -14,13 +14,13 @@ class Bookings
     $tempLink = rand(10000,99999);
 
     // the date format depends on the country informed by the frontend
-    $sql = " select booking.driver_name,  booking.car_id, concat('car_', car.id, '.png?$tempLink') as car_image, " .
+    $sql = " select bookings.driver_name,  bookings.car_id, concat('car_', cars.id, '.png?$tempLink') as car_image, " .
           " if('$country'='usa', date_format(pickup_datetime, '%m/%d %h:%i - %p'), date_format(pickup_datetime, '%d/%m - %H:%i')) as pickup_formatted,   " .
           " if('$country'='usa', date_format(dropoff_datetime, '%m/%d %h:%i - %p'), date_format(dropoff_datetime, '%d/%m - %H:%i')) as dropoff_formatted,   " .
           " date_format(pickup_datetime, '%Y-%m-%d|%H:%i') as pickup_reference,   date_format(dropoff_datetime, '%Y-%m-%d|%H:%i') as dropoff_reference, " .
-          " booking.id as booking_id ".
-          " from booking ".
-          " left join car on booking.car_id = car.id " .
+          " bookings.id as booking_id ".
+          " from bookings ".
+          " left join cars on bookings.car_id = cars.id " .
           " where 1=1 ";
 
   // car_id = 0, frontend asks to list all cars reservations, no filter
@@ -28,11 +28,11 @@ class Bookings
 	}
 	// user defined which car to list
 	if ($car_id != '0') {
-		$sql .= " and booking.car_id = $car_id ";
+		$sql .= " and bookings.car_id = $car_id ";
   }
 
   $sql .= " and (DATE_FORMAT(pickup_datetime,'%Y-%m-%d') between '$firstday' and '$lastday' or DATE_FORMAT(dropoff_datetime,'%Y-%m-%d') between '$firstday' and '$lastday') ";
-  $sql .= " AND booking.deleted_at IS null ";
+  $sql .= " AND bookings.deleted_at IS null ";
 
    /*
     result example that will be sent to front
@@ -77,15 +77,15 @@ class Bookings
     $tempLink = rand(10000,99999);
 
     // the date format depends on the country informed by the frontend
-    $sql = " select booking.driver_name,  booking.car_id, concat('car_', car.id, '.png?$tempLink') as car_image, " .
+    $sql = " select bookings.driver_name,  bookings.car_id, concat('car_', cars.id, '.png?$tempLink') as car_image, " .
           " if('$country'='usa', date_format(pickup_datetime, '%m/%d/%y'), date_format(pickup_datetime, '%d/%m/%y')) as pickup_date,   " .
           " if('$country'='usa', date_format(dropoff_datetime, '%m/%d/%y'), date_format(dropoff_datetime, '%d/%m/%y')) as dropoff_date,   " .
           " if('$country'='usa', date_format(pickup_datetime, '%h:%i - %p'), date_format(pickup_datetime, '%H:%i')) as pickup_hour,   " .
           " if('$country'='usa', date_format(dropoff_datetime, '%h:%i - %p'), date_format(dropoff_datetime, '%H:%i')) as dropoff_hour,   " .
-          " booking.id as booking_id ".
-          " from booking ".
-          " left join car on booking.car_id = car.id " .
-          " where booking.id = $booking_id ";
+          " bookings.id as booking_id ".
+          " from bookings ".
+          " left join cars on bookings.car_id = cars.id " .
+          " where bookings.id = $booking_id ";
 
 
     executeFetchQueryAndReturnJsonResult( $sql, true, false );
@@ -159,38 +159,52 @@ class Bookings
     //  - INTERVAL 1 MINUTE / + INTERVAL 1 MINUTE   to the bookings being able to share the same threshold
     // car is reserved between 08 am and 4 pm and at the same time, reserved between 4 pm and 10 pm,  1 minute tolerance
     $sql =
-        "select booking.id ".
-        " from booking " .
+        "select COUNT(*) as qtde, bookings.id ".
+        " from bookings " .
         " where ".
         " ( '$pickupDatetime' between date_format(pickup_datetime + INTERVAL 1 MINUTE, '%Y-%m-%d %H:%i') and date_format(dropoff_datetime - INTERVAL 1 MINUTE, '%Y-%m-%d %H:%i') or " .
         "   '$dropoffDatetime' between date_format(pickup_datetime + INTERVAL 1 MINUTE, '%Y-%m-%d %H:%i') and date_format(dropoff_datetime - INTERVAL 1 MINUTE, '%Y-%m-%d %H:%i') or  " .
         "   date_format(pickup_datetime + INTERVAL 1 MINUTE, '%Y-%m-%d %H:%i') between '$pickupDatetime' and '$dropoffDatetime' or " .
         "   date_format(dropoff_datetime - INTERVAL 1 MINUTE, '%Y-%m-%d %H:%i') between '$pickupDatetime' and '$dropoffDatetime' ) " .
         " and " .
-        "  booking.car_id = $carId  " .
-        ( $booking_id!='' ? " and booking.id <> $booking_id   "  : ''  );
+        "  bookings.car_id = $carId  " .
+        ( $booking_id!='' ? " and bookings.id <> $booking_id   "  : ''  );
 
+//die($sql);juca
     try {
       $result = mysqli_query($dbConnection, $sql) or internalError('[1] Database error');    
     } catch(Exception $e)  {
       internalError( mysqli_error($dbConnection) );
     }
-    if ( mysqli_num_rows($result) > 0 )  internalError('time_or_car_occupied');
+$qted=0;
+while($row = mysqli_fetch_assoc($result))    {
+$qted++;
+}
+
+//die("qyde= $qtde");
+
+
+    //]if ( mysqli_num_rows($result) > 0 )  internalError('time_or_car_occupied');
+    if ( $qtde > 0 )  internalError('time_or_car_occupied');
+
+
 
   
     // if no ID's been informed, its a POST, new record
     if ($booking_id=='')    {
-      $crudSql = "insert into booking(car_id, pickup_datetime, dropoff_datetime, driver_name, created_at, updated_at) ". 
+      $crudSql = "insert into bookings(car_id, pickup_datetime, dropoff_datetime, driver_name, created_at, updated_at) ". 
                 "select $carId, '$pickupDatetime', '$dropoffDatetime', '$driverName', now(), now() "; 
       $dbOperation = 'insert';
     }
 
     // if ID's been informed, its a PATCH, update
     else {
-      $crudSql = "update booking set pickup_datetime='$pickupDatetime', dropoff_datetime='$dropoffDatetime', driver_name='$driverName', updated_at=now() ". 
+      $crudSql = "update bookings set pickup_datetime='$pickupDatetime', dropoff_datetime='$dropoffDatetime', driver_name='$driverName', updated_at=now() ". 
                 "where id = $booking_id ";
       $dbOperation = 'update';
     } 
+
+//die($crudSql);
     $dbConnection -> autocommit(true);    // record without need to transaction
 
     // execute query and get the ID of the just handled record (third param)
@@ -212,7 +226,7 @@ class Bookings
 
   	if (! is_numeric($id))   routeError();
 
-    $crudSql = "update booking set deleted_at=now() where id = $id ";
+    $crudSql = "update bookings set deleted_at=now() where id = $id ";
     $dbConnection -> autocommit(true);    // record without need to transaction
 
     $result = executeCrudQueryAndReturnResult($crudSql);    

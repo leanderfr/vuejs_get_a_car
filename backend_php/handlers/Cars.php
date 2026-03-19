@@ -9,7 +9,7 @@ class Cars
   public function getCars($status, $searchbox): void   {
 
     $sql =  "select description, concat('car_', id, '.png') as car_image, id, plate, ifnull(active, false) as active ".
-            "from car  ".
+            "from cars  ".
             "where deleted_at is null ";
 
     // priority is filter whatever came from the searchbox
@@ -41,7 +41,7 @@ class Cars
     }
 
     $sql =  "select description, concat('car_', id, '.png') as car_image, id, plate, ifnull(active, false) as active ".
-            "from car  ".
+            "from cars  ".
             "where id=$id ";
 
     executeFetchQueryAndReturnJsonResult( $sql, true);
@@ -58,7 +58,7 @@ class Cars
       internalError( 'Not numeric' );
     }
 
-    $crudSql = "update car set active = if(active, false, true) where id = $id ";
+    $crudSql = "update cars set active = if(active, false, true) where id = $id ";
     $dbConnection -> autocommit(true);    // record without need to transaction
 
     $result = executeCrudQueryAndReturnResult($crudSql, true);    
@@ -155,7 +155,7 @@ class Cars
 
     // if ID's been informed, its a PATCH, update
     else {
-      $crudSql = "update car set description='$description', plate='$plate', updated_at=now() ". 
+      $crudSql = "update cars set description='$description', plate='$plate', updated_at=now() ". 
                 "where id = $car_id ";
       $dbOperation = 'update';
     }

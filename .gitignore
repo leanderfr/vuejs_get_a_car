@@ -1,5 +1,6 @@
 .DS_Store
 frontend_vue/node_modules
+frontend_vue/dist
 
 # local env files
 frontend_vue/.env.local
