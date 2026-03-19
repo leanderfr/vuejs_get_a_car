@@ -745,6 +745,14 @@ video {
   height: 2.25rem;
 }
 
+.h-\[10px\] {
+  height: 10px;
+}
+
+.h-\[180px\] {
+  height: 180px;
+}
+
 .h-\[1px\] {
   height: 1px;
 }
@@ -753,16 +761,8 @@ video {
   height: 200px;
 }
 
-.h-\[300px\] {
-  height: 300px;
-}
-
 .h-\[30px\] {
   height: 30px;
-}
-
-.h-\[400px\] {
-  height: 400px;
 }
 
 .h-\[40px\] {
@@ -855,8 +855,8 @@ video {
   width: 20%;
 }
 
-.w-\[230px\] {
-  width: 230px;
+.w-\[200px\] {
+  width: 200px;
 }
 
 .w-\[250px\] {
@@ -1111,6 +1111,11 @@ video {
   border-width: 3px;
 }
 
+.border-y-2 {
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+}
+
 .border-b-2 {
   border-bottom-width: 2px;
 }
@@ -1125,6 +1130,10 @@ video {
 
 .border-r-0 {
   border-right-width: 0px;
+}
+
+.border-t-2 {
+  border-top-width: 2px;
 }
 
 .border-t-8 {
@@ -1194,6 +1203,12 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
+.border-y-gray-300 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+  border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+
 .border-b-gray-300 {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
@@ -1207,6 +1222,16 @@ video {
 .border-t-gray-300 {
   --tw-border-opacity: 1;
   border-top-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
+
+.border-t-gray-400 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
+}
+
+.border-t-gray-600 {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(75 85 99 / var(--tw-border-opacity, 1));
 }
 
 .border-t-orange-500 {
@@ -1546,6 +1571,10 @@ video {
   padding-left: 2.25rem;
 }
 
+.pr-1 {
+  padding-right: 0.25rem;
+}
+
 .pr-2 {
   padding-right: 0.5rem;
 }
@@ -1576,10 +1605,6 @@ video {
 
 .pt-\[2px\] {
   padding-top: 2px;
-}
-
-.pt-\[60px\] {
-  padding-top: 60px;
 }
 
 .text-center {
@@ -1946,20 +1971,24 @@ input:checked + .slider_language:before {
   width: 90%;
 }
 
+/* unfortunately, the height of the right car browser will be set in jscript, there's no time now to
+find out why the flex div (rightCarsBrowserContainer) is overflowing its container (mainContainer) */
+
 #rightCarsBrowserContainer {
   display: flex;
-  height: 400px;
+  height: 10px;
   flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 202 202 / var(--tw-bg-opacity, 1));
-  padding-top: 60px;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  --tw-border-opacity: 1;
+  border-top-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+  border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+  padding-left: 0.5rem;
+  padding-right: 0.25rem;
 }
 
 #carsBrowser {
   display: flex;
-  height: 100%;
   flex-direction: column;
   align-items: center;
   overflow-y: visible;
@@ -1968,8 +1997,8 @@ input:checked + .slider_language:before {
 
 .carCard {
   display: flex;
-  height: 300px;
-  width: 230px;
+  height: 180px;
+  width: 200px;
   cursor: pointer;
   flex-direction: column;
   justify-content: center;

@@ -105,7 +105,7 @@ const hourFormat = (hour, currentCountry) => {
 }
 
 //********************************************************************************************************************************
-// prepares mouseover, over puppy icon,, bottom right corner
+// prepare mouseover, over puppy icon,, bottom right corner
 //*******************************************************************************************************************************
 
 const preparePuppyIcon = () => {
@@ -131,7 +131,7 @@ const preparePuppyIcon = () => {
 
 
 /************************************************************************************************************************************************************
-prepares date in string format, considering local UTC 
+prepare date in string format, considering local UTC 
 this is used when sending dates to recording in the back
 ***********************************************************************************************************************************************************/
 const dateToIsoStringConsideringLocalUTC = (date) => {
@@ -274,9 +274,9 @@ function improveTooltipLook() {
     }
 
   }, 500)    
-
-
 }
+
+
 
 
 

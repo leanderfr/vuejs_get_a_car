@@ -4,7 +4,7 @@ scheduleContainer
   <div class='flex flex-col h-full w-full ' id='scheduleContainer'>
 
     <!-- top tool bar -->
-    <div class="flex flex-row h-[60px] w-full justify-between bg-yellow-300 " id='scheduleToolbar'>
+    <div class="flex flex-row h-[60px] w-full justify-between  " id='scheduleToolbar'>
 
       <!-- current year -->
       <div class="flex flex-row text-[30px] font-bold pt-3 pl-6" id='currentYear'></div>
@@ -233,13 +233,25 @@ async function refreshBookingDatesAndContent() {
   }
 
 
-
-    // match the widths of the columns to their headers, becuase they are separated divs/containers and we have to take into account the vertical scroll bar
+    // have no time to make the tailwind's flex divs works as I want right now, will have to use jquery here
     setTimeout(() => {
-      let larg=parseInt($("#scheduleData").width(), 10)
-      $("#scheduleHeader").width( larg+2 )
-    }, 100);
+      let width=parseInt($("#scheduleData").width(), 10)
+      $("#scheduleHeader").width( width+2 )
     
+    }, 100);
+
+    setTimeout(() => {
+      // match the padding top of the right car's browser 
+      let heightSchedule=$("#bookingsDiv").height()
+      let h1=$("#scheduleToolbar").height()
+      let h2=$("#scheduleHeader").height()
+
+      $("#rightCarsBrowserContainer").height( heightSchedule )
+      $("#rightCarsBrowserContainer").css('margin-top', (h1+h2))
+    }, 1000);
+
+
+
 
 
   // if the week is between 2 years, display both years 
@@ -390,7 +402,6 @@ async function refreshBookingDatesAndContent() {
         while (divStillVisible('#bookingsDiv') ) {
             $('#bookingsDiv').height( $('#bookingsDiv').height()+10 );     
         }
-
 
 
 //console.log(divStillVisible('#headerLogo'))

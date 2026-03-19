@@ -1,7 +1,7 @@
 
 <template>
 
-  <div > 
+  <div class=' overflow-y-auto overflow-x-hidden '> 
 
 <!--
 

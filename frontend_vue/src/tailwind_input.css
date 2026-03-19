@@ -209,17 +209,19 @@ align-items: center;
 }
 
 
+/* unfortunately, the height of the right car browser will be set in jscript, there's no time now to
+find out why the flex div (rightCarsBrowserContainer) is overflowing its container (mainContainer) */
 #rightCarsBrowserContainer {
-@apply flex flex-col  overflow-y-auto pt-[60px]  bg-red-200 h-[400px] overflow-x-hidden
+@apply flex flex-col h-[10px] border-y-gray-300 border-y-2 pl-2 pr-1
 }
 
 #carsBrowser {
-  @apply flex flex-col items-center pl-2 h-full overflow-y-visible
+  @apply flex flex-col items-center pl-2  overflow-y-visible
 }
 
 .carCard {
   @apply  hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center pr-2 
-      border-transparent border-[3px] flex flex-col h-[300px] w-[230px] pl-2 text-right text-gray-500
+      border-transparent border-[3px] flex flex-col h-[180px] w-[200px] pl-2 text-right text-gray-500
 }
 .carCardSelected { 
   @apply border-[navy] border-[3px]

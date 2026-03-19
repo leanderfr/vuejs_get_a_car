@@ -44,7 +44,7 @@
       ****************************************************************************************************************
       -->
 
-      <div class='flex-row flex w-full bg-yellow-200  '>
+      <div class='flex-row flex w-full ' id='mainContainer'>
 
           <!-- 
           ****************************************************************************************************************
@@ -98,12 +98,19 @@
           -->
 
 
-              <!-- right corner, cars browser -->
-              <div id='rightCarsBrowserContainer'  >
-      <div class="text-5xl flex-grow overflow-y-auto overflow-x-hidden">
-                  <div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div><div class='_teste'>AXXXXXXXXXJKLDJLKSDJLKFJLKSFJ LKSJ JFLJLSKABC</div>
-        </div>
-              </div>
+          <!-- right corner, cars browser -->
+          <div id='rightCarsBrowserContainer'  >
+
+            <CarsBrowser 
+              :key='toRefreshCarsBrowser' 
+              :selectedCar='selectedCar' 
+              :backendUrl='backendUrl'    
+              :expressions='expressions' 
+              @showLoading="isLoading=true" 
+              @hideLoading="isLoading=false"
+              @setNewSelectedCar='setNewSelectedCar'            /> 
+
+          </div>
 
 
 
