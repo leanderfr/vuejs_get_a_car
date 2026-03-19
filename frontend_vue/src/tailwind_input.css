@@ -18,7 +18,7 @@ overflow: hidden !important;
 though this was thought to be a tailwind file, I use some moments vanilla css to prove I know it too 
 *****************************************************************************************************/
 .headerBar {
-@apply flex flex-row  justify-between w-full  h-16 items-center p-0 mb-2;
+@apply flex flex-row  justify-between w-full items-center p-0 mb-2 min-h-16;
 }
 
 #headerLogo {
@@ -209,17 +209,17 @@ align-items: center;
 }
 
 
-.carsBrowserContainer {
-@apply w-full  h-[100px] border-t-[1px] border-gray-400 border-b-[1px] flex overflow-x-auto 
+#rightCarsBrowserContainer {
+@apply flex flex-col overflow-y-visible pt-[60px] h-[300px]
 }
 
-.carsBrowser {
-  @apply flex flex-row   grow h-full items-center pl-2
+#carsBrowser {
+  @apply flex flex-col items-center pl-2 
 }
 
 .carCard {
-  @apply bg-[#E6F0FF] hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center pr-2
-      border-transparent border-[3px] flex flex-col h-full w-[230px] pl-2 text-right text-gray-500
+  @apply  hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center pr-2 
+      border-transparent border-[3px] flex flex-col h-[300px] w-[230px] pl-2 text-right text-gray-500
 }
 .carCardSelected { 
   @apply border-[navy] border-[3px]
@@ -227,11 +227,11 @@ align-items: center;
 
 
 
-#mainContainer {
-@apply flex flex-col w-full grow 
+#leftContainer {
+@apply flex flex-col grow  
 }
-.appBody {
-@apply flex flex-col w-full h-screen 
+#appBody {
+@apply flex flex-col w-screen h-screen 
 }
 
 .btnBOOKING_ADD_CAR_RESERVATION {
@@ -298,7 +298,7 @@ align-items: center;
     @apply border-l-2 border-gray-300  h-full flex items-center justify-center;
 }
 .bottomToolbar {
-  @apply h-[30px]
+  @apply h-[30px] bg-blue-600
 }
 
 

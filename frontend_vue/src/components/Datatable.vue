@@ -16,20 +16,7 @@
           <div class="flex flex-row pt-1 w-full justify-between">
               <div class='pl-4 pt-2 text-2xl'> {{ title }} </div>
 
-              <div class='flex flex-row'>
-                  <!-- schedule icon  -->
-                  <div  class='btnSCHEDULE_TABLE putPrettierTooltip' :title="expressions.schedule" @click="forceHideToolTip();emit('toDisplaySchedule')" aria-hidden="true"></div>   
 
-                  <!-- cars table icon -->
-                  <div  class='btnCARS_TABLE putPrettierTooltip' 
-                    :title="expressions.cars" 
-                    @click="forceHideToolTip();emit('setDatatableToDisplay', 'car')" 
-                    aria-hidden="true"></div>   
-
-
-                  <!-- expressions table icon -->
-                  <div  class='btnEXPRESSIONS_TABLE putPrettierTooltip' :title="expressions.expressions" @click="forceHideToolTip();emit('setDatatableToDisplay', 'expression')" aria-hidden="true"></div>   
-                </div>
           </div> 
 
       </div>

@@ -3,8 +3,13 @@
 
   <div>  <!-- fragment -->
 
-    <div class='appBody'>  
+    <div id='appBody'>  
 
+      <!-- 
+      ****************************************************************************************************************
+      1st row - header 
+      ****************************************************************************************************************
+      -->
       <div class='headerBar'>
 
         <div id='headerLogo' ></div>
@@ -33,60 +38,117 @@
 
       </div>
 
-      <!-- horizontal cars browser -->
-      <div class='carsBrowserContainer' id='carsBrowserContainer' style='scrollbar-width: thin;' @wheel='toWheelCarsBrowser'>
-        <CarsBrowser 
-          :key='toRefreshCarsBrowser' 
-          :selectedCar='selectedCar' 
-          :backendUrl='backendUrl'    
-          :expressions='expressions' 
-          @showLoading="isLoading=true" 
-          @hideLoading="isLoading=false"
-          @setNewSelectedCar='setNewSelectedCar'            /> 
+      <!-- 
+      ****************************************************************************************************************
+      2nd row - schedule or datatable (left) and cars browser (right)
+      ****************************************************************************************************************
+      -->
+
+      <div class='flex-row flex w-full  bg-red-400'>
+
+          <!-- 
+          ****************************************************************************************************************
+          left corner - schedule or datatable, it depends which one the user has asked to see
+          ****************************************************************************************************************
+          -->
+
+          <div id='leftContainer'>
+
+              <!-- display schedule only if theres at least 1 car and 1 expression  -->
+              <!-- Schedule needs JS files ready  (neededJsLoaded) -->
+              <div v-if="toDisplaySchedule && neededJsLoaded && expressions.length!=0"  >
+                <!-- if the user clicks in the 'NO FILTER' icon in the schedule screeen, setNewSelectedCar will be 0 -->
+                <Schedule 
+                    :key='toRefreshSchedule' 
+                    :expressions='expressions' 
+                    :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
+                    :backendUrl='backendUrl'    
+                    :imagesUrl = 'imagesUrl'
+                    :selectedCar='selectedCar'
+                    @setNewSelectedCar='setNewSelectedCar'
+                    @setDatatableToDisplay='setDatatableToDisplay'
+                    @showLoading="isLoading=true" 
+                    @hideLoading="isLoading=false" />
+              </div>
+
+              <!-- display datatable if user clicked in some type of record to list (cars or expressions)  -->
+              <div v-if='toDisplayDatatable'  >
+
+                <Datatable  
+                    :key='toRefreshDatatable'
+                    :currentViewedDatatable = currentViewedDatatable
+                    :setDatatableToDisplay='setDatatableToDisplay' 
+                    :expressions='expressions' 
+                    :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
+                    :backendUrl='backendUrl'    
+                    @showLoading="isLoading=true" 
+                    @hideLoading="isLoading=false"     
+                    @toDisplaySchedule='displaySchedule'   
+                    @toRefreshCarsBrowser="toRefreshCarsBrowser++"
+                    @toRefreshExpressions="fetchExpressions()" 
+                    @setDatatableToDisplay='setDatatableToDisplay'
+                    :imagesUrl = 'imagesUrl' />
+              </div>
+          </div>
+
+          <!-- 
+          ****************************************************************************************************************
+          right corner - cars browser, always visible
+          ****************************************************************************************************************
+          -->
+
+
+          <div class='flex flex-col pr-2 overflow-y-visible'>
+              <!-- right corner, cars browser -->
+              <div id='rightCarsBrowserContainer' style='scrollbar-width: thin ;overflow-y:visible' >
+                <CarsBrowser 
+                  :key='toRefreshCarsBrowser' 
+                  :selectedCar='selectedCar' 
+                  :backendUrl='backendUrl'    
+                  :expressions='expressions' 
+                  @showLoading="isLoading=true" 
+                  @hideLoading="isLoading=false"
+                  @setNewSelectedCar='setNewSelectedCar'            /> 
+              </div>
+        </div>
+
+
       </div>
 
-      <!-- mainContainer is the place where dynamic content is viewed/replaced/etc  -->
+      <!-- 
+      ****************************************************************************************************************
+      3nd row - info about the app
+      ****************************************************************************************************************
+      -->
 
-      <!-- display schedule only if theres at least 1 car and 1 expression  -->
-      <!-- Schedule needs JS files ready  (neededJsLoaded) -->
-      <div v-if="toDisplaySchedule && neededJsLoaded && expressions.length!=0" id='mainContainer'  >
-        <!-- if the user clicks in the 'NO FILTER' icon in the schedule screeen, setNewSelectedCar will be 0 -->
-        <Schedule 
-            :key='toRefreshSchedule' 
-            :expressions='expressions' 
-            :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
-            :backendUrl='backendUrl'    
-            :imagesUrl = 'imagesUrl'
-            :selectedCar='selectedCar'
-            @setNewSelectedCar='setNewSelectedCar'
-            @setDatatableToDisplay='setDatatableToDisplay'
-            @showLoading="isLoading=true" 
-            @hideLoading="isLoading=false" />
+
+      <div class='flex flex-row text-[20px] font-bold gap-7 min-h-[68px] bg-yellow-400'>
+        <div class='flex flex-row items-center gap-3' >
+          Frontend:
+          <img src="./assets/images/vue.svg" alt='' />
+        </div>
+        <div class='flex flex-row items-center gap-3' >
+          Backend:
+          <img src="./assets/images/php.svg" alt='' />
+        </div>
+        <div class='flex flex-row w-20' ></div>
+        <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg'
+          @click="openNewTab('https://github.com/leanderfr/hm_vue_php_test')"  >
+          {{ expressions.source_code }}
+          <img src="./assets/images/github.png" alt='' class="pl-3"  />
+        </div>
+  <!--
+        <div class='flex flex-row w-20' ></div>
+        <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg' 
+          @click="openNewTab('https://www.youtube.com/watch?v=3UCXnT7TfMs')"  >  
+          {{ expressions.about_app }}
+          <img src="./assets/images/youtube.png" alt='' class="pl-3"  />
+        </div>
+  -->
+
+
       </div>
 
-      <!-- display datatable if user clicked in some type of record to list (cars or expressions)  -->
-      <div v-if='toDisplayDatatable' id='mainContainer'  >
-
-        <Datatable  
-            :key='toRefreshDatatable'
-            :currentViewedDatatable = currentViewedDatatable
-            :setDatatableToDisplay='setDatatableToDisplay' 
-            :expressions='expressions' 
-            :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
-            :backendUrl='backendUrl'    
-            @showLoading="isLoading=true" 
-            @hideLoading="isLoading=false"     
-            @toDisplaySchedule='displaySchedule'   
-            @toRefreshCarsBrowser="toRefreshCarsBrowser++"
-            @toRefreshExpressions="fetchExpressions()" 
-            @setDatatableToDisplay='setDatatableToDisplay'
-            :imagesUrl = 'imagesUrl' />
-      </div>
-
-
-      <!-- footer toolbar   -->
-      <div v-if="expressions.length!=0" class='bottomToolbar'  >     
-      </div>
 
 
     </div>
@@ -114,32 +176,6 @@
     <div v-if='! isUSASelected' class='_doggy_3_portuguese' id='divDoggy_3'></div>
 
 
-    <div class='absolute bottom-1  flex flex-row left-4 text-[20px] font-bold gap-7 h-[68px] '>
-      <div class='flex flex-row items-center gap-3' >
-        Frontend:
-        <img src="./assets/images/vue.svg" alt='' />
-      </div>
-      <div class='flex flex-row items-center gap-3' >
-        Backend:
-        <img src="./assets/images/php.svg" alt='' />
-      </div>
-      <div class='flex flex-row w-20' ></div>
-      <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg'
-        @click="openNewTab('https://github.com/leanderfr/hm_vue_php_test')"  >
-        {{ expressions.source_code }}
-        <img src="./assets/images/github.png" alt='' class="pl-3"  />
-      </div>
-<!--
-      <div class='flex flex-row w-20' ></div>
-      <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg' 
-        @click="openNewTab('https://www.youtube.com/watch?v=3UCXnT7TfMs')"  >  
-        {{ expressions.about_app }}
-        <img src="./assets/images/youtube.png" alt='' class="pl-3"  />
-      </div>
--->
-
-
-    </div>
 
   </div>
 

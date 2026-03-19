@@ -1,7 +1,12 @@
 
 <template>
 
-  <div class='carsBrowser' id='carsBrowser' > 
+  <div id='carsBrowser' > 
+
+<!--
+
+
+'ALL CARS' icon deprecated, to show all car's schedule, there is a button NO FILTER at the top of the schedule's componnt 
 
     <div :id='carCard0' class='carCard' :class='{carCardSelected: props.selectedCar==0}'  :key='0' 
         :style="{ 
@@ -15,6 +20,8 @@
         <span class='text-2xl' >{{expressions.allcars}}</span>
     </div>
 
+-->
+
 
     <!-- car images hosted in AWS S3 -->
     <template v-if='cars.length!=0' >
@@ -22,13 +29,16 @@
             :style="{ 
               backgroundImage: `url(https://leanderdev.com.br/hiring_machine/backend_php/car_images/car_${car.id}.png?${strToAvoidCache})` ,
               backgroundRepeat: 'no-repeat',
-              backgroundSize: '140px 90px',
-              backgroundPositionY: 'center'
+              backgroundSize: '180px 90px',
+              backgroundPosition: 'center center'
 
             }" 
             @click="emit('setNewSelectedCar', car.id)"   >
+<!--
+
             <span>{{car.description}}</span>
             <span>{{car.plate}}</span>
+-->
         </div>
       </template>
 

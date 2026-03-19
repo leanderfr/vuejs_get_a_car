@@ -213,7 +213,7 @@ const toWheelCarsBrowser = e => {
 
   if (e.type == "wheel") {
     var getDelta = e.deltaY;
-    let divId = 'carsBrowserContainer'
+    let divId = 'rightCarsBrowserContainer'
 
     if (getDelta>0) 
       $(`#${divId}`).scrollLeft( $(`#${divId}`).scrollLeft() + 100 )

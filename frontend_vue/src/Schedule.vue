@@ -1,17 +1,17 @@
 scheduleContainer
 <template>
 
-  <div class='flex flex-col h-full ' id='scheduleContainer'>
+  <div class='flex flex-col h-full w-full ' id='scheduleContainer'>
 
     <!-- top tool bar -->
-    <div class="flex flex-row h-[60px] w-full justify-between  " id='scheduleToolbar'>
+    <div class="flex flex-row h-[60px] w-full justify-between bg-yellow-300 " id='scheduleToolbar'>
 
       <!-- current year -->
       <div class="flex flex-row text-[30px] font-bold pt-3 pl-6" id='currentYear'></div>
 
 
       <!-- action buttons -->
-      <div class="flex flex-row pt-1">
+      <div class="flex flex-row pt-1 ">
           <!-- new booking -->
           <div  class='btnBOOKING_ADD_CAR_RESERVATION putPrettierTooltip'  :title="expressions.new_booking"   @click="forceHideToolTip();newBookingRecord()" aria-hidden="true"></div>   
 
@@ -28,21 +28,6 @@ scheduleContainer
           <div  class='btnBOOKING_LEFT_ARROW putPrettierTooltip'  :title="expressions.previous_week" @click="forceHideToolTip();browseBookingCalendar(-7)" aria-hidden="true"></div>   
           <!-- forward 1 week -->
           <div  class='btnBOOKING_RIGHT_ARROW putPrettierTooltip' :title="expressions.next_week" @click="forceHideToolTip();browseBookingCalendar(+7)" aria-hidden="true"></div>   
-
-          <!-- schedule icon  -->
-          <div  class='btnSCHEDULE_TABLE putPrettierTooltip' :title="expressions.schedule" @click="forceHideToolTip();emit('toDisplaySchedule')" aria-hidden="true"></div>   
-
-          <!-- cars table -->
-          <div  class='btnCARS_TABLE putPrettierTooltip' 
-              :title="expressions.cars" 
-              @click="forceHideToolTip();emit('setDatatableToDisplay', 'car')" 
-              aria-hidden="true"></div>   
-
-          <!-- expressions table -->
-          <div  class='btnEXPRESSIONS_TABLE putPrettierTooltip' 
-              :title="expressions.expressions" 
-              @click="forceHideToolTip();emit('setDatatableToDisplay', 'expression')" 
-              aria-hidden="true"></div>   
 
       </div> 
 
@@ -227,15 +212,16 @@ async function refreshBookingDatesAndContent() {
     // use the 'invented' property  'realDate' to save the real date of the column
     $(`#datecolumn${weekday}`).attr('real_date', currentDate.toLocaleDateString("fr-CA", {year:"numeric", month: "2-digit", day:"2-digit"})  )    // yyyy-mm-dd
 
-    // puts today in border blue
+    // highlight in blue, the header the corresponds to today
     if (currentDate.getTime() == _today_.getTime()) {
       $(`#datecolumn${weekday}`).css('background-color', '#CCE0FF')
       $(`#datecolumn${weekday}`).css('border-color', 'blue')
       $(`#datecolumn${weekday}`).attr('today', 'true')
     } else {
-    //  $(`#datecolumn${weekday}`).css('border-color', 'transparent')
-//      $(`#datecolumn${weekday}`).attr('today', 'false')
-    }
+      $(`#datecolumn${weekday}`).css('background-color', 'lightgray')
+      $(`#datecolumn${weekday}`).css('border-color', '#9ca3af')
+      $(`#datecolumn${weekday}`).attr('today', 'false') 
+    }        
 
 
 
