@@ -12,39 +12,39 @@
       -->
       <div class='headerBar'>
 
-        <div id='headerLogo' ></div>
+          <div id='headerLogo' ></div>
 
-        <div class='headerText' >
-            <div>{{ expressions.app_header_title }}</div>
-        </div>
-
-        <!-- language/country selector  -->
-        <div class="headerRight">    
-
-          <div :class="! isUSASelected ? 'flagClicked' : 'flagUnclicked' "   id='flagBRAZIL'  @click="isUSASelected = false"  >         
-            <img src="https://leanderdev.com.br/vuejs_get_a_car/images/brazil_flag.svg" alt='' />
+          <div class='headerText' >
+              <div>{{ expressions.app_header_title }}</div>
           </div>
 
-          <label for="chkLanguageSelector" class="switch_language"  >
-            <input id="chkLanguageSelector" type="checkbox"  v-model="isUSASelected"    />
-            <span class="slider_language round"></span>
-          </label>
+          <!-- language/country selector  -->
+          <div class="headerRight">    
 
-          <div :class="isUSASelected ? 'flagClicked' : 'flagUnclicked' "   id='flagUSA'  @click="isUSASelected = true"  >         
-            <img src="https://leanderdev.com.br/vuejs_get_a_car/images/usa_flag.svg" alt='' />
+            <div :class="! isUSASelected ? 'flagClicked' : 'flagUnclicked' "   id='flagBRAZIL'  @click="isUSASelected = false"  >         
+              <img src="https://leanderdev.com.br/vuejs_get_a_car/images/brazil_flag.svg" alt='' />
+            </div>
+
+            <label for="chkLanguageSelector" class="switch_language"  >
+              <input id="chkLanguageSelector" type="checkbox"  v-model="isUSASelected"    />
+              <span class="slider_language round"></span>
+            </label>
+
+            <div :class="isUSASelected ? 'flagClicked' : 'flagUnclicked' "   id='flagUSA'  @click="isUSASelected = true"  >         
+              <img src="https://leanderdev.com.br/vuejs_get_a_car/images/usa_flag.svg" alt='' />
+            </div>
+
           </div>
-
-        </div>
 
       </div>
 
       <div id='mainMenu'>
 
-        <div class='itemMenu itemMenuExpressions' @click="setDatatableToDisplay('expressions')"  aria-hidden="true">
+        <div class='itemMenu itemMenuExpressions' @click="setDatatableToDisplay('expression')"  aria-hidden="true">
           {{ expressions.expressions }}
         </div>
 
-        <div class='itemMenu itemMenuCars' @click="setDatatableToDisplay('cars')"  aria-hidden="true">
+        <div class='itemMenu itemMenuCars' @click="setDatatableToDisplay('car')"  aria-hidden="true">
           {{ expressions.cars }}
         </div>
 
@@ -61,73 +61,81 @@
       ****************************************************************************************************************
       -->
 
-      <div class='flex-row flex w-full ' id='mainContainer'>
+      <div id='mainContainer'>
 
-          <!-- 
-          ****************************************************************************************************************
-          left corner - schedule or datatable, it depends which one the user has asked to see
-          ****************************************************************************************************************
-          -->
+          <div class='h-full bg-gray-300 flex flex-row w-full'>
 
-          <div id='leftContainer'>
+          <!-- display schedule/cars browser only if theres at least 1 car, 1 expression and the user asked to see it (toDisplaySchedule) -->
+          <!-- Schedule needs JS files ready  (neededJsLoaded) -->
+          <template v-if="toDisplaySchedule && neededJsLoaded && expressions.length!=0"  > 
 
-              <!-- display schedule only if theres at least 1 car and 1 expression  -->
-              <!-- Schedule needs JS files ready  (neededJsLoaded) -->
-              <div v-if="toDisplaySchedule && neededJsLoaded && expressions.length!=0"  >
-                <!-- if the user clicks in the 'NO FILTER' icon in the schedule screeen, setNewSelectedCar will be 0 -->
-                <Schedule 
-                    :key='toRefreshSchedule' 
-                    :expressions='expressions' 
-                    :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
-                    :backendUrl='backendUrl'    
-                    :imagesUrl = 'imagesUrl'
-                    :selectedCar='selectedCar'
-                    @setNewSelectedCar='setNewSelectedCar'
-                    @setDatatableToDisplay='setDatatableToDisplay'
-                    @showLoading="isLoading=true" 
-                    @hideLoading="isLoading=false" />
+              <!-- 
+              ****************************************************************************************************************
+              left corner - schedule or datatable, it depends which one the user has asked to see
+              ****************************************************************************************************************
+              -->
+
+              <div id='leftScheduleContainer'>
+
+                    <!-- if the user clicks in the 'NO FILTER' icon in the schedule screeen, setNewSelectedCar will be 0 -->
+                    <Schedule 
+                        :key='toRefreshSchedule' 
+                        :expressions='expressions' 
+                        :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
+                        :backendUrl='backendUrl'    
+                        :imagesUrl = 'imagesUrl'
+                        :selectedCar='selectedCar'
+                        @setNewSelectedCar='setNewSelectedCar'
+                        @setDatatableToDisplay='setDatatableToDisplay'
+                        @showLoading="isLoading=true" 
+                        @hideLoading="isLoading=false" />
+
               </div>
 
-              <!-- display datatable if user clicked in some type of record to list (cars or expressions)  -->
-              <div v-if='toDisplayDatatable'  >
+              <!-- 
+              ****************************************************************************************************************
+              right corner - cars browser, always visible
+              ****************************************************************************************************************
+              -->
 
-                <Datatable  
-                    :key='toRefreshDatatable'
-                    :currentViewedDatatable = currentViewedDatatable
-                    :setDatatableToDisplay='setDatatableToDisplay' 
-                    :expressions='expressions' 
-                    :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
-                    :backendUrl='backendUrl'    
-                    @showLoading="isLoading=true" 
-                    @hideLoading="isLoading=false"     
-                    @toDisplaySchedule='displaySchedule'   
-                    @toRefreshCarsBrowser="toRefreshCarsBrowser++"
-                    @toRefreshExpressions="fetchExpressions()" 
-                    @setDatatableToDisplay='setDatatableToDisplay'
-                    :imagesUrl = 'imagesUrl' />
+
+              <!-- right corner, cars browser -->
+              <div id='rightCarsBrowserContainer'  >
+
+                <CarsBrowser 
+                  :key='toRefreshCarsBrowser' 
+                  :selectedCar='selectedCar' 
+                  :backendUrl='backendUrl'    
+                  :expressions='expressions' 
+                  @showLoading="isLoading=true" 
+                  @hideLoading="isLoading=false"
+                  @setNewSelectedCar='setNewSelectedCar'            />  
+
+
               </div>
-          </div>
+        </template> 
 
-          <!-- 
-          ****************************************************************************************************************
-          right corner - cars browser, always visible
-          ****************************************************************************************************************
-          -->
+        <!-- display datatable if user clicked in some type of record to list (cars or expressions)  -->
+        <div v-if='toDisplayDatatable'  >
 
-
-          <!-- right corner, cars browser -->
-          <div id='rightCarsBrowserContainer'  >
-
-            <CarsBrowser 
-              :key='toRefreshCarsBrowser' 
-              :selectedCar='selectedCar' 
-              :backendUrl='backendUrl'    
+          <Datatable  
+              :key='toRefreshDatatable'
+              :currentViewedDatatable = currentViewedDatatable
+              :setDatatableToDisplay='setDatatableToDisplay' 
               :expressions='expressions' 
+              :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
+              :backendUrl='backendUrl'    
               @showLoading="isLoading=true" 
-              @hideLoading="isLoading=false"
-              @setNewSelectedCar='setNewSelectedCar'            /> 
+              @hideLoading="isLoading=false"     
+              @toDisplaySchedule='displaySchedule'   
+              @toRefreshCarsBrowser="toRefreshCarsBrowser++"
+              @toRefreshExpressions="fetchExpressions()" 
+              @setDatatableToDisplay='setDatatableToDisplay'
+              :imagesUrl = 'imagesUrl' />
+        </div>
 
-          </div>
+      </div>
+
 
 
 

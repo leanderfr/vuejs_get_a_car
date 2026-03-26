@@ -745,10 +745,6 @@ video {
   height: 2.25rem;
 }
 
-.h-\[10px\] {
-  height: 10px;
-}
-
 .h-\[180px\] {
   height: 180px;
 }
@@ -801,6 +797,10 @@ video {
 
 .min-h-0 {
   min-height: 0px;
+}
+
+.min-h-16 {
+  min-height: 4rem;
 }
 
 .min-h-full {
@@ -861,6 +861,10 @@ video {
 
 .w-\[30\%\] {
   width: 30%;
+}
+
+.w-\[300px\] {
+  width: 300px;
 }
 
 .w-\[400px\] {
@@ -1295,6 +1299,11 @@ video {
 .bg-cyan-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(165 243 252 / var(--tw-bg-opacity, 1));
+}
+
+.bg-cyan-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(103 232 249 / var(--tw-bg-opacity, 1));
 }
 
 .bg-cyan-600 {
@@ -1823,6 +1832,8 @@ though this was thought to be a tailwind file, I use some moments vanilla css to
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 224 71 / var(--tw-bg-opacity, 1));
   padding: 0px;
 }
 
@@ -2011,18 +2022,35 @@ input:checked + .slider_language:before {
   width: 90%;
 }
 
+#mainContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+#leftScheduleContainer {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
+}
+
 /* unfortunately, the height of the right car browser will be set in jscript, there's no time now to
 find out why the flex div (rightCarsBrowserContainer) is overflowing its container (mainContainer) */
 
 #rightCarsBrowserContainer {
   display: flex;
-  height: 10px;
+  width: 300px;
   flex-direction: column;
+  overflow-y: visible;
   border-top-width: 2px;
   border-bottom-width: 2px;
   --tw-border-opacity: 1;
   border-top-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
   border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
   padding-left: 0.5rem;
   padding-right: 0.25rem;
 }
@@ -2061,12 +2089,6 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   border-width: 3px;
   --tw-border-opacity: 1;
   border-color: rgb(0 0 128 / var(--tw-border-opacity, 1));
-}
-
-#leftContainer {
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
 }
 
 #appBody {

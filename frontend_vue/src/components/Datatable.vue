@@ -292,7 +292,7 @@ async function fetchData() {
   let stringSearch = $.trim( $('#txtTableSearchText').val() )
   let route
   if ( props.currentViewedDatatable === 'expression')   
-    route = `${props.backendUrl}/expression/list/json/both/${currentStatus.value}` 
+    route = `${props.backendUrl}/expression/list/json/all/${currentStatus.value}` 
 
   else 
     route = `${props.backendUrl}/${props.currentViewedDatatable}/list/${currentStatus.value}`  
