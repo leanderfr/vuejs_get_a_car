@@ -8,8 +8,8 @@ class Expressions
 
   public function getExpressions(string $resultformat, string $country, string $status, string $searchbox): void   {
 
-    // both, fetch expressions from both countries
-    if ( $country!='both' && $country!='usa' && $country!='brazil' )   routeError();
+    // all, fetch expressions from both countries
+    if ( $country!='all' && $country!='usa' && $country!='brazil' )   routeError();
 
     $language = (($country=='usa') ? 'english' : 'portuguese');
 
