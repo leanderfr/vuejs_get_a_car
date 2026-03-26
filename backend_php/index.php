@@ -39,7 +39,7 @@ require "handlers/Bookings.php";
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 // remove disposable url string
-$path = str_replace('/hiring_machine/backend_php', '', $path);
+$path = str_replace('/vuejs_get_a_car/backend_php', '', $path);
 
 // prepare handlers
 $handlerExpressions = new Expressions;
