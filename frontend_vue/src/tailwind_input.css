@@ -23,7 +23,7 @@ though this was thought to be a tailwind file, I use some moments vanilla css to
 }
 
 #headerLogo {
-  background-image: url("https://leanderdev.com.br/hiring_machine/images/hiringmachine_io_logo.jpeg");
+  background-image: url("https://leanderdev.com.br/vuejs_get_a_car/images/hiringmachine_io_logo.jpeg");
   background-repeat: no-repeat;
   background-size: 60px 60px;
   display: flex;
@@ -237,59 +237,69 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 @apply flex flex-col w-screen h-screen 
 }
 
+#mainMenu {
+@apply h-[60px] bg-[#e6f0ff] border-t-[1px] border-t-gray-400 border-b-[1px] border-b-gray-400 flex flex-row pl-2 pr-2;
+}
+
+.itemMenu {
+@apply border-2 border-transparent hover:border-blue-500 w-[170px] cursor-pointer  pr-2 align-middle flex items-center justify-end text-gray-500 pr-3;
+}
+
+.itemMenuExpressions {
+@apply bg-transparent bg-no-repeat bg-icon-expressions  bg-[size:40px_40px] bg-[10px_center]
+}
+.itemMenuCars {
+@apply bg-transparent bg-no-repeat bg-icon-car  bg-[size:40px_40px] bg-[10px_center]
+}
+.itemMenuSchedule {
+@apply bg-transparent bg-no-repeat bg-icon-schedule  bg-[size:40px_40px] bg-[10px_center]
+}
+
+
+.btnICON {
+@apply bg-transparent border-transparent border-[1px] hover:bg-[#f1f6fc] hover:border-blue-600 hover:border-[1px] h-12
+}
+
 .btnBOOKING_ADD_CAR_RESERVATION {
     /* icon-ask-car is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
-        bg-icon-ask-car  bg-contain bg-center hover:border-gray-500 h-12;
+    @apply cursor-pointer w-[130px]  bg-transparent bg-no-repeat bg-icon-ask-car  bg-center bg-[size:40px_40px]  ;
 }
 
 .btnBOOKING_CALENDAR {
     /* icon-left-arrow is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-white  rounded-md bg-transparent bg-no-repeat 
-        bg-[url('https://leanderdev.com.br/hiring_machine/images/choosedate.png')]   bg-contain  hover:border-gray-500 h-12
-        bg-[center_-2px];
+    @apply cursor-pointer w-[130px] bg-transparent bg-no-repeat 
+        bg-[url('https://leanderdev.com.br/vuejs_get_a_car/images/_calendar.png')]  bg-[size:40px_40px]  
+        bg-center;
 }
 
 .btnBOOKING_ALL_CARS {
     /* icon-all-cars is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
-        bg-icon-all-cars  bg-contain bg-center hover:border-gray-500 h-12;
+    @apply cursor-pointer w-[130px]  border-transparent   bg-transparent bg-no-repeat 
+        bg-icon-all-cars   bg-center  bg-[size:40px_40px]  ;
 }
 
 .btnBOOKING_ALL_CARS_ACTIVE {
-    @apply border-[navy] border-2
+    @apply border-[navy] 
 }
 
 
 .btnBOOKING_LEFT_ARROW {
     /* icon-left-arrow is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
-        bg-icon-left-arrow  bg-contain bg-center hover:border-gray-500 h-12;
+    @apply cursor-pointer w-[130px] border-transparent   bg-transparent bg-no-repeat  
+        bg-[url('https://leanderdev.com.br/vuejs_get_a_car/images/_left.png')]      
+        bg-center bg-[size:40px_40px]  ;
+
 }
 
 .btnBOOKING_RIGHT_ARROW {
     /* icon-left-arrow is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
-        bg-icon-right-arrow  bg-contain bg-center hover:border-gray-500 h-12;
+    @apply cursor-pointer w-[130px]  border-transparent   bg-transparent bg-no-repeat 
+        bg-[url('https://leanderdev.com.br/vuejs_get_a_car/images/_right.png')]     bg-[size:40px_40px]  
+        bg-center ;
+
 }
 
-.btnCARS_TABLE {
-    /* icon-car is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
-        bg-icon-car  bg-contain bg-center hover:border-gray-500 h-12;
-}
 
-.btnEXPRESSIONS_TABLE {
-    /* icon-expressions is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
-        bg-icon-expressions  bg-contain bg-center hover:border-gray-500 h-12;
-}
-
-.btnSCHEDULE_TABLE {
-    /* icon-schedule is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
-        bg-icon-schedule  bg-contain bg-center hover:border-gray-500 h-12;
-}
 
 
 
@@ -315,7 +325,7 @@ div._doggy {
   height: 40px;
   float: right;
   cursor: pointer;
-  background: url('https://leanderdev.com.br/hiring_machine/images/_dog.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/_dog.png') no-repeat top left;
 }
 
 
@@ -328,7 +338,7 @@ div._doggy_1 {
   width: 16px;
   height: 16px;
   float: right;
-  background: url('https://leanderdev.com.br/hiring_machine/images/thought_1.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/thought_1.png') no-repeat top left;
 }
 
 div._doggy_2 {
@@ -340,7 +350,7 @@ div._doggy_2 {
   width: 30px;
   height: 30px;
   float: right;
-  background: url('https://leanderdev.com.br/hiring_machine/images/thought_2.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/thought_2.png') no-repeat top left;
 }
 
 div._doggy_3_portuguese {
@@ -352,7 +362,7 @@ div._doggy_3_portuguese {
   background-color: red;
   width: 342px;
   height: 133px;
-  background: url('https://leanderdev.com.br/hiring_machine/images/thought_3.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/thought_3.png') no-repeat top left;
   float: right;
 }
 
@@ -365,7 +375,7 @@ div._doggy_3_english {
   background-color: red;
   width: 342px;
   height: 133px;
-  background: url('https://leanderdev.com.br/hiring_machine/images/thought_3_english.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/thought_3_english.png') no-repeat top left;
   float: right;
 }
 

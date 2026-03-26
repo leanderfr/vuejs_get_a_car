@@ -790,10 +790,6 @@ video {
   height: 100vh;
 }
 
-.h-\[188px\] {
-  height: 188px;
-}
-
 .max-h-full {
   max-height: 100%;
 }
@@ -805,10 +801,6 @@ video {
 
 .min-h-0 {
   min-height: 0px;
-}
-
-.min-h-\[188px\] {
-  min-height: 188px;
 }
 
 .min-h-full {
@@ -939,20 +931,12 @@ video {
   flex-basis: 0.25rem;
 }
 
-.basis-\[33\%\] {
-  flex-basis: 33%;
-}
-
-.basis-\[188px\] {
-  flex-basis: 188px;
-}
-
-.basis-\[150px\] {
-  flex-basis: 150px;
-}
-
 .basis-\[120px\] {
   flex-basis: 120px;
+}
+
+.basis-\[33\%\] {
+  flex-basis: 33%;
 }
 
 .border-collapse {
@@ -1136,6 +1120,10 @@ video {
   border-bottom-width: 2px;
 }
 
+.border-b-\[1px\] {
+  border-bottom-width: 1px;
+}
+
 .border-l-0 {
   border-left-width: 0px;
 }
@@ -1230,6 +1218,11 @@ video {
   border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
 }
 
+.border-b-gray-400 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
+}
+
 .border-l-red-200 {
   --tw-border-opacity: 1;
   border-left-color: rgb(254 202 202 / var(--tw-border-opacity, 1));
@@ -1263,6 +1256,11 @@ video {
 .bg-\[\#FFC266\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 194 102 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#e6f0ff\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 240 255 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[\#ebf6f9\] {
@@ -1307,6 +1305,11 @@ video {
 .bg-emerald-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(167 243 208 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gray-200 {
@@ -1398,13 +1401,16 @@ video {
   background-color: rgb(254 252 232 / var(--tw-bg-opacity, 1));
 }
 
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+.bg-\[url\(\'https\:\/\/leanderdev\.com\.br\/vuejs_get_a_car\/images\/_calendar\.png\'\)\] {
+  background-image: url('https://leanderdev.com.br/vuejs_get_a_car/images/_calendar.png');
 }
 
-.bg-\[url\(\'https\:\/\/leanderdev\.com\.br\/hiring_machine\/images\/choosedate\.png\'\)\] {
-  background-image: url('https://leanderdev.com.br/hiring_machine/images/choosedate.png');
+.bg-\[url\(\'https\:\/\/leanderdev\.com\.br\/vuejs_get_a_car\/images\/_left\.png\'\)\] {
+  background-image: url('https://leanderdev.com.br/vuejs_get_a_car/images/_left.png');
+}
+
+.bg-\[url\(\'https\:\/\/leanderdev\.com\.br\/vuejs_get_a_car\/images\/_right\.png\'\)\] {
+  background-image: url('https://leanderdev.com.br/vuejs_get_a_car/images/_right.png');
 }
 
 .bg-icon-all-cars {
@@ -1483,6 +1489,10 @@ video {
   background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M52.618 13.061H12.142C9.20051 13.061 6.81598 15.4456 6.81598 18.387V47.501C6.81598 50.4425 9.20051 52.827 12.142 52.827H52.618C55.5595 52.827 57.944 50.4425 57.944 47.501V18.387C57.944 15.4456 55.5595 13.061 52.618 13.061Z' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M6.81598 24.423H57.944' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M21.018 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M43.742 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 34.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 42.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M29.713 34.22H35.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M45.714 34.22H51.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> </g></svg>");
 }
 
+.bg-\[size\:40px_40px\] {
+  background-size: 40px 40px;
+}
+
 .bg-auto {
   background-size: auto;
 }
@@ -1491,12 +1501,16 @@ video {
   background-size: contain;
 }
 
-.bg-\[center_-2px\] {
-  background-position: center -2px;
+.bg-\[10px_center\] {
+  background-position: 10px center;
 }
 
 .bg-center {
   background-position: center;
+}
+
+.bg-left {
+  background-position: left;
 }
 
 .bg-position-left-corner-icon {
@@ -1668,8 +1682,8 @@ video {
   line-height: 1;
 }
 
-.text-\[20px\] {
-  font-size: 20px;
+.text-\[16px\] {
+  font-size: 16px;
 }
 
 .text-\[30px\] {
@@ -1689,10 +1703,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[16px\] {
-  font-size: 16px;
 }
 
 .font-bold {
@@ -1817,7 +1827,7 @@ though this was thought to be a tailwind file, I use some moments vanilla css to
 }
 
 #headerLogo {
-  background-image: url("https://leanderdev.com.br/hiring_machine/images/hiringmachine_io_logo.jpeg");
+  background-image: url("https://leanderdev.com.br/vuejs_get_a_car/images/hiringmachine_io_logo.jpeg");
   background-repeat: no-repeat;
   background-size: 60px 60px;
   display: flex;
@@ -2066,179 +2076,140 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   flex-direction: column;
 }
 
-.btnBOOKING_ADD_CAR_RESERVATION {
-  /* icon-ask-car is defined in tailwind.config.js */
-  box-sizing: border-box;
-  height: 3rem;
-  width: 130px;
+#mainMenu {
+  display: flex;
+  height: 60px;
+  flex-direction: row;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 240 255 / var(--tw-bg-opacity, 1));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.itemMenu {
+  display: flex;
+  width: 170px;
   cursor: pointer;
-  border-radius: 0.375rem;
+  align-items: center;
+  justify-content: flex-end;
   border-width: 2px;
   border-color: transparent;
+  padding-right: 0.75rem;
+  vertical-align: middle;
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+
+.itemMenu:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
+}
+
+.itemMenuExpressions {
   background-color: transparent;
-  background-image: url("data:image/svg+xml,<svg version='1.0' xmlns='http://www.w3.org/2000/svg'  width='64px' height='64px' viewBox='0 0 200.000000 200.000000'  preserveAspectRatio='xMidYMid meet'>  <g transform='translate(0.000000,200.000000) scale(0.100000,-0.100000)' fill='rgb(0,0,0)' stroke='none'> <path d='M1394 1826 c-49 -22 -74 -61 -74 -118 0 -43 5 -55 33 -83 43 -43 79 -52 131 -34 107 37 114 192 11 235 -42 17 -61 17 -101 0z'/> <path d='M1258 1534 c-27 -12 -59 -46 -127 -134 -50 -66 -95 -122 -100 -125 -5 -3 -58 17 -117 45 -59 27 -117 50 -129 50 -40 0 -69 -53 -47 -87 8 -13 116 -68 239 -122 55 -24 77 -29 91 -22 11 6 57 60 103 120 l84 111 5 -546 5 -546 24 -19 c32 -26 67 -24 96 6 l25 24 0 306 0 305 35 0 35 0 0 -309 0 -310 26 -20 c35 -28 69 -26 99 4 l25 24 0 531 0 530 25 0 25 0 0 -202 c0 -143 4 -210 13 -228 16 -31 61 -39 88 -14 18 16 19 33 19 258 0 213 -3 246 -19 282 -39 85 -102 104 -335 103 -112 0 -161 -4 -188 -15z'/> <path d='M612 531 l-584 -316 80 -3 79 -3 504 272 c277 150 505 274 507 275 2 1 2 22 0 46 l-3 44 -583 -315z'/> <path d='M1752 488 l3 -243 110 0 110 0 3 243 2 242 -115 0 -115 0 2 -242z'/> <path d='M1006 369 l-178 -149 61 0 62 0 125 102 124 103 0 47 c0 27 -3 48 -7 47 -5 0 -88 -67 -187 -150z'/> </g> </svg> ");
-  background-size: contain;
-  background-position: center;
+  background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 2 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path opacity='0.5' d='M13 7L3 7' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path opacity='0.5' d='M10 12H3' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path opacity='0.5' d='M8 17H3' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path d='M11.3161 16.6922C11.1461 17.07 11.3145 17.514 11.6922 17.6839C12.07 17.8539 12.514 17.6855 12.6839 17.3078L11.3161 16.6922ZM16.5 7L17.1839 6.69223C17.0628 6.42309 16.7951 6.25 16.5 6.25C16.2049 6.25 15.9372 6.42309 15.8161 6.69223L16.5 7ZM20.3161 17.3078C20.486 17.6855 20.93 17.8539 21.3078 17.6839C21.6855 17.514 21.8539 17.07 21.6839 16.6922L20.3161 17.3078ZM19.3636 13.3636L20.0476 13.0559L19.3636 13.3636ZM13.6364 12.6136C13.2222 12.6136 12.8864 12.9494 12.8864 13.3636C12.8864 13.7779 13.2222 14.1136 13.6364 14.1136V12.6136ZM12.6839 17.3078L17.1839 7.30777L15.8161 6.69223L11.3161 16.6922L12.6839 17.3078ZM21.6839 16.6922L20.0476 13.0559L18.6797 13.6714L20.3161 17.3078L21.6839 16.6922ZM20.0476 13.0559L17.1839 6.69223L15.8161 7.30777L18.6797 13.6714L20.0476 13.0559ZM19.3636 12.6136H13.6364V14.1136H19.3636V12.6136Z' fill='navy'></path> </g></svg>");
+  background-size: 40px 40px;
+  background-position: 10px center;
   background-repeat: no-repeat;
 }
 
-.btnBOOKING_ADD_CAR_RESERVATION:hover {
+.itemMenuCars {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' class='iconify iconify--gis' preserveAspectRatio='xMidYMid meet' fill='black' stroke='black'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M49.368 11.228c-11.646-.171-27.826.079-31.156 9.027l-8.184 19.204a2.85 2.85 0 0 0-1.37-.865l-3.296-.927a2.86 2.86 0 0 0-3.534 1.983l-1.72 6.104a2.86 2.86 0 0 0 1.983 3.535l3.297.927c.11.03.22.04.33.059c-.63 1.569-1.023 3.295-1.023 4.322v22.32c0 1.145.48 1.674 1.243 1.922v5.947a4.008 4.008 0 0 0 4.017 4.017H20.73a4.008 4.008 0 0 0 4.017-4.017v-5.729h50.504v5.729a4.01 4.01 0 0 0 4.018 4.017h10.775a4.01 4.01 0 0 0 4.019-4.017v-5.947c.763-.248 1.24-.777 1.24-1.922v-22.32c0-1.027-.393-2.753-1.022-4.322c.11-.018.22-.028.33-.06l3.297-.926a2.86 2.86 0 0 0 1.982-3.535l-1.717-6.104a2.861 2.861 0 0 0-3.536-1.983l-3.295.927a2.855 2.855 0 0 0-1.37.865l-8.185-19.204c-3.57-9.084-20.773-8.856-32.42-9.027zm33.358 29.444c.194.576-.386.96-.993.995c0 0-1.984.168-4.72.389c-2.082-4.864-6.92-8.292-12.525-8.292c-6.151 0-11.373 4.13-13.048 9.754c-.464.006-1.003.026-1.435.026c-10.596 0-31.738-1.877-31.738-1.877c-.607-.036-1.187-.419-.993-.995c8.142-24.821 8.385-22.955 32.275-22.694c23.891.26 24.03-1.513 33.177 22.694zm-18.238-2.217a8.886 8.886 0 0 1 7.447 3.991c-4.785.356-10.292.719-15.424.93a8.879 8.879 0 0 1 7.977-4.921zM9.407 46.511c.072.106.142.213.221.317h-.31zm5.294 6.234c2.096-.035 13.348 3.753 13.348 3.753c1.405.395 2.642 3.051 2.635 4.511c-.021 4.917-12.71 3.21-17.86 3.23a2.63 2.63 0 0 1-2.635-2.634V55.38c0-1.46 2.416-2.6 4.512-2.635zm70.598 0c2.096.034 4.512 1.175 4.512 2.635v6.225a2.63 2.63 0 0 1-2.635 2.635c-5.15-.02-17.839 1.686-17.86-3.23c-.007-1.46 1.23-4.117 2.635-4.512c0 0 11.252-3.788 13.348-3.753z' fill='black'></path></g></svg>");
+  background-size: 40px 40px;
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+
+.itemMenuSchedule {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M52.618 13.061H12.142C9.20051 13.061 6.81598 15.4456 6.81598 18.387V47.501C6.81598 50.4425 9.20051 52.827 12.142 52.827H52.618C55.5595 52.827 57.944 50.4425 57.944 47.501V18.387C57.944 15.4456 55.5595 13.061 52.618 13.061Z' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M6.81598 24.423H57.944' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M21.018 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M43.742 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 34.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 42.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M29.713 34.22H35.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M45.714 34.22H51.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> </g></svg>");
+  background-size: 40px 40px;
+  background-position: 10px center;
+  background-repeat: no-repeat;
+}
+
+.btnICON {
+  height: 3rem;
+  border-width: 1px;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.btnICON:hover {
+  border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
+  border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 246 252 / var(--tw-bg-opacity, 1));
+}
+
+.btnBOOKING_ADD_CAR_RESERVATION {
+  /* icon-ask-car is defined in tailwind.config.js */
+  width: 130px;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,<svg version='1.0' xmlns='http://www.w3.org/2000/svg'  width='64px' height='64px' viewBox='0 0 200.000000 200.000000'  preserveAspectRatio='xMidYMid meet'>  <g transform='translate(0.000000,200.000000) scale(0.100000,-0.100000)' fill='rgb(0,0,0)' stroke='none'> <path d='M1394 1826 c-49 -22 -74 -61 -74 -118 0 -43 5 -55 33 -83 43 -43 79 -52 131 -34 107 37 114 192 11 235 -42 17 -61 17 -101 0z'/> <path d='M1258 1534 c-27 -12 -59 -46 -127 -134 -50 -66 -95 -122 -100 -125 -5 -3 -58 17 -117 45 -59 27 -117 50 -129 50 -40 0 -69 -53 -47 -87 8 -13 116 -68 239 -122 55 -24 77 -29 91 -22 11 6 57 60 103 120 l84 111 5 -546 5 -546 24 -19 c32 -26 67 -24 96 6 l25 24 0 306 0 305 35 0 35 0 0 -309 0 -310 26 -20 c35 -28 69 -26 99 4 l25 24 0 531 0 530 25 0 25 0 0 -202 c0 -143 4 -210 13 -228 16 -31 61 -39 88 -14 18 16 19 33 19 258 0 213 -3 246 -19 282 -39 85 -102 104 -335 103 -112 0 -161 -4 -188 -15z'/> <path d='M612 531 l-584 -316 80 -3 79 -3 504 272 c277 150 505 274 507 275 2 1 2 22 0 46 l-3 44 -583 -315z'/> <path d='M1752 488 l3 -243 110 0 110 0 3 243 2 242 -115 0 -115 0 2 -242z'/> <path d='M1006 369 l-178 -149 61 0 62 0 125 102 124 103 0 47 c0 27 -3 48 -7 47 -5 0 -88 -67 -187 -150z'/> </g> </svg> ");
+  background-size: 40px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .btnBOOKING_CALENDAR {
   /* icon-left-arrow is defined in tailwind.config.js */
-  box-sizing: border-box;
-  height: 3rem;
   width: 130px;
   cursor: pointer;
-  border-radius: 0.375rem;
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
   background-color: transparent;
-  background-image: url('https://leanderdev.com.br/hiring_machine/images/choosedate.png');
-  background-size: contain;
-  background-position: center -2px;
-  background-repeat: no-repeat;
-}
-
-.btnBOOKING_CALENDAR:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
-}
-
-.btnBOOKING_ALL_CARS {
-  /* icon-all-cars is defined in tailwind.config.js */
-  box-sizing: border-box;
-  height: 3rem;
-  width: 130px;
-  cursor: pointer;
-  border-radius: 0.375rem;
-  border-width: 2px;
-  border-color: transparent;
-  background-color: transparent;
-  background-image: url("data:image/svg+xml,<svg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='navy'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g id='Interface / Filter_Off'> <path id='Vector' d='M13 4H18.4C18.9601 4 19.2409 4 19.4548 4.10899C19.6429 4.20487 19.7948 4.35774 19.8906 4.5459C19.9996 4.75981 20 5.04005 20 5.6001V6.3448C20 6.58444 20 6.70551 19.9727 6.81942C19.9482 6.92146 19.9072 7.01893 19.8524 7.1084C19.7906 7.20931 19.7043 7.2958 19.5314 7.46875L18 9.00012M7.49961 4H5.59961C5.03956 4 4.75981 4 4.5459 4.10899C4.35774 4.20487 4.20487 4.35774 4.10899 4.5459C4 4.75981 4 5.04005 4 5.6001V6.33736C4 6.58195 4 6.70433 4.02763 6.81942C4.05213 6.92146 4.09263 7.01893 4.14746 7.1084C4.20928 7.20928 4.29591 7.29591 4.46875 7.46875L9.53149 12.5315C9.70443 12.7044 9.79044 12.7904 9.85228 12.8914C9.90711 12.9808 9.94816 13.0786 9.97266 13.1807C10 13.2946 10 13.4155 10 13.6552V18.411C10 19.2682 10 19.6971 10.1805 19.9552C10.3382 20.1806 10.5814 20.331 10.8535 20.3712C11.1651 20.4172 11.5487 20.2257 12.3154 19.8424L13.1154 19.4424C13.4365 19.2819 13.5966 19.2013 13.7139 19.0815C13.8176 18.9756 13.897 18.8485 13.9453 18.7083C14 18.5499 14 18.37 14 18.011V13.6626C14 13.418 14 13.2958 14.0276 13.1807C14.0521 13.0786 14.0926 12.9809 14.1475 12.8915C14.2091 12.7909 14.2952 12.7048 14.4669 12.5331L14.4688 12.5314L15.5001 11.5001M15.5001 11.5001L5 1M15.5001 11.5001L19 15' stroke='navy' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path> </g> </g></svg>");
-  background-size: contain;
+  background-image: url('https://leanderdev.com.br/vuejs_get_a_car/images/_calendar.png');
+  background-size: 40px 40px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.btnBOOKING_ALL_CARS:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
+.btnBOOKING_ALL_CARS {
+  /* icon-all-cars is defined in tailwind.config.js */
+  width: 130px;
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,<svg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='navy'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g id='Interface / Filter_Off'> <path id='Vector' d='M13 4H18.4C18.9601 4 19.2409 4 19.4548 4.10899C19.6429 4.20487 19.7948 4.35774 19.8906 4.5459C19.9996 4.75981 20 5.04005 20 5.6001V6.3448C20 6.58444 20 6.70551 19.9727 6.81942C19.9482 6.92146 19.9072 7.01893 19.8524 7.1084C19.7906 7.20931 19.7043 7.2958 19.5314 7.46875L18 9.00012M7.49961 4H5.59961C5.03956 4 4.75981 4 4.5459 4.10899C4.35774 4.20487 4.20487 4.35774 4.10899 4.5459C4 4.75981 4 5.04005 4 5.6001V6.33736C4 6.58195 4 6.70433 4.02763 6.81942C4.05213 6.92146 4.09263 7.01893 4.14746 7.1084C4.20928 7.20928 4.29591 7.29591 4.46875 7.46875L9.53149 12.5315C9.70443 12.7044 9.79044 12.7904 9.85228 12.8914C9.90711 12.9808 9.94816 13.0786 9.97266 13.1807C10 13.2946 10 13.4155 10 13.6552V18.411C10 19.2682 10 19.6971 10.1805 19.9552C10.3382 20.1806 10.5814 20.331 10.8535 20.3712C11.1651 20.4172 11.5487 20.2257 12.3154 19.8424L13.1154 19.4424C13.4365 19.2819 13.5966 19.2013 13.7139 19.0815C13.8176 18.9756 13.897 18.8485 13.9453 18.7083C14 18.5499 14 18.37 14 18.011V13.6626C14 13.418 14 13.2958 14.0276 13.1807C14.0521 13.0786 14.0926 12.9809 14.1475 12.8915C14.2091 12.7909 14.2952 12.7048 14.4669 12.5331L14.4688 12.5314L15.5001 11.5001M15.5001 11.5001L5 1M15.5001 11.5001L19 15' stroke='navy' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path> </g> </g></svg>");
+  background-size: 40px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .btnBOOKING_ALL_CARS_ACTIVE {
-  border-width: 2px;
   --tw-border-opacity: 1;
   border-color: rgb(0 0 128 / var(--tw-border-opacity, 1));
 }
 
 .btnBOOKING_LEFT_ARROW {
   /* icon-left-arrow is defined in tailwind.config.js */
-  box-sizing: border-box;
-  height: 3rem;
   width: 130px;
   cursor: pointer;
-  border-radius: 0.375rem;
-  border-width: 2px;
   border-color: transparent;
   background-color: transparent;
-  background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 -0.5 17 17' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='si-glyph si-glyph-arrow-thick-left' fill='rgb(0,0,0)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <title>1210</title> <defs> </defs> <g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'> <path d='M0.133,8.367 L6.073,13.713 C6.307,13.924 6.687,13.922 6.922,13.711 L6.927,9.983 L14.951,9.983 C15.504,9.983 15.951,9.544 15.951,9.001 L15.951,7.035 C15.951,6.492 15.504,6.053 14.951,6.053 L6.931,6.053 L6.936,2.243 C6.705,2.034 6.324,2.035 6.088,2.246 L0.134,7.603 C-0.099,7.816 -0.102,8.156 0.133,8.367 L0.133,8.367 Z' fill='rgb(128, 128, 128)' class='si-glyph-fill'> </path> </g> </g></svg>");
-  background-size: contain;
+  background-image: url('https://leanderdev.com.br/vuejs_get_a_car/images/_left.png');
+  background-size: 40px 40px;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.btnBOOKING_LEFT_ARROW:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
 }
 
 .btnBOOKING_RIGHT_ARROW {
   /* icon-left-arrow is defined in tailwind.config.js */
-  box-sizing: border-box;
-  height: 3rem;
   width: 130px;
   cursor: pointer;
-  border-radius: 0.375rem;
-  border-width: 2px;
   border-color: transparent;
   background-color: transparent;
-  background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 -0.5 17 17' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='si-glyph si-glyph-arrow-thick-left' fill='rgb(0,0,0)' transform='rotate(180)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <title>1210</title> <defs> </defs> <g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'> <path d='M0.133,8.367 L6.073,13.713 C6.307,13.924 6.687,13.922 6.922,13.711 L6.927,9.983 L14.951,9.983 C15.504,9.983 15.951,9.544 15.951,9.001 L15.951,7.035 C15.951,6.492 15.504,6.053 14.951,6.053 L6.931,6.053 L6.936,2.243 C6.705,2.034 6.324,2.035 6.088,2.246 L0.134,7.603 C-0.099,7.816 -0.102,8.156 0.133,8.367 L0.133,8.367 Z' fill='rgb(128, 128, 128)' class='si-glyph-fill'> </path> </g> </g></svg>");
-  background-size: contain;
+  background-image: url('https://leanderdev.com.br/vuejs_get_a_car/images/_right.png');
+  background-size: 40px 40px;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.btnBOOKING_RIGHT_ARROW:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
-}
-
-.btnCARS_TABLE {
-  /* icon-car is defined in tailwind.config.js */
-  box-sizing: border-box;
-  height: 3rem;
-  width: 130px;
-  cursor: pointer;
-  border-radius: 0.375rem;
-  border-width: 2px;
-  border-color: transparent;
-  background-color: transparent;
-  background-image: url("data:image/svg+xml,<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' class='iconify iconify--gis' preserveAspectRatio='xMidYMid meet' fill='black' stroke='black'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M49.368 11.228c-11.646-.171-27.826.079-31.156 9.027l-8.184 19.204a2.85 2.85 0 0 0-1.37-.865l-3.296-.927a2.86 2.86 0 0 0-3.534 1.983l-1.72 6.104a2.86 2.86 0 0 0 1.983 3.535l3.297.927c.11.03.22.04.33.059c-.63 1.569-1.023 3.295-1.023 4.322v22.32c0 1.145.48 1.674 1.243 1.922v5.947a4.008 4.008 0 0 0 4.017 4.017H20.73a4.008 4.008 0 0 0 4.017-4.017v-5.729h50.504v5.729a4.01 4.01 0 0 0 4.018 4.017h10.775a4.01 4.01 0 0 0 4.019-4.017v-5.947c.763-.248 1.24-.777 1.24-1.922v-22.32c0-1.027-.393-2.753-1.022-4.322c.11-.018.22-.028.33-.06l3.297-.926a2.86 2.86 0 0 0 1.982-3.535l-1.717-6.104a2.861 2.861 0 0 0-3.536-1.983l-3.295.927a2.855 2.855 0 0 0-1.37.865l-8.185-19.204c-3.57-9.084-20.773-8.856-32.42-9.027zm33.358 29.444c.194.576-.386.96-.993.995c0 0-1.984.168-4.72.389c-2.082-4.864-6.92-8.292-12.525-8.292c-6.151 0-11.373 4.13-13.048 9.754c-.464.006-1.003.026-1.435.026c-10.596 0-31.738-1.877-31.738-1.877c-.607-.036-1.187-.419-.993-.995c8.142-24.821 8.385-22.955 32.275-22.694c23.891.26 24.03-1.513 33.177 22.694zm-18.238-2.217a8.886 8.886 0 0 1 7.447 3.991c-4.785.356-10.292.719-15.424.93a8.879 8.879 0 0 1 7.977-4.921zM9.407 46.511c.072.106.142.213.221.317h-.31zm5.294 6.234c2.096-.035 13.348 3.753 13.348 3.753c1.405.395 2.642 3.051 2.635 4.511c-.021 4.917-12.71 3.21-17.86 3.23a2.63 2.63 0 0 1-2.635-2.634V55.38c0-1.46 2.416-2.6 4.512-2.635zm70.598 0c2.096.034 4.512 1.175 4.512 2.635v6.225a2.63 2.63 0 0 1-2.635 2.635c-5.15-.02-17.839 1.686-17.86-3.23c-.007-1.46 1.23-4.117 2.635-4.512c0 0 11.252-3.788 13.348-3.753z' fill='black'></path></g></svg>");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.btnCARS_TABLE:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
-}
-
-.btnEXPRESSIONS_TABLE {
-  /* icon-expressions is defined in tailwind.config.js */
-  box-sizing: border-box;
-  height: 3rem;
-  width: 130px;
-  cursor: pointer;
-  border-radius: 0.375rem;
-  border-width: 2px;
-  border-color: transparent;
-  background-color: transparent;
-  background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 2 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path opacity='0.5' d='M13 7L3 7' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path opacity='0.5' d='M10 12H3' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path opacity='0.5' d='M8 17H3' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path d='M11.3161 16.6922C11.1461 17.07 11.3145 17.514 11.6922 17.6839C12.07 17.8539 12.514 17.6855 12.6839 17.3078L11.3161 16.6922ZM16.5 7L17.1839 6.69223C17.0628 6.42309 16.7951 6.25 16.5 6.25C16.2049 6.25 15.9372 6.42309 15.8161 6.69223L16.5 7ZM20.3161 17.3078C20.486 17.6855 20.93 17.8539 21.3078 17.6839C21.6855 17.514 21.8539 17.07 21.6839 16.6922L20.3161 17.3078ZM19.3636 13.3636L20.0476 13.0559L19.3636 13.3636ZM13.6364 12.6136C13.2222 12.6136 12.8864 12.9494 12.8864 13.3636C12.8864 13.7779 13.2222 14.1136 13.6364 14.1136V12.6136ZM12.6839 17.3078L17.1839 7.30777L15.8161 6.69223L11.3161 16.6922L12.6839 17.3078ZM21.6839 16.6922L20.0476 13.0559L18.6797 13.6714L20.3161 17.3078L21.6839 16.6922ZM20.0476 13.0559L17.1839 6.69223L15.8161 7.30777L18.6797 13.6714L20.0476 13.0559ZM19.3636 12.6136H13.6364V14.1136H19.3636V12.6136Z' fill='navy'></path> </g></svg>");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.btnEXPRESSIONS_TABLE:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
-}
-
-.btnSCHEDULE_TABLE {
-  /* icon-schedule is defined in tailwind.config.js */
-  box-sizing: border-box;
-  height: 3rem;
-  width: 130px;
-  cursor: pointer;
-  border-radius: 0.375rem;
-  border-width: 2px;
-  border-color: transparent;
-  background-color: transparent;
-  background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M52.618 13.061H12.142C9.20051 13.061 6.81598 15.4456 6.81598 18.387V47.501C6.81598 50.4425 9.20051 52.827 12.142 52.827H52.618C55.5595 52.827 57.944 50.4425 57.944 47.501V18.387C57.944 15.4456 55.5595 13.061 52.618 13.061Z' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M6.81598 24.423H57.944' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M21.018 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M43.742 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 34.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 42.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M29.713 34.22H35.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M45.714 34.22H51.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> </g></svg>");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.btnSCHEDULE_TABLE:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
 }
 
 .tdBookingHeader {
@@ -2280,7 +2251,7 @@ div._doggy {
   height: 40px;
   float: right;
   cursor: pointer;
-  background: url('https://leanderdev.com.br/hiring_machine/images/_dog.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/_dog.png') no-repeat top left;
 }
 
 div._doggy_1 {
@@ -2292,7 +2263,7 @@ div._doggy_1 {
   width: 16px;
   height: 16px;
   float: right;
-  background: url('https://leanderdev.com.br/hiring_machine/images/thought_1.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/thought_1.png') no-repeat top left;
 }
 
 div._doggy_2 {
@@ -2304,7 +2275,7 @@ div._doggy_2 {
   width: 30px;
   height: 30px;
   float: right;
-  background: url('https://leanderdev.com.br/hiring_machine/images/thought_2.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/thought_2.png') no-repeat top left;
 }
 
 div._doggy_3_portuguese {
@@ -2316,7 +2287,7 @@ div._doggy_3_portuguese {
   background-color: red;
   width: 342px;
   height: 133px;
-  background: url('https://leanderdev.com.br/hiring_machine/images/thought_3.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/thought_3.png') no-repeat top left;
   float: right;
 }
 
@@ -2329,7 +2300,7 @@ div._doggy_3_english {
   background-color: red;
   width: 342px;
   height: 133px;
-  background: url('https://leanderdev.com.br/hiring_machine/images/thought_3_english.png') no-repeat top left;
+  background: url('https://leanderdev.com.br/vuejs_get_a_car/images/thought_3_english.png') no-repeat top left;
   float: right;
 }
 
@@ -2851,6 +2822,10 @@ datatable main parts
   border-width: 4px;
 }
 
+.hover\:border-\[1px\]:hover {
+  border-width: 1px;
+}
+
 .hover\:border-\[3px\]:hover {
   border-width: 3px;
 }
@@ -2858,6 +2833,16 @@ datatable main parts
 .hover\:border-black:hover {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+}
+
+.hover\:border-blue-500:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
+}
+
+.hover\:border-blue-600:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(37 99 235 / var(--tw-border-opacity, 1));
 }
 
 .hover\:border-blue-900:hover {
@@ -2883,6 +2868,11 @@ datatable main parts
 .hover\:bg-\[\#FFC266\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 194 102 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-\[\#f1f6fc\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 246 252 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-\[\#ffedcc\]:hover {

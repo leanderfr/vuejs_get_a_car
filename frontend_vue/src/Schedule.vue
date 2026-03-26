@@ -17,10 +17,10 @@
       <!-- action buttons -->
       <div class="flex flex-row pt-1 ">
           <!-- new booking -->
-          <div  class='btnBOOKING_ADD_CAR_RESERVATION putPrettierTooltip'  :title="expressions.new_booking"   @click="forceHideToolTip();newBookingRecord()" aria-hidden="true"></div>   
+          <div  class='btnICON btnBOOKING_ADD_CAR_RESERVATION putPrettierTooltip'  :title="expressions.new_booking"   @click="forceHideToolTip();newBookingRecord()" aria-hidden="true"></div>   
 
           <!-- display calendar -->
-          <div  class='btnBOOKING_CALENDAR putPrettierTooltip' :title="expressions.choose_date" @click="forceHideToolTip();showCalendar=true" aria-hidden="true"></div>    
+          <div  class='btnICON btnBOOKING_CALENDAR putPrettierTooltip' :title="expressions.choose_date" @click="forceHideToolTip();showCalendar=true" aria-hidden="true"></div>    
 
           <!-- icon previously used to mark/display all the cars reservations 
           deprecated, now the 'all cars' button in the carsBrowser does this, but the button below will still exist to perform the action -->
@@ -29,9 +29,9 @@
                 @click="forceHideToolTip();emit('setNewSelectedCar', 0)"  aria-hidden="true"></div>    
 
           <!-- back 1 week   -->
-          <div  class='btnBOOKING_LEFT_ARROW putPrettierTooltip'  :title="expressions.previous_week" @click="forceHideToolTip();browseBookingCalendar(-7)" aria-hidden="true"></div>   
+          <div  class='btnICON btnBOOKING_LEFT_ARROW putPrettierTooltip'  :title="expressions.previous_week" @click="forceHideToolTip();browseBookingCalendar(-7)" aria-hidden="true"></div>   
           <!-- forward 1 week -->
-          <div  class='btnBOOKING_RIGHT_ARROW putPrettierTooltip' :title="expressions.next_week" @click="forceHideToolTip();browseBookingCalendar(+7)" aria-hidden="true"></div>   
+          <div  class='btnICON btnBOOKING_RIGHT_ARROW putPrettierTooltip' :title="expressions.next_week" @click="forceHideToolTip();browseBookingCalendar(+7)" aria-hidden="true"></div>   
 
       </div> 
 
@@ -102,7 +102,7 @@ import { slidingMessage, forceHideToolTip, hourFormat, counter, divStillVisible,
 //const showLoading = defineEmits( ['showLoading'] );
 //const hideLoading = defineEmits( ['hideLoading'] );
 
-const emit = defineEmits( ['showLoading', 'hideLoading','setNewSelectedCar', 'setDatatableToDisplay'] );
+const emit = defineEmits( ['showLoading', 'hideLoading','setNewSelectedCar'] );
 
 const props = defineProps( ['expressions', 'currentCountry', 'backendUrl', 'imagesUrl', 'selectedCar' ] )
 
@@ -250,6 +250,7 @@ async function refreshBookingDatesAndContent() {
       let heightSchedule=$("#bookingsDiv").height()
       let h1=$("#scheduleToolbar").height()
       let h2=$("#scheduleHeader").height()
+      let h3=$("#scheduleHeader").height()
 
       $("#rightCarsBrowserContainer").height( heightSchedule )
       $("#rightCarsBrowserContainer").css('margin-top', (h1+h2))
