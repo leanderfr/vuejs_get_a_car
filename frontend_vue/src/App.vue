@@ -116,7 +116,7 @@
         </template> 
 
         <!-- display datatable if user clicked in some type of record to list (cars or expressions)  -->
-        <div v-if='toDisplayDatatable'  >
+        <template v-if='toDisplayDatatable'  >
 
           <Datatable  
               :key='toRefreshDatatable'
@@ -132,7 +132,7 @@
               @toRefreshExpressions="fetchExpressions()" 
               @setDatatableToDisplay='setDatatableToDisplay'
               :imagesUrl = 'imagesUrl' />
-        </div>
+        </template>
 
       </div>
 

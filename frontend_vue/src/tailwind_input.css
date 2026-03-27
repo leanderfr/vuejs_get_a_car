@@ -221,7 +221,7 @@ align-items: center;
 /* unfortunately, the height of the right car browser will be set in jscript, there's no time now to
 find out why the flex div (rightCarsBrowserContainer) is overflowing its container (mainContainer) */
 #rightCarsBrowserContainer {
-@apply flex flex-col  border-y-gray-300 border-y-2 pl-2 pr-1 bg-red-600 overflow-y-visible w-[300px]
+@apply flex flex-col  border-y-gray-300 border-y-2 pl-2 pr-1 bg-red-600 overflow-y-visible w-[15%] h-full
 }
 
 

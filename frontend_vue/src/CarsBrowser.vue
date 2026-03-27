@@ -1,7 +1,7 @@
 
 <template>
 
-  <div class=' overflow-y-auto overflow-x-hidden '> 
+  <div class='overflow-y-visible overflow-x-hidden flex flex-col '> 
 
 <!--
 
