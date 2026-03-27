@@ -4,7 +4,7 @@
     <div>   <!-- required (by Vue) fragment -->
 
 
-    <div class='flex flex-col h-full ' id='datatableContainer'>
+    <div class='flex flex-col h-full w-full' id='datatableContainer'>
 
       <!-- top tool bar -->
       <div class="flex flex-row h-[60px] w-full justify-between border-b-2 " id='datatableToolbar'>

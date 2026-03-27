@@ -63,7 +63,6 @@
 
       <div id='mainContainer'>
 
-          <div class='h-full  flex flex-row w-full'>
 
           <!-- display schedule/cars browser only if theres at least 1 car, 1 expression and the user asked to see it (toDisplaySchedule) -->
           <!-- Schedule needs JS files ready  (neededJsLoaded) -->
@@ -118,23 +117,25 @@
         <!-- display datatable if user clicked in some type of record to list (cars or expressions)  -->
         <template v-if='toDisplayDatatable'  >
 
-          <Datatable  
-              :key='toRefreshDatatable'
-              :currentViewedDatatable = currentViewedDatatable
-              :setDatatableToDisplay='setDatatableToDisplay' 
-              :expressions='expressions' 
-              :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
-              :backendUrl='backendUrl'    
-              @showLoading="isLoading=true" 
-              @hideLoading="isLoading=false"     
-              @toDisplaySchedule='displaySchedule'   
-              @toRefreshCarsBrowser="toRefreshCarsBrowser++"
-              @toRefreshExpressions="fetchExpressions()" 
-              @setDatatableToDisplay='setDatatableToDisplay'
-              :imagesUrl = 'imagesUrl' />
+          <div class='w-full'>
+              <Datatable  
+                  :key='toRefreshDatatable'
+                  :currentViewedDatatable = currentViewedDatatable
+                  :setDatatableToDisplay='setDatatableToDisplay' 
+                  :expressions='expressions' 
+                  :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
+                  :backendUrl='backendUrl'    
+                  @showLoading="isLoading=true" 
+                  @hideLoading="isLoading=false"     
+                  @toDisplaySchedule='displaySchedule'   
+                  @toRefreshCarsBrowser="toRefreshCarsBrowser++"
+                  @toRefreshExpressions="fetchExpressions()" 
+                  @setDatatableToDisplay='setDatatableToDisplay'
+                  :imagesUrl = 'imagesUrl' />
+
+          </div>
         </template>
 
-      </div>
 
 
 

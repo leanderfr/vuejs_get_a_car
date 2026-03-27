@@ -803,6 +803,10 @@ video {
   min-height: 4rem;
 }
 
+.min-h-\[60px\] {
+  min-height: 60px;
+}
+
 .min-h-full {
   min-height: 100%;
 }
@@ -2022,6 +2026,7 @@ input:checked + .slider_language:before {
 
 #mainContainer {
   display: flex;
+  height: 100%;
   width: 100%;
   flex-direction: row;
 }
@@ -2097,7 +2102,7 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 
 #mainMenu {
   display: flex;
-  height: 60px;
+  min-height: 60px;
   flex-direction: row;
   border-top-width: 1px;
   border-bottom-width: 1px;
