@@ -1,7 +1,10 @@
 
-<template>
+  <!-- car images hosted in AWS S3 -->
+  <template v-if='cars.length!=0' >
 
-  <div class='overflow-y-visible overflow-x-hidden flex flex-col '> 
+
+
+  <div class=' flex flex-col ' >
 
 <!--
 
@@ -23,8 +26,6 @@
 -->
 
 
-    <!-- car images hosted in AWS S3 -->
-    <template v-if='cars.length!=0' >
         <div :id="'carCard' + car.id" class='carCard' :class='{carCardSelected: props.selectedCar==car.id}' v-for='car in cars' :key='car.id' 
             :style="{ 
               backgroundImage: `url(https://leanderdev.com.br/vuejs_get_a_car/backend_php/car_images/car_${car.id}.png?${strToAvoidCache})` ,
@@ -40,7 +41,6 @@
             <span>{{car.plate}}</span>
 -->
         </div>
-      </template>
 
     </div>
 

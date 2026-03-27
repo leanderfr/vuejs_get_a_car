@@ -241,7 +241,7 @@ async function refreshBookingDatesAndContent() {
     // matches the width of the schedule data with the schedule header
     setTimeout(() => {
       let width=parseInt($("#scheduleData").width(), 10)
-      //$("#scheduleHeader").width( width+2 )
+      $("#scheduleHeader").width( width+2 )
     
     }, 100);
 
@@ -252,11 +252,11 @@ async function refreshBookingDatesAndContent() {
       let h2=$("#scheduleHeader").height()
       let h3=$("#scheduleHeader").height()
 
-//      $("#rightCarsBrowserContainer").height( heightSchedule )
-//      $("#rightCarsBrowserContainer").css('margin-top', (h1+h2))
+      $("#rightCarsBrowserContainer").height( heightSchedule )
+      $("#rightCarsBrowserContainer").css('margin-top', (h1+h2))
 
       // the datatable was hidden to avoid elements jumps and weird behave while fixing positions and sizes
-//      $("#scheduleContainer").css('visibility', 'visible')
+      $("#scheduleContainer").css('visibility', 'visible')
     }, 1000);
 
 

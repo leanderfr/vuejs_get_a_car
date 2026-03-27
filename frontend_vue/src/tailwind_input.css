@@ -19,7 +19,7 @@ overflow: hidden !important;
 though this was thought to be a tailwind file, I use some moments vanilla css to prove I know it too 
 *****************************************************************************************************/
 .headerBar {
-@apply flex flex-row  justify-between w-full items-center p-0 mb-2 min-h-16 bg-yellow-300;
+@apply flex flex-row  justify-between w-full items-center p-0 mb-2 min-h-16 ;
 }
 
 #headerLogo {
@@ -215,22 +215,22 @@ align-items: center;
 }
 
 #leftScheduleContainer {
-@apply flex flex-col bg-slate-500 grow
+@apply flex flex-col grow 
 }
 
 /* unfortunately, the height of the right car browser will be set in jscript, there's no time now to
 find out why the flex div (rightCarsBrowserContainer) is overflowing its container (mainContainer) */
 #rightCarsBrowserContainer {
-@apply flex flex-col  border-y-gray-300 border-y-2 pl-2 pr-1 bg-red-600 overflow-y-visible w-[15%] h-full
+@apply flex flex-col  border-y-gray-300 border-y-2 pl-2 pr-1   w-[15%] h-full overflow-y-scroll overflow-x-hidden
 }
 
 
 #carsBrowser {
-  @apply flex flex-col items-center pl-2  overflow-y-visible
+  @apply flex flex-col items-center pl-2  overflow-y-visible h-auto
 }
 
 .carCard {
-  @apply  hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center pr-2 
+  @apply  hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center pr-2 flex
       border-transparent border-[3px] flex flex-col h-[180px] w-[200px] pl-2 text-right text-gray-500
 }
 .carCardSelected { 

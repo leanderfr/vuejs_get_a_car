@@ -1832,8 +1832,6 @@ though this was thought to be a tailwind file, I use some moments vanilla css to
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  --tw-bg-opacity: 1;
-  background-color: rgb(253 224 71 / var(--tw-bg-opacity, 1));
   padding: 0px;
 }
 
@@ -2032,8 +2030,6 @@ input:checked + .slider_language:before {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
 }
 
 /* unfortunately, the height of the right car browser will be set in jscript, there's no time now to
@@ -2044,20 +2040,20 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   height: 100%;
   width: 15%;
   flex-direction: column;
-  overflow-y: visible;
+  overflow-x: hidden;
+  overflow-y: scroll;
   border-top-width: 2px;
   border-bottom-width: 2px;
   --tw-border-opacity: 1;
   border-top-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
   border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
   padding-left: 0.5rem;
   padding-right: 0.25rem;
 }
 
 #carsBrowser {
   display: flex;
+  height: auto;
   flex-direction: column;
   align-items: center;
   overflow-y: visible;

@@ -63,7 +63,7 @@
 
       <div id='mainContainer'>
 
-          <div class='h-full bg-gray-300 flex flex-row w-full'>
+          <div class='h-full  flex flex-row w-full'>
 
           <!-- display schedule/cars browser only if theres at least 1 car, 1 expression and the user asked to see it (toDisplaySchedule) -->
           <!-- Schedule needs JS files ready  (neededJsLoaded) -->
