@@ -7,8 +7,8 @@ use Aws\S3\Exception\S3Exception as S3;
 // informs the received route is incorrect
 //*********************************************************************************
 function routeError($detail='') {
-  http_response_code(500);     
-  //header("HTTP/1.1 500 Internal Server Error");
+  //http_response_code(500);     
+  header("HTTP/1.1 500 Internal Server Error");
   die('Error with the route= '.$detail);
 }
 
@@ -18,8 +18,8 @@ function routeError($detail='') {
 //*********************************************************************************************************
 
 function internalError($message = 'Internal Error') {
-  http_response_code(500);   
-  //header("HTTP/1.1 500 Internal Server Error");
+//  http_response_code(500);   
+  header("HTTP/1.1 500 Internal Server Error");
 
   // showing error message because this is just a demonstration app, not a comercial software
   die( $message );

@@ -252,6 +252,13 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 @apply border-2 border-blue-950 hover:border-blue-500 w-[170px] cursor-pointer align-middle flex items-center justify-end text-gray-950 pr-3 bg-[#b3d1ff];
 }
 
+.optionBackend {
+@apply border-2  h-[65px] border-transparent hover:border-blue-500 w-[90px] cursor-pointer align-middle flex items-center justify-center text-gray-500  ;
+}
+.optionBackendClicked {
+@apply border-2 border-blue-950 h-[65px]  hover:border-blue-500 w-[90px] cursor-pointer align-middle flex items-center justify-center text-gray-950 bg-[#b3d1ff];
+}
+
 
 .itemMenuExpressions {
 @apply bg-no-repeat bg-icon-expressions  bg-[size:40px_40px] bg-[10px_center]
@@ -262,6 +269,13 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 .itemMenuSchedule {
 @apply bg-no-repeat bg-icon-schedule  bg-[size:40px_40px] bg-[10px_center]
 }
+.itemMenuAccessesEnabled {
+@apply bg-no-repeat bg-icon-accesses  bg-[size:40px_40px] bg-[10px_center] text-black
+}
+.itemMenuAccessesDisabled {
+@apply bg-no-repeat bg-icon-accesses-disabled  bg-[size:40px_40px] bg-[10px_center] text-gray-300
+}
+
 
 
 .btnICON {

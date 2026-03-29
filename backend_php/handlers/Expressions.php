@@ -150,7 +150,7 @@ class Expressions
 
     // if no ID's been informed, its a POST, new record
     if ($expression_id=='')    {
-      $crudSql = "insert into expression(item, english, portuguese, created_at, updated_at, active) ". 
+      $crudSql = "insert into expressions(item, english, portuguese, created_at, updated_at, active) ". 
                 "select '$item', '$english', '$portuguese', now(), now(), true "; 
       $dbOperation = 'insert';
     }
