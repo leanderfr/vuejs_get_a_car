@@ -230,7 +230,7 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 
 .carCard {
   @apply  hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center  flex 
-      border-transparent border-[3px]  flex-col h-[160px] w-[220px]  text-right text-gray-500
+      border-transparent border-[3px]  flex-col h-[160px] w-[210px]  text-right text-gray-500
 }
 .carCardSelected { 
   @apply border-[navy] border-[3px]

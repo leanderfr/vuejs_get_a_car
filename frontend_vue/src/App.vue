@@ -104,7 +104,7 @@
 
 
               <!-- right corner, cars browser -->
-              <div id='rightCarsBrowserContainer' class='[scrollbar-gutter:stable]' >
+              <div id='rightCarsBrowserContainer' class='mr-3' >
 
                 <CarsBrowser 
                   :key='toRefreshCarsBrowser' 
@@ -154,8 +154,8 @@
       -->
 
  
-      <div class='flex flex-row text-[16px] font-bold gap-7 h-[65px] align-middle bg-gray-200 absolute bottom-0 w-full py-[2px] text-gray-500'> 
-        <div class='flex flex-row items-center gap-3 pl-4 ' >
+      <div class='flex flex-row text-[16px] font-bold h-[65px] align-middle bg-gray-200 absolute bottom-0 w-full py-[2px] text-gray-500 justify-between'> 
+        <div class='flex flex-row items-center gap-3 pl-4  flex-1' >
           Frontend:
           <img src="./assets/images/html5.png" class='h-[45px]' alt='' />
           <img src="./assets/images/css3.png" class='h-[45px]' alt='' />
@@ -164,7 +164,7 @@
           <img src="./assets/images/vuejs.png" class='h-[45px]' alt='' />
           <img src="./assets/images/jquery.png" class='h-[45px]' alt='' />
         </div>
-        <div class='flex flex-row items-center gap-3 pl-7' >
+        <div class='flex flex-row items-center gap-3 pl-7 flex-1 justify-center'  >
           Current Backend:
           <div :class="currentBackend=='php' ? 'optionBackendClicked' : 'optionBackend'" @click="currentBackend='php';"  aria-hidden="true">
             <img src="./assets/images/php.png" class='h-[60px]' alt='' />
@@ -173,11 +173,12 @@
             <img src="./assets/images/nodejs.png" class='h-[45px]' alt='' />
           </div>
         </div>
-        <div class='flex flex-row w-20' ></div>
-        <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg'
-          @click="openNewTab('https://github.com/leanderfr/hm_vue_php_test')"  >
-          {{ expressions.source_code }}
-          <img src="./assets/images/github.png" alt='' class="pl-3"  />
+        <div class='flex-1 flex'>
+            <div class=' flex flex-row items-center justify-center   hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer rounded-lg w-[70%]'
+              @click="openNewTab('https://github.com/leanderfr/hm_vue_php_test')"  >
+              {{ expressions.source_code }}
+              <img src="./assets/images/github.png" alt='' class="pl-3"  />
+            </div>
         </div>
   <!--
         <div class='flex flex-row w-20' ></div>
@@ -410,7 +411,7 @@
     })
     .catch((error) => {
       isLoading.value = false;
-      slidingMessage('Error= '+error, 3000)        
+      slidingMessage(error, 3000)        
     })  
   }
 

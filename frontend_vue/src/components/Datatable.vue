@@ -332,7 +332,7 @@ async function fetchData() {
   })
   .catch((error) => {
     emit('hideLoading')
-    slidingMessage('Error= '+error, 3000)        
+    slidingMessage(error, 3000)        
   })  
 }
 
@@ -385,7 +385,7 @@ async function changeStatus (id) {
   })
   .catch((error) => {
     emit('hideLoading')
-    slidingMessage('Error= '+error, 3000)        
+    slidingMessage(error, 3000)        
   })  
 }
 

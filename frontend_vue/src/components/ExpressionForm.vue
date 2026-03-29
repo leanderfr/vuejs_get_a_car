@@ -229,7 +229,7 @@ async function saveExpression()  {
   })
   .catch((error) => {
     emit('hideLoading')
-    slidingMessage('Error= '+error, 3000)        
+    slidingMessage(error, 3000)        
   })  
 
 }

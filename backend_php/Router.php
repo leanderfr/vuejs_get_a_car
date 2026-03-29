@@ -49,6 +49,7 @@ class Router
         http_response_code(500);   // 500= erro interno
         // I wont give much details
         //echo "Page not found, invalid route or invalid method";
+        header("HTTP/1.1 500 Internal Server Error");
         die ("Missing route");
     }
 }

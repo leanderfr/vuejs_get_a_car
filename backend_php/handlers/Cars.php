@@ -85,15 +85,15 @@ class Cars
 
     // if it is posting ($car_id==''), get the usual $_POST from php
     if ($car_id=='')    {
-//      $_FIELDS = $_POST;
-    }
+      $_FIELDS = $_POST;
+    } 
 
-    // otherwise, use the PHP 8.4 request_parse_body() 
+    // otherwise, parse the multipart form data received 
     else {
-    //  [$_FIELDS, $_FILES] = request_parse_body();
+      $_FIELDS = array(); 
+      parse_raw_http_request($_FIELDS); 
     }
 
-    $_FIELDS = $_POST;
 
     $dataError = '';
     for ($i=0; $i < count($fields); $i++)  {
@@ -148,7 +148,7 @@ class Cars
 
     // if no ID's been informed, its a POST, new record
     if ($car_id=='')    {
-      $crudSql = "insert into car(description, plate, created_at, updated_at, active) ". 
+      $crudSql = "insert into cars(description, plate, created_at, updated_at, active) ". 
                 "select '$description', '$plate', now(), now(), true "; 
       $dbOperation = 'insert';
     }

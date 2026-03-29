@@ -111,6 +111,24 @@ if ($patchRequest) {
     $router->Patch("/expression/{id}", function($id) use($handlerExpressions)  {  
       $handlerExpressions->postOrPatchExpression($id);
     });
+
+    $router->Patch("/car/{id}", function($id) use($handlerCars)  {  
+      $handlerCars->postOrPatchCar($id);
+    });
+
+    $router->Patch("/expression/status/{id}", function($id) use($handlerExpressions)  {  
+      $handlerExpressions->ChangeStatus($id);
+    });
+
+    $router->Patch("/booking/{id}", function($id) use($handlerBookings)  {  
+      $handlerBookings->postOrPatchBooking($id);
+    });
+
+    $router->Patch("/car/status/{id}", function($id) use($handlerCars)  {  
+      $handlerCars->ChangeStatus($id);
+    });
+
+
 }
 
 //*********************************************************************************************************************************************************
@@ -122,22 +140,16 @@ if ($postRequest) {
       $handlerExpressions->postOrPatchExpression();
     });
 
-    $router->Patch("/expression/status/{id}", function($id) use($handlerExpressions)  {  
-      $handlerExpressions->ChangeStatus($id);
+
+    $router->Post("/car", function() use($handlerCars)  {  
+      $handlerCars->postOrPatchCar();
     });
 
-    $router->Patch("/car/{id}", function($id) use($handlerCars)  {  
-      $handlerCars->postOrPatchCar($id);
-    });
-
-    $router->Patch("/booking/{id}", function($id) use($handlerBookings)  {  
-      $handlerBookings->postOrPatchBooking($id);
+    $router->Post("/booking", function() use($handlerBookings)  {  
+      $handlerBookings->postOrPatchBooking();
     });
 
 
-    $router->Patch("/car/status/{id}", function($id) use($handlerCars)  {  
-      $handlerCars->ChangeStatus($id);
-    });
 
 
 

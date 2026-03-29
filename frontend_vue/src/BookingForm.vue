@@ -459,7 +459,7 @@ async function  deleteBooking()  {
   })
   .catch((error) => {
     emit('hideLoading')
-    slidingMessage('Error= '+error, 2000)        
+    slidingMessage(error, 2000)        
   })  
 
 }

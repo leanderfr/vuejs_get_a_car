@@ -268,7 +268,7 @@ async function saveCar()  {
   })
   .catch((error) => {
     emit('hideLoading')
-    slidingMessage('Error= '+error, 3000)        
+    slidingMessage(error, 3000)        
   })  
 
 }

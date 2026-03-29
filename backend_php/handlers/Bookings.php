@@ -109,15 +109,14 @@ class Bookings
 
     // if it is posting ($booking_id==''), get the usual $_POST from php
     if ($booking_id=='')    {
-//      $_FIELDS = $_POST;
+      $_FIELDS = $_POST;
     }
 
-    // otherwise, use the PHP 8.4 request_parse_body() 
+    // otherwise, parse the multipart form data received 
     else {
-//      [$_FIELDS] = request_parse_body();
+      $_FIELDS = array();
+      parse_raw_http_request($_FIELDS);
     }
-
-    $_FIELDS = $_POST;
 
 
     $dataError = '';

@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class='flex flex-col grow ' id='scheduleContainer'>
+  <div class='flex flex-col grow pl-3' id='scheduleContainer'>
 
     <div id="divCALENDAR" ></div>
 
