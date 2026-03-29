@@ -149,7 +149,7 @@
       -->
 
  
-      <div class='flex flex-row text-[16px] font-bold gap-7 basis-[120px] align-middle bg-gray-200 absolute bottom-0 w-full py-[2px]'> 
+      <div class='flex flex-row text-[16px] font-bold gap-7 h-[65px] align-middle bg-gray-200 absolute bottom-0 w-full py-[2px]'> 
         <div class='flex flex-row items-center gap-3 pl-4' >
           Frontend:
           <img src="./assets/images/html5.png" class='h-[45px]' alt='' />
@@ -159,9 +159,10 @@
           <img src="./assets/images/vuejs.png" class='h-[45px]' alt='' />
           <img src="./assets/images/jquery.png" class='h-[45px]' alt='' />
         </div>
-        <div class='flex flex-row items-center gap-3' >
+        <div class='flex flex-row items-center gap-3 pl-7' >
           Backend:
-          <img src="./assets/images/php.svg" alt='' />
+          <img src="./assets/images/php.png" class='h-[75px]' alt='' />
+          <img src="./assets/images/nodejs.png" class='h-[45px]' alt='' />
         </div>
         <div class='flex flex-row w-20' ></div>
         <div class='flex flex-row items-center justify-center gap-3  hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer w-[250px] rounded-lg'
