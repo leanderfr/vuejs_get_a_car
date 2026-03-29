@@ -40,15 +40,15 @@
 
       <div id='mainMenu'>
 
-        <div class='itemMenu itemMenuExpressions' @click="setDatatableToDisplay('expression')"  aria-hidden="true">
-          {{ expressions.expressions }}
+        <div class='itemMenuExpressions' :class="currentMenuItem=='expressions' ? 'itemMenuClicked' : 'itemMenu'" @click="currentMenuItem='expressions';setDatatableToDisplay('expression')"  aria-hidden="true">
+          {{ expressions.expressions }} 
         </div>
 
-        <div class='itemMenu itemMenuCars' @click="setDatatableToDisplay('car')"  aria-hidden="true">
+        <div class='itemMenuCars' :class="currentMenuItem=='cars' ? 'itemMenuClicked' : 'itemMenu'" @click="currentMenuItem='cars';setDatatableToDisplay('car')"  aria-hidden="true">
           {{ expressions.cars }}
         </div>
 
-        <div class='itemMenu itemMenuSchedule' @click="displaySchedule()"  aria-hidden="true">
+        <div class='itemMenuSchedule' :class="currentMenuItem=='schedule' ? 'itemMenuClicked' : 'itemMenu'" @click="currentMenuItem='schedule';displaySchedule()"  aria-hidden="true">
           {{ expressions.schedule }}
         </div>
 
@@ -99,7 +99,7 @@
 
 
               <!-- right corner, cars browser -->
-              <div id='rightCarsBrowserContainer'  >
+              <div id='rightCarsBrowserContainer' class='[scrollbar-gutter:stable]' >
 
                 <CarsBrowser 
                   :key='toRefreshCarsBrowser' 
@@ -152,7 +152,12 @@
       <div class='flex flex-row text-[16px] font-bold gap-7 basis-[120px] align-middle bg-gray-200 absolute bottom-0 w-full py-[2px]'> 
         <div class='flex flex-row items-center gap-3 pl-4' >
           Frontend:
-          <img src="./assets/images/vue.svg" alt='' />
+          <img src="./assets/images/html5.png" class='h-[45px]' alt='' />
+          <img src="./assets/images/css3.png" class='h-[45px]' alt='' />
+          <img src="./assets/images/jscript.png" class='h-[45px]' alt='' />
+          <img src="./assets/images/tailwind.png" class='h-[45px]' alt='' />
+          <img src="./assets/images/vuejs.png" class='h-[45px]' alt='' />
+          <img src="./assets/images/jquery.png" class='h-[45px]' alt='' />
         </div>
         <div class='flex flex-row items-center gap-3' >
           Backend:
@@ -221,8 +226,6 @@
   import 'jquery-ui-bundle';
   import 'jquery-ui-bundle/jquery-ui.min.css';
 
-  import '@fontsource-variable/roboto';
-
   //const emit = defineEmits( ['setDatatableToDisplay', 'toDisplaySchedule'] );
 
 
@@ -239,6 +242,8 @@
   const expressions = ref([])  
   const isLoading = ref(true)
   const error = ref(null)
+
+  const currentMenuItem = ref('schedule')   
 
   // it changes depending if the app is running as a container (AWS EC2) or locally
   //const backendUrl = ref('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8073')  

@@ -220,17 +220,17 @@ align-items: center;
 /* unfortunately, the height of the right car browser will be set in jscript, there's no time now to
 find out why the flex div (rightCarsBrowserContainer) is overflowing its container (mainContainer) */
 #rightCarsBrowserContainer {
-@apply flex flex-col  border-y-gray-300 border-y-2 pl-2 pr-1   w-[15%] h-full overflow-y-scroll overflow-x-hidden
+@apply flex flex-col  border-y-gray-300 border-y-2 pl-2 pr-2  w-[250px] h-full box-border overflow-y-scroll overflow-x-hidden
 }
 
 
 #carsBrowser {
-  @apply flex flex-col items-center pl-2  overflow-y-visible h-auto
+  @apply flex flex-col items-center pl-2  h-auto
 }
 
 .carCard {
-  @apply  hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center pr-2 flex
-      border-transparent border-[3px] flex flex-col h-[180px] w-[200px] pl-2 text-right text-gray-500
+  @apply  hover:border-gray-700 hover:border-[3px] cursor-pointer justify-center  flex 
+      border-transparent border-[3px]  flex-col h-[160px] w-[220px]  text-right text-gray-500
 }
 .carCardSelected { 
   @apply border-[navy] border-[3px]
@@ -246,17 +246,21 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 }
 
 .itemMenu {
-@apply border-2 border-transparent hover:border-blue-500 w-[170px] cursor-pointer  pr-2 align-middle flex items-center justify-end text-gray-500 pr-3;
+@apply border-2 bg-[#e6f0ff] border-transparent hover:border-blue-500 w-[170px] cursor-pointer align-middle flex items-center justify-end text-gray-500 pr-3;
+}
+.itemMenuClicked {
+@apply border-2 border-blue-950 hover:border-blue-500 w-[170px] cursor-pointer align-middle flex items-center justify-end text-gray-950 pr-3 bg-[#b3d1ff];
 }
 
+
 .itemMenuExpressions {
-@apply bg-transparent bg-no-repeat bg-icon-expressions  bg-[size:40px_40px] bg-[10px_center]
+@apply bg-no-repeat bg-icon-expressions  bg-[size:40px_40px] bg-[10px_center]
 }
 .itemMenuCars {
-@apply bg-transparent bg-no-repeat bg-icon-car  bg-[size:40px_40px] bg-[10px_center]
+@apply bg-no-repeat bg-icon-car  bg-[size:40px_40px] bg-[10px_center]
 }
 .itemMenuSchedule {
-@apply bg-transparent bg-no-repeat bg-icon-schedule  bg-[size:40px_40px] bg-[10px_center]
+@apply bg-no-repeat bg-icon-schedule  bg-[size:40px_40px] bg-[10px_center]
 }
 
 

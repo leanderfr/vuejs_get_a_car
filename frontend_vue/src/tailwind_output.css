@@ -600,6 +600,10 @@ video {
   visibility: collapse;
 }
 
+.static {
+  position: static;
+}
+
 .fixed {
   position: fixed;
 }
@@ -681,6 +685,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.mr-5 {
+  margin-right: 1.25rem;
+}
+
 .mr-6 {
   margin-right: 1.5rem;
 }
@@ -699,6 +707,10 @@ video {
 
 .inline-block {
   display: inline-block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -745,8 +757,8 @@ video {
   height: 2.25rem;
 }
 
-.h-\[180px\] {
-  height: 180px;
+.h-\[160px\] {
+  height: 160px;
 }
 
 .h-\[1px\] {
@@ -763,6 +775,10 @@ video {
 
 .h-\[40px\] {
   height: 40px;
+}
+
+.h-\[45px\] {
+  height: 45px;
 }
 
 .h-\[60px\] {
@@ -843,10 +859,6 @@ video {
   width: 130px;
 }
 
-.w-\[15\%\] {
-  width: 15%;
-}
-
 .w-\[150px\] {
   width: 150px;
 }
@@ -859,8 +871,8 @@ video {
   width: 20%;
 }
 
-.w-\[200px\] {
-  width: 200px;
+.w-\[220px\] {
+  width: 220px;
 }
 
 .w-\[250px\] {
@@ -1166,6 +1178,11 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
 }
 
+.border-blue-950 {
+  --tw-border-opacity: 1;
+  border-color: rgb(23 37 84 / var(--tw-border-opacity, 1));
+}
+
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
@@ -1213,6 +1230,11 @@ video {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
+.border-yellow-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(234 179 8 / var(--tw-border-opacity, 1));
 }
 
 .border-y-gray-300 {
@@ -1264,6 +1286,11 @@ video {
 .bg-\[\#FFC266\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 194 102 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#b3d1ff\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(179 209 255 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[\#e6f0ff\] {
@@ -1612,6 +1639,10 @@ video {
   padding-left: 1rem;
 }
 
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
 .pl-6 {
   padding-left: 1.5rem;
 }
@@ -1634,6 +1665,10 @@ video {
 
 .pr-3 {
   padding-right: 0.75rem;
+}
+
+.pr-5 {
+  padding-right: 1.25rem;
 }
 
 .pt-1 {
@@ -1749,6 +1784,11 @@ video {
   color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
 
+.text-gray-950 {
+  --tw-text-opacity: 1;
+  color: rgb(3 7 18 / var(--tw-text-opacity, 1));
+}
+
 .text-red-300 {
   --tw-text-opacity: 1;
   color: rgb(252 165 165 / var(--tw-text-opacity, 1));
@@ -1813,6 +1853,10 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.\[scrollbar-gutter\:stable\] {
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -2041,9 +2085,10 @@ input:checked + .slider_language:before {
 find out why the flex div (rightCarsBrowserContainer) is overflowing its container (mainContainer) */
 
 #rightCarsBrowserContainer {
+  box-sizing: border-box;
   display: flex;
   height: 100%;
-  width: 15%;
+  width: 250px;
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -2053,7 +2098,7 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   border-top-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
   border-bottom-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
   padding-left: 0.5rem;
-  padding-right: 0.25rem;
+  padding-right: 0.5rem;
 }
 
 #carsBrowser {
@@ -2061,21 +2106,18 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   height: auto;
   flex-direction: column;
   align-items: center;
-  overflow-y: visible;
   padding-left: 0.5rem;
 }
 
 .carCard {
   display: flex;
-  height: 180px;
-  width: 200px;
+  height: 160px;
+  width: 220px;
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
   border-width: 3px;
   border-color: transparent;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
   text-align: right;
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity, 1));
@@ -2123,6 +2165,8 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   justify-content: flex-end;
   border-width: 2px;
   border-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 240 255 / var(--tw-bg-opacity, 1));
   padding-right: 0.75rem;
   vertical-align: middle;
   --tw-text-opacity: 1;
@@ -2134,8 +2178,29 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
 }
 
+.itemMenuClicked {
+  display: flex;
+  width: 170px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: flex-end;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(23 37 84 / var(--tw-border-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(179 209 255 / var(--tw-bg-opacity, 1));
+  padding-right: 0.75rem;
+  vertical-align: middle;
+  --tw-text-opacity: 1;
+  color: rgb(3 7 18 / var(--tw-text-opacity, 1));
+}
+
+.itemMenuClicked:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
+}
+
 .itemMenuExpressions {
-  background-color: transparent;
   background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 2 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path opacity='0.5' d='M13 7L3 7' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path opacity='0.5' d='M10 12H3' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path opacity='0.5' d='M8 17H3' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path d='M11.3161 16.6922C11.1461 17.07 11.3145 17.514 11.6922 17.6839C12.07 17.8539 12.514 17.6855 12.6839 17.3078L11.3161 16.6922ZM16.5 7L17.1839 6.69223C17.0628 6.42309 16.7951 6.25 16.5 6.25C16.2049 6.25 15.9372 6.42309 15.8161 6.69223L16.5 7ZM20.3161 17.3078C20.486 17.6855 20.93 17.8539 21.3078 17.6839C21.6855 17.514 21.8539 17.07 21.6839 16.6922L20.3161 17.3078ZM19.3636 13.3636L20.0476 13.0559L19.3636 13.3636ZM13.6364 12.6136C13.2222 12.6136 12.8864 12.9494 12.8864 13.3636C12.8864 13.7779 13.2222 14.1136 13.6364 14.1136V12.6136ZM12.6839 17.3078L17.1839 7.30777L15.8161 6.69223L11.3161 16.6922L12.6839 17.3078ZM21.6839 16.6922L20.0476 13.0559L18.6797 13.6714L20.3161 17.3078L21.6839 16.6922ZM20.0476 13.0559L17.1839 6.69223L15.8161 7.30777L18.6797 13.6714L20.0476 13.0559ZM19.3636 12.6136H13.6364V14.1136H19.3636V12.6136Z' fill='navy'></path> </g></svg>");
   background-size: 40px 40px;
   background-position: 10px center;
@@ -2143,7 +2208,6 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 }
 
 .itemMenuCars {
-  background-color: transparent;
   background-image: url("data:image/svg+xml,<svg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' aria-hidden='true' role='img' class='iconify iconify--gis' preserveAspectRatio='xMidYMid meet' fill='black' stroke='black'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M49.368 11.228c-11.646-.171-27.826.079-31.156 9.027l-8.184 19.204a2.85 2.85 0 0 0-1.37-.865l-3.296-.927a2.86 2.86 0 0 0-3.534 1.983l-1.72 6.104a2.86 2.86 0 0 0 1.983 3.535l3.297.927c.11.03.22.04.33.059c-.63 1.569-1.023 3.295-1.023 4.322v22.32c0 1.145.48 1.674 1.243 1.922v5.947a4.008 4.008 0 0 0 4.017 4.017H20.73a4.008 4.008 0 0 0 4.017-4.017v-5.729h50.504v5.729a4.01 4.01 0 0 0 4.018 4.017h10.775a4.01 4.01 0 0 0 4.019-4.017v-5.947c.763-.248 1.24-.777 1.24-1.922v-22.32c0-1.027-.393-2.753-1.022-4.322c.11-.018.22-.028.33-.06l3.297-.926a2.86 2.86 0 0 0 1.982-3.535l-1.717-6.104a2.861 2.861 0 0 0-3.536-1.983l-3.295.927a2.855 2.855 0 0 0-1.37.865l-8.185-19.204c-3.57-9.084-20.773-8.856-32.42-9.027zm33.358 29.444c.194.576-.386.96-.993.995c0 0-1.984.168-4.72.389c-2.082-4.864-6.92-8.292-12.525-8.292c-6.151 0-11.373 4.13-13.048 9.754c-.464.006-1.003.026-1.435.026c-10.596 0-31.738-1.877-31.738-1.877c-.607-.036-1.187-.419-.993-.995c8.142-24.821 8.385-22.955 32.275-22.694c23.891.26 24.03-1.513 33.177 22.694zm-18.238-2.217a8.886 8.886 0 0 1 7.447 3.991c-4.785.356-10.292.719-15.424.93a8.879 8.879 0 0 1 7.977-4.921zM9.407 46.511c.072.106.142.213.221.317h-.31zm5.294 6.234c2.096-.035 13.348 3.753 13.348 3.753c1.405.395 2.642 3.051 2.635 4.511c-.021 4.917-12.71 3.21-17.86 3.23a2.63 2.63 0 0 1-2.635-2.634V55.38c0-1.46 2.416-2.6 4.512-2.635zm70.598 0c2.096.034 4.512 1.175 4.512 2.635v6.225a2.63 2.63 0 0 1-2.635 2.635c-5.15-.02-17.839 1.686-17.86-3.23c-.007-1.46 1.23-4.117 2.635-4.512c0 0 11.252-3.788 13.348-3.753z' fill='black'></path></g></svg>");
   background-size: 40px 40px;
   background-position: 10px center;
@@ -2151,7 +2215,6 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 }
 
 .itemMenuSchedule {
-  background-color: transparent;
   background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M52.618 13.061H12.142C9.20051 13.061 6.81598 15.4456 6.81598 18.387V47.501C6.81598 50.4425 9.20051 52.827 12.142 52.827H52.618C55.5595 52.827 57.944 50.4425 57.944 47.501V18.387C57.944 15.4456 55.5595 13.061 52.618 13.061Z' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M6.81598 24.423H57.944' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M21.018 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M43.742 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 34.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 42.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M29.713 34.22H35.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M45.714 34.22H51.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> </g></svg>");
   background-size: 40px 40px;
   background-position: 10px center;

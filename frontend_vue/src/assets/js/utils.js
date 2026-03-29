@@ -269,7 +269,7 @@ function improveTooltipLook() {
         tooltipClass: 'prettierTitle_black',  
         show: false,  
         hide: false,  
-        position: { my: "left top", at: "left top-40", collision: "flipfit" }
+        position: { my: "left bottom", at: "left bottom+40", collision: "flipfit" }
       })
     }
 
