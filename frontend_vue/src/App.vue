@@ -104,7 +104,7 @@
 
 
               <!-- right corner, cars browser -->
-              <div id='rightCarsBrowserContainer' class='mr-3' >
+              <div id='rightCarsBrowserContainer' class='mr-3 border-r-2' >
 
                 <CarsBrowser 
                   :key='toRefreshCarsBrowser' 
