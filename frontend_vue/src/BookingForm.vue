@@ -172,7 +172,7 @@ onMounted( () => {
 //************************************************************************************************************************************************************
 //************************************************************************************************************************************************************
 const userNeedsHelp = () => {
-  slidingMessage(props.expressions.user_needs_help, 2000)
+  slidingMessage(props.expressions.user_needs_help, 3000)
 }
 
 
@@ -320,7 +320,7 @@ async function  saveBooking()  {
 
   // show any error detected
   if (error!='') {
-    slidingMessage(error, 2000)
+    slidingMessage(error, 3000)
     return;
   }
 
@@ -355,10 +355,30 @@ async function  saveBooking()  {
   // drop off date must be greater than pick up
   let datesDifference = ( dropoffAlmostReady - pickupAlmostReady ) / 36e5;
   if (datesDifference < 0) {
-    slidingMessage(props.expressions.dropoff_greater_error, 2000)
+    slidingMessage(props.expressions.dropoff_greater_error, 3000)
     $('#txtDropOffDate').focus() 
     return
   }
+
+  //  the pickup and dropoff times must be within the business hours (05:00 - 23:59)
+  const beginBusinessDay = new Date('2026-01-01 05:00');
+  const endBusinessDay = new Date('2026-01-01 23:59');
+
+  const beginToCompare = new Date(`2026-01-01 ${pickUpHour}:${pickUpMinute}`);
+  const endToCompare = new Date(`2026-01-01 ${dropOffHour}:${dropOffMinute}`);
+
+  if ( beginToCompare < beginBusinessDay || beginToCompare > endBusinessDay  )  {
+    slidingMessage(props.expressions.pickuptime_limit_error, 3000)
+    $('#txtPickupHour').focus()   
+    return
+  }
+
+  if ( endToCompare < beginBusinessDay || endToCompare > endBusinessDay  )  {
+    slidingMessage(props.expressions.dropofftime_limit_error, 3000)
+    $('#txtPickupHour').focus()   
+    return
+  }
+
 
   // boooking must be at least  1 hour in advance
   let _minimumDate = new Date();  
@@ -368,7 +388,7 @@ async function  saveBooking()  {
   let datesDifference2 = ( pickupAlmostReady - minimumDate ) / 36e5;
 
   if (datesDifference1 < 0 || datesDifference2 < 0) {
-    slidingMessage(props.expressions.booking_hour_advance, 2000)
+    slidingMessage(props.expressions.booking_hour_advance, 3000)
     $('#txtDropOffDate').focus() 
     return
   }
@@ -459,7 +479,7 @@ async function  deleteBooking()  {
   })
   .catch((error) => {
     emit('hideLoading')
-    slidingMessage(error, 2000)        
+    slidingMessage(error, 3000)        
   })  
 
 }
