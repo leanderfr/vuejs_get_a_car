@@ -24,7 +24,7 @@
 
           <!-- icon previously used to mark/display all the cars reservations 
           deprecated, now the 'all cars' button in the carsBrowser does this, but the button below will still exist to perform the action -->
-          <div  class='invisible'  
+        <div  class='btnICON btnBOOKING_ALL_CARS putPrettierTooltip'  
                 :title="expressions.display_all_cars" 
                 @click="forceHideToolTip();emit('setNewSelectedCar', 0)"  aria-hidden="true"></div>    
 

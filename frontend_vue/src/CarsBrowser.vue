@@ -26,14 +26,15 @@
 -->
 
 
-        <div :id="'carCard' + car.id" class='carCard' :class='{carCardSelected: props.selectedCar==car.id}' v-for='car in cars' :key='car.id' 
+        <div :id="'carCard' + car.id" class='carCard putPrettierTooltip' :class='{carCardSelected: props.selectedCar==car.id}' v-for='car in cars' :key='car.id' 
             :style="{ 
               backgroundImage: `url(https://leanderdev.com.br/vuejs_get_a_car/backend_php/car_images/car_${car.id}.png?${strToAvoidCache})` ,
               backgroundRepeat: 'no-repeat',
               backgroundSize: '180px 90px',
               backgroundPosition: 'center center'
 
-            }" 
+            }"
+            :title="car.description" 
             @click="emit('setNewSelectedCar', car.id)"   >
 <!--
 
