@@ -167,10 +167,10 @@
         <div class='flex flex-row items-center gap-3 pl-7 flex-1 justify-center'  >
           Current Backend:
           <div :class="currentBackend=='php' ? 'optionBackendClicked' : 'optionBackend'" @click="currentBackend='php';"  aria-hidden="true">
-            <img src="./assets/images/php.png" class='h-[60px]' alt='' />
+            <img src="./assets/images/php_.png" class='h-[60px]' alt='' />
           </div>
           <div :class="currentBackend=='nodejs' ? 'optionBackendClicked' : 'optionBackend'" @click="currentBackend='nodejs';"  aria-hidden="true">
-            <img src="./assets/images/nodejs.png" class='h-[45px]' alt='' />
+            <img src="https://leanderdev.com.br/vuejs_get_a_car/images/_nodejs.png" class='h-[45px]' alt='' />
           </div>
         </div>
         <div class='flex-1 flex'>

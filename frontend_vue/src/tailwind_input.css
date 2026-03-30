@@ -259,6 +259,16 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 @apply border-2 border-blue-950 h-[65px]  hover:border-blue-500 w-[90px] cursor-pointer align-middle flex items-center justify-center text-gray-950 bg-[#b3d1ff];
 }
 
+.bookingStartingHourInfo {
+@apply bg-no-repeat bg-icon-pickuptime bg-[size:24px_24px] bg-[center_center] w-[24px] 
+}
+.bookingEndingHourInfo {
+@apply bg-no-repeat bg-icon-dropofftime bg-[size:24px_24px] bg-[center_center] w-[24px]
+}
+.bookingDriverInfo {
+@apply bg-no-repeat bg-icon-driver bg-[size:24px_24px] bg-[center_center] w-[24px]
+}
+
 
 .itemMenuExpressions {
 @apply bg-no-repeat bg-icon-expressions  bg-[size:40px_40px] bg-[10px_center]

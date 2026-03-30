@@ -548,8 +548,6 @@ const postItBookingDivs = () => {
       let tableRowBookingBottom = endingHour - 5
 
 
-console.log('ini='+startingHour+'---fim'+endingHour)
-
       // the <div> que contains the schedule (bookingsDiv), has children  <div>'s  for each hour (from 05:00 to 23:00)
       // and each hour has parent DIVs with the weekdays (mon - fri)
 

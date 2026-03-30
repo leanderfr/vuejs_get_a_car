@@ -685,6 +685,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
 .mr-5 {
   margin-right: 1.25rem;
 }
@@ -695,10 +699,6 @@ video {
 
 .mr-8 {
   margin-right: 2rem;
-}
-
-.mr-3 {
-  margin-right: 0.75rem;
 }
 
 .box-border {
@@ -881,6 +881,10 @@ video {
 
 .w-\[210px\] {
   width: 210px;
+}
+
+.w-\[24px\] {
+  width: 24px;
 }
 
 .w-\[250px\] {
@@ -1168,6 +1172,10 @@ video {
   border-right-width: 0px;
 }
 
+.border-r-2 {
+  border-right-width: 2px;
+}
+
 .border-t-2 {
   border-top-width: 2px;
 }
@@ -1178,10 +1186,6 @@ video {
 
 .border-t-\[1px\] {
   border-top-width: 1px;
-}
-
-.border-r-2 {
-  border-right-width: 2px;
 }
 
 .border-\[navy\] {
@@ -1518,6 +1522,14 @@ video {
   background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='rgb(0,0,0)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><line x1='32' y1='8' x2='32' y2='56'></line><line x1='56' y1='32' x2='8' y2='32'></line><polyline points='40 16 32 8 24 16'></polyline><polyline points='24 48 32 56 40 48'></polyline><polyline points='48 40 56 32 48 24'></polyline><polyline points='16 24 8 32 16 40'></polyline></g></svg>");
 }
 
+.bg-icon-driver {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='navy' width='24px' height='24px' viewBox='0 0 24 24' stroke='navy'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'></path></g></svg>");
+}
+
+.bg-icon-dropofftime {
+  background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='gray' transform='rotate(270)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g id='Arrow / Arrow_Up_Left_MD'> <path id='Vector' d='M17 17L7 7M7 7V15M7 7H15' stroke='gray' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path> </g> </g></svg>");
+}
+
 .bg-icon-expressions {
   background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 2 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path opacity='0.5' d='M13 7L3 7' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path opacity='0.5' d='M10 12H3' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path opacity='0.5' d='M8 17H3' stroke='navy' stroke-width='1.5' stroke-linecap='round'></path> <path d='M11.3161 16.6922C11.1461 17.07 11.3145 17.514 11.6922 17.6839C12.07 17.8539 12.514 17.6855 12.6839 17.3078L11.3161 16.6922ZM16.5 7L17.1839 6.69223C17.0628 6.42309 16.7951 6.25 16.5 6.25C16.2049 6.25 15.9372 6.42309 15.8161 6.69223L16.5 7ZM20.3161 17.3078C20.486 17.6855 20.93 17.8539 21.3078 17.6839C21.6855 17.514 21.8539 17.07 21.6839 16.6922L20.3161 17.3078ZM19.3636 13.3636L20.0476 13.0559L19.3636 13.3636ZM13.6364 12.6136C13.2222 12.6136 12.8864 12.9494 12.8864 13.3636C12.8864 13.7779 13.2222 14.1136 13.6364 14.1136V12.6136ZM12.6839 17.3078L17.1839 7.30777L15.8161 6.69223L11.3161 16.6922L12.6839 17.3078ZM21.6839 16.6922L20.0476 13.0559L18.6797 13.6714L20.3161 17.3078L21.6839 16.6922ZM20.0476 13.0559L17.1839 6.69223L15.8161 7.30777L18.6797 13.6714L20.0476 13.0559ZM19.3636 12.6136H13.6364V14.1136H19.3636V12.6136Z' fill='navy'></path> </g></svg>");
 }
@@ -1550,12 +1562,20 @@ video {
   background-image: url("data:image/svg+xml,<svg width='34px' height='34px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='gray' transform='rotate(180)' stroke='gray'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <title>/svg/ic-switch-on</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'> <g id='ic-switch-on' fill-rule='nonzero' fill='gray'> <path d='M3,12 C3,14.2046438 4.78852545,16 6.9947834,16 L17.0052166,16 C19.2082844,16 21,14.209139 21,12 C21,9.79535615 19.2114745,8 17.0052166,8 L6.9947834,8 C4.79171562,8 3,9.790861 3,12 Z M1,12 C1,8.68773136 3.68570682,6 6.9947834,6 L17.0052166,6 C20.3154275,6 23,8.69016475 23,12 C23,15.3122686 20.3142932,18 17.0052166,18 L6.9947834,18 C3.68457248,18 1,15.3098352 1,12 Z M17,15 C15.3431458,15 14,13.6568542 14,12 C14,10.3431458 15.3431458,9 17,9 C18.6568542,9 20,10.3431458 20,12 C20,13.6568542 18.6568542,15 17,15 Z' id='Rectangle-75'> </path> </g> </g> </g></svg>");
 }
 
+.bg-icon-pickuptime {
+  background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='green' transform='rotate(90)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g id='Arrow / Arrow_Up_Left_MD'> <path id='Vector' d='M17 17L7 7M7 7V15M7 7H15' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path> </g> </g></svg>");
+}
+
 .bg-icon-right-arrow {
   background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 -0.5 17 17' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='si-glyph si-glyph-arrow-thick-left' fill='rgb(0,0,0)' transform='rotate(180)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <title>1210</title> <defs> </defs> <g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'> <path d='M0.133,8.367 L6.073,13.713 C6.307,13.924 6.687,13.922 6.922,13.711 L6.927,9.983 L14.951,9.983 C15.504,9.983 15.951,9.544 15.951,9.001 L15.951,7.035 C15.951,6.492 15.504,6.053 14.951,6.053 L6.931,6.053 L6.936,2.243 C6.705,2.034 6.324,2.035 6.088,2.246 L0.134,7.603 C-0.099,7.816 -0.102,8.156 0.133,8.367 L0.133,8.367 Z' fill='rgb(128, 128, 128)' class='si-glyph-fill'> </path> </g> </g></svg>");
 }
 
 .bg-icon-schedule {
   background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <path d='M52.618 13.061H12.142C9.20051 13.061 6.81598 15.4456 6.81598 18.387V47.501C6.81598 50.4425 9.20051 52.827 12.142 52.827H52.618C55.5595 52.827 57.944 50.4425 57.944 47.501V18.387C57.944 15.4456 55.5595 13.061 52.618 13.061Z' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M6.81598 24.423H57.944' stroke='rgb(0,0,0)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M21.018 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M43.742 10.22V15.901' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 34.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M13.714 42.22H19.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M29.713 34.22H35.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> <path d='M45.714 34.22H51.047' stroke='rgb(66, 106, 178)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'></path> </g></svg>");
+}
+
+.bg-\[size\:24px_24px\] {
+  background-size: 24px 24px;
 }
 
 .bg-\[size\:40px_40px\] {
@@ -1572,6 +1592,10 @@ video {
 
 .bg-\[10px_center\] {
   background-position: 10px center;
+}
+
+.bg-\[center_center\] {
+  background-position: center center;
 }
 
 .bg-center {
@@ -1906,10 +1930,6 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-.\[scrollbar-gutter\:stable\] {
-  scrollbar-gutter: stable;
 }
 
 body {
@@ -2291,6 +2311,30 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 .optionBackendClicked:hover {
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity, 1));
+}
+
+.bookingStartingHourInfo {
+  width: 24px;
+  background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='green' transform='rotate(90)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g id='Arrow / Arrow_Up_Left_MD'> <path id='Vector' d='M17 17L7 7M7 7V15M7 7H15' stroke='green' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path> </g> </g></svg>");
+  background-size: 24px 24px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.bookingEndingHourInfo {
+  width: 24px;
+  background-image: url("data:image/svg+xml,<svg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='gray' transform='rotate(270)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g id='Arrow / Arrow_Up_Left_MD'> <path id='Vector' d='M17 17L7 7M7 7V15M7 7H15' stroke='gray' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path> </g> </g></svg>");
+  background-size: 24px 24px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.bookingDriverInfo {
+  width: 24px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' fill='navy' width='24px' height='24px' viewBox='0 0 24 24' stroke='navy'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'></path></g></svg>");
+  background-size: 24px 24px;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .itemMenuExpressions {
