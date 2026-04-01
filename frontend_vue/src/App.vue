@@ -287,8 +287,24 @@
   // user changes current selected car in the CarsBrowser component
   //***************************************************************************
   const setNewSelectedCar = (carId, carDescription) => {
+    // user click in the 'all cars' icon and it's already beeen clicked before, so, once the 'all cars' filter is on, gonna cancel 'all cars' 
+    // and filter schedule by the first car found in the car's browser
     if (selectedCar.value==0 && carId==0) {
-      slidingMessage(expressions.value.all_cars_already_selected, 3000)         
+      //slidingMessage(expressions.value.all_cars_already_selected, 3000)         
+
+      $('#carsBrowserDiv').find(".carCard").each(function() {
+          carId = $(this).attr('id').replace(/\D/g, ''); 
+          carDescription = $(this).attr('title')
+
+          $('#rightCarsBrowserContainer').animate({ scrollTop: 0 }, '50');
+
+          return false;
+      });
+    }
+    // user asks to show all cars schedule altogether, scroll the cars browser to the top
+    else if (carId==0) {
+          $('#rightCarsBrowserContainer').animate({ scrollTop: 0 }, '50');
+
     }
     selectedCar.value = carId
     currentCarName.value = carDescription

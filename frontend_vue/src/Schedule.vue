@@ -24,14 +24,14 @@
           <!-- new booking -->
           <div  class='btnICON btnBOOKING_ADD_CAR_RESERVATION putPrettierTooltip'  :title="expressions.new_booking"   @click="forceHideToolTip();newBookingRecord()" aria-hidden="true"></div>   
 
-          <!-- display calendar -->
-          <div  class='btnICON btnBOOKING_CALENDAR putPrettierTooltip' :title="expressions.choose_date" @click="forceHideToolTip();showCalendar=true" aria-hidden="true"></div>    
-
           <!-- icon previously used to mark/display all the cars reservations 
           deprecated, now the 'all cars' button in the carsBrowser does this, but the button below will still exist to perform the action -->
         <div :class="props.selectedCar==0 ? 'btnBOOKING_ALL_CARS_CLICKED' : 'btnBOOKING_ALL_CARS' " class='btnICON putPrettierTooltip'  
                 :title="expressions.display_all_cars_button" 
                 @click="forceHideToolTip();emit('setNewSelectedCar', 0, expressions.display_all_cars)"  aria-hidden="true"></div>    
+
+          <!-- display calendar -->
+          <div  class='btnICON btnBOOKING_CALENDAR putPrettierTooltip' :title="expressions.choose_date" @click="forceHideToolTip();showCalendar=true" aria-hidden="true"></div>    
 
           <!-- back 1 week   -->
           <div  class='btnICON btnBOOKING_LEFT_ARROW putPrettierTooltip'  :title="expressions.previous_week" @click="forceHideToolTip();browseBookingCalendar(-7)" aria-hidden="true"></div>   
