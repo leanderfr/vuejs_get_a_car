@@ -79,14 +79,15 @@
               ****************************************************************************************************************
               -->
 
-              <div id='leftScheduleContainer'>
+              <div id='leftScheduleContainer' >
 
                     <!-- if the user clicks in the 'NO FILTER' icon in the schedule screeen, setNewSelectedCar will be 0 -->
                     <Schedule 
                         :key='toRefreshSchedule' 
                         :expressions='expressions' 
                         :currentCountry="isUSASelected ? 'usa' : 'brazil'" 
-                        :backendUrl='backendUrl'    
+                        :currentCarName='currentCarName'
+                        :backendUrl='backendUrl'     
                         :imagesUrl = 'imagesUrl'
                         :selectedCar='selectedCar'
                         @setNewSelectedCar='setNewSelectedCar'
@@ -104,7 +105,7 @@
 
 
               <!-- right corner, cars browser -->
-              <div id='rightCarsBrowserContainer' class='mr-3 border-r-2' >
+              <div id='rightCarsBrowserContainer' class='mr-3 border-r-2 invisible' >
 
                 <CarsBrowser 
                   :key='toRefreshCarsBrowser' 
@@ -175,7 +176,7 @@
         </div>
         <div class='flex-1 flex'>
             <div class=' flex flex-row items-center justify-center   hover:border-blue-900 hover:border-4 border-4 border-transparent hover:cursor-pointer rounded-lg w-[70%]'
-              @click="openNewTab('https://github.com/leanderfr/hm_vue_php_test')"  >
+              @click="openNewTab('https://github.com/leanderfr/vuejs_get_a_car')"  >
               {{ expressions.source_code }}
               <img src="./assets/images/github.png" alt='' class="pl-3"  />
             </div>
@@ -242,7 +243,7 @@
 
   import { prepareLoadingAnimation, toWheelCarsBrowser, slidingMessage , preparePuppyIcon, loadScripts } from './assets/js/utils.js'
 
-
+  
   const neededJsLoaded = ref(false)   
 
   const toRefreshCarsBrowser = ref(0)  
@@ -276,6 +277,8 @@
   // if some datatable should be displayed
   const toDisplayDatatable = ref(false)
 
+  // current car name
+  const currentCarName = ref('') 
 
 
 
@@ -283,8 +286,13 @@
   //***************************************************************************
   // user changes current selected car in the CarsBrowser component
   //***************************************************************************
-  const setNewSelectedCar = (carId) => {
+  const setNewSelectedCar = (carId, carDescription) => {
+    if (selectedCar.value==0 && carId==0) {
+      slidingMessage(expressions.value.all_cars_already_selected, 3000)         
+    }
     selectedCar.value = carId
+    currentCarName.value = carDescription
+
     displaySchedule()
   }
 
@@ -295,7 +303,7 @@
     toDisplaySchedule.value = false;
     toDisplayDatatable.value = true;
 
-    selectedCar.value = -1  // removes highlight border from currently selected car
+//    selectedCar.value = -1  // removes highlight border from currently selected car
 
     toRefreshDatatable.value++
 
@@ -360,7 +368,10 @@
       Promise.all( [fetchExpressions()] ).then(() => {
           // here I wont close the loading animation, one of the components will do it - schedule or datatable, whichever finished loading first
           //  isLoading.value = false        
+      
       })
+
+
   })
 
   //***************************************************************************
@@ -408,6 +419,10 @@
     })
     .then((data) => {
       expressions.value = data;        
+      setTimeout(() => {
+        currentCarName.value = expressions.value.display_all_cars  
+      }, 1000);
+      
     })
     .catch((error) => {
       isLoading.value = false;

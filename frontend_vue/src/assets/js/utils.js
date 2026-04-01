@@ -181,6 +181,19 @@ const makeWindowDraggable = (title_id, window_id) => {
 }
 
 /***********************************************************************************************************************
+whenever each input type=text is focused, its content will be selected to ease the user's life
+***********************************************************************************************************************/
+const selectAllContentOnFocus = (divID) => {
+
+$(`#${divID}`).find("input[type=text]").focus(function() {
+    var self = $(this);
+    setTimeout(function(){
+        self.select();
+    }, 1);
+});
+}
+
+/***********************************************************************************************************************
 the jquery tooltip wont go away when user clicks on a div or button with a tooltip attached to it, 
 the code below solves this
 ***********************************************************************************************************************/
@@ -284,5 +297,5 @@ function improveTooltipLook() {
 //*******************************************************************************************************************************
 export { prepareLoadingAnimation, isStringJSON, slidingMessage, counter, makeWindowDraggable, divStillVisible, 
       hourFormat, preparePuppyIcon, dateToIsoStringConsideringLocalUTC, formatDate, forceHideToolTip, loadScripts,
-      toWheelCarsBrowser, improveTooltipLook };
+      toWheelCarsBrowser, improveTooltipLook, selectAllContentOnFocus };
 

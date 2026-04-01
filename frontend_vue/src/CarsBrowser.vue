@@ -35,7 +35,7 @@
 
             }"
             :title="car.description" 
-            @click="emit('setNewSelectedCar', car.id)"   >
+            @click="emit('setNewSelectedCar', car.id, car.description)"   >
 <!--
 
             <span>{{car.description}}</span>

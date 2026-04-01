@@ -300,15 +300,22 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
 .btnBOOKING_CALENDAR {
     /* icon-left-arrow is defined in tailwind.config.js */
     @apply cursor-pointer w-[130px] bg-transparent bg-no-repeat 
-        bg-[url('https://leanderdev.com.br/vuejs_get_a_car/images/_calendar.png')]  bg-[size:40px_40px]  
+        bg-[url('https://leanderdev.com.br/vuejs_get_a_car/images/_calendar.png')]  bg-[size:45px_45px]  
         bg-center;
 }
 
 .btnBOOKING_ALL_CARS {
     /* icon-all-cars is defined in tailwind.config.js */
-    @apply cursor-pointer w-[130px]  border-transparent   bg-transparent bg-no-repeat 
+    @apply cursor-pointer w-[130px]  border-transparent   bg-transparent bg-no-repeat border-[3px]
         bg-icon-all-cars   bg-center  bg-[size:40px_40px]  ;
 }
+
+.btnBOOKING_ALL_CARS_CLICKED {
+    /* icon-all-cars is defined in tailwind.config.js */
+    @apply cursor-pointer w-[130px]  border-transparent   bg-transparent bg-no-repeat border-[3px] border-blue-900
+        bg-icon-all-cars   bg-center  bg-[size:40px_40px]  ;
+}
+
 
 .btnBOOKING_ALL_CARS_ACTIVE {
     @apply border-[navy] 

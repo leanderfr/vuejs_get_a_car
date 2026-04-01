@@ -11,11 +11,16 @@
     <div class="flex flex-row h-[60px] w-full justify-between  " id='scheduleToolbar'>
 
       <!-- current year -->
-      <div class="flex flex-row text-[30px] font-bold pt-3 pl-6" id='currentYear'></div>
+      <div class="flex flex-row pt-3  ">
+        <div id='currentYear' class='text-[30px] font-bold '></div>
+        <div id='currentCarName' class='text-gray-600 hidden text-[30px]'>{{ currentCarName }}</div>
+      </div>
+
 
 
       <!-- action buttons -->
       <div class="flex flex-row pt-1 ">
+
           <!-- new booking -->
           <div  class='btnICON btnBOOKING_ADD_CAR_RESERVATION putPrettierTooltip'  :title="expressions.new_booking"   @click="forceHideToolTip();newBookingRecord()" aria-hidden="true"></div>   
 
@@ -24,9 +29,9 @@
 
           <!-- icon previously used to mark/display all the cars reservations 
           deprecated, now the 'all cars' button in the carsBrowser does this, but the button below will still exist to perform the action -->
-        <div  class='btnICON btnBOOKING_ALL_CARS putPrettierTooltip'  
-                :title="expressions.display_all_cars" 
-                @click="forceHideToolTip();emit('setNewSelectedCar', 0)"  aria-hidden="true"></div>    
+        <div :class="props.selectedCar==0 ? 'btnBOOKING_ALL_CARS_CLICKED' : 'btnBOOKING_ALL_CARS' " class='btnICON putPrettierTooltip'  
+                :title="expressions.display_all_cars_button" 
+                @click="forceHideToolTip();emit('setNewSelectedCar', 0, expressions.display_all_cars)"  aria-hidden="true"></div>    
 
           <!-- back 1 week   -->
           <div  class='btnICON btnBOOKING_LEFT_ARROW putPrettierTooltip'  :title="expressions.previous_week" @click="forceHideToolTip();browseBookingCalendar(-7)" aria-hidden="true"></div>   
@@ -38,9 +43,9 @@
     </div>
 
     <!-- week days  -->
-    <div class="w-full border-b-2 border-b-gray-300 text-lg "  >  
-        <div class="w-full flex flex-row text-gray-500  text-lg font-bold text-center h-12 justify-center cursor-pointer items-center" id='scheduleHeader' >
-          <div class='w-[9%] ' >&nbsp;</div>
+    <div class="w-full border-b-2 border-b-gray-300 text-lg"  >  
+        <div class="w-full flex flex-row text-gray-500  text-lg font-bold text-center h-12 justify-center cursor-pointer items-center invisible" id='scheduleHeader' >
+          <div class='w-[9%]' id='emptyScheduleCorner' >&nbsp;</div>
           <div class='w-[13%] tdBookingHeader' id='datecolumn0' bookings_this_day='' real_date=''></div> 
           <div class='w-[13%] tdBookingHeader' id='datecolumn1'  bookings_this_day='' real_date=''></div>
           <div class='w-[13%] tdBookingHeader' id='datecolumn2'  bookings_this_day='' real_date=''></div>
@@ -104,7 +109,7 @@ import { slidingMessage, forceHideToolTip, hourFormat, counter, divStillVisible,
 
 const emit = defineEmits( ['showLoading', 'hideLoading','setNewSelectedCar'] );
 
-const props = defineProps( ['expressions', 'currentCountry', 'backendUrl', 'imagesUrl', 'selectedCar' ] )
+const props = defineProps( ['expressions', 'currentCountry', 'backendUrl', 'imagesUrl', 'selectedCar', 'currentCarName' ] )
 
 // date picker
 const datePicker = ref(null)
@@ -119,6 +124,7 @@ const formHttpMethodApply = ref(null)
 // the post it <div> of the reservation can be moved or clicked, when it is being dragged, the variable 'draggingBookingDivYet', 
 // deactivate temporarely the 'click'  event
 let draggingBookingDivYet = false
+
 
 
 
@@ -242,6 +248,8 @@ async function refreshBookingDatesAndContent() {
     setTimeout(() => {
       let width=parseInt($("#scheduleData").width(), 10)
       $("#scheduleHeader").width( width+2 )
+      // the div had started as invisible for the width adjust not to make the refresh 'ugly', 'amateur'
+      $("#scheduleHeader").css('visibility','visible')
     
     }, 100);
 
@@ -253,11 +261,18 @@ async function refreshBookingDatesAndContent() {
       let h3=$("#scheduleHeader").height()
 
       $("#rightCarsBrowserContainer").height( heightSchedule )
-      $("#rightCarsBrowserContainer").css('margin-top', (h1+h2))
+      $("#rightCarsBrowserContainer").css('margin-top', (h1+h2))  
+
+      $("#currentYear").width( $('#emptyScheduleCorner').width() )
+      $("#currentCarName").show()
 
       // the datatable was hidden to avoid elements jumps and weird behave while fixing positions and sizes
-      $("#scheduleContainer").css('visibility', 'visible')
-    }, 1000);
+//      $("#scheduleContainer").show() juca
+  
+      // the div had started as invisible for the top adjust not to make the refresh 'ugly', 'amateur'
+      $("#rightCarsBrowserContainer").css('visibility','visible')
+
+    }, 500);
 
 
 

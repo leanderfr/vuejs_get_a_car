@@ -158,7 +158,7 @@ class Bookings
     //  - INTERVAL 1 MINUTE / + INTERVAL 1 MINUTE   to the bookings being able to share the same threshold
     // car is reserved between 08 am and 4 pm and at the same time, reserved between 4 pm and 10 pm,  1 minute tolerance
     $sql =
-        "select COUNT(*) as qtde, bookings.id ".
+        "select bookings.id ".
         " from bookings " .
         " where ".
         " ( '$pickupDatetime' between date_format(pickup_datetime + INTERVAL 1 MINUTE, '%Y-%m-%d %H:%i') and date_format(dropoff_datetime - INTERVAL 1 MINUTE, '%Y-%m-%d %H:%i') or " .
@@ -169,24 +169,13 @@ class Bookings
         "  bookings.car_id = $carId  " .
         ( $booking_id!='' ? " and bookings.id <> $booking_id   "  : ''  );
 
-//die($sql);juca
     try {
       $result = mysqli_query($dbConnection, $sql) or internalError('[1] Database error');    
     } catch(Exception $e)  {
       internalError( mysqli_error($dbConnection) );
     }
-$qted=0;
-while($row = mysqli_fetch_assoc($result))    {
-$qted++;
-}
 
-//die("qyde= $qtde");
-
-
-    //]if ( mysqli_num_rows($result) > 0 )  internalError('time_or_car_occupied');
-    if ( $qtde > 0 )  internalError('time_or_car_occupied');
-
-
+    if ( mysqli_num_rows($result) )  internalError('time_or_car_occupied');
 
   
     // if no ID's been informed, its a POST, new record

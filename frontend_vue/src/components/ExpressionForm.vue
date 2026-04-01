@@ -86,7 +86,7 @@
 
 <script setup>
 import { onMounted, ref  } from 'vue';
-import { makeWindowDraggable, slidingMessage   } from '../assets/js/utils.js'
+import { makeWindowDraggable, slidingMessage, selectAllContentOnFocus    } from '../assets/js/utils.js'
 const emit = defineEmits( ['showLoading', 'hideLoading', 'closeExpressionForm','refreshDatatable'] );
 
 const props = defineProps( ['expressions', 'backendUrl', 'currentCountry', 'formHttpMethodApply', 'currentId'] )
@@ -163,6 +163,7 @@ const putFocusInFirstInputText_AndOthersParticularitiesOfTheExpressionForm = () 
   }, 500);
 
   makeWindowDraggable('divWINDOW_TOP', 'expressionForm')
+  selectAllContentOnFocus('expressionForm')
 }
 
 

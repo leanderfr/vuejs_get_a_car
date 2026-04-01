@@ -94,7 +94,7 @@
 
 <script setup>
 import { onMounted, ref  } from 'vue';
-import { makeWindowDraggable, slidingMessage, dateToIsoStringConsideringLocalUTC, formatDate  } from '../assets/js/utils.js'
+import { makeWindowDraggable, slidingMessage, dateToIsoStringConsideringLocalUTC, formatDate, selectAllContentOnFocus  } from '../assets/js/utils.js'
 const emit = defineEmits( ['showLoading', 'hideLoading', 'closeCarForm','refreshDatatable'] );
 
 const strToAvoidCache = ref('')
@@ -196,6 +196,7 @@ const putFocusInFirstInputText_AndOthersParticularitiesOfTheCarForm = () => {
   }, 500);
 
   makeWindowDraggable('divWINDOW_TOP', 'carForm')
+  selectAllContentOnFocus('carForm') 
 }
 
 

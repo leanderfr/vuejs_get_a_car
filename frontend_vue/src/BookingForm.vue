@@ -56,7 +56,7 @@
                   <!-- date -->
                   <div class='flex flex-col w-full'  >
                       <div class='flex flex-row w-full' >
-                        <input type="text" autocomplete="off" sequence="1"   id="txtPickUpDate" :placeholder='expressions.date_placeholder'  maxlength='10' class='text_formFieldValue w-full' @focus="$event.target.select()" >  
+                        <input type="text" autocomplete="off" sequence="1"   id="txtPickUpDate" :placeholder='expressions.date_placeholder'  maxlength='10' class='text_formFieldValue w-full'  >  
                       </div>
                   </div>
 
@@ -65,7 +65,7 @@
               <!-- hour -->
               <div class="flex w-[30%]">  
                 <div class='flex flex-col w-full'  >
-                  <input type="text" autocomplete="off" sequence="2"  id="txtPickUpHour" :placeholder='expressions.hour_placeholder' maxlength='8' class='text_formFieldValue w-full' @focus="$event.target.select()" >
+                  <input type="text" autocomplete="off" sequence="2"  id="txtPickUpHour" :placeholder='expressions.hour_placeholder' maxlength='8' class='text_formFieldValue w-full'  >
                 </div>
               </div>
 
@@ -86,7 +86,7 @@
                     <!-- date -->
                     <div class='flex flex-col w-full'  >
                         <div class='flex flex-row w-full' >
-                            <input type="text" autocomplete="off" sequence="3"  id="txtDropOffDate" :placeholder='expressions.date_placeholder' maxlength='10' class='text_formFieldValue w-full' @focus="$event.target.select()" >
+                            <input type="text" autocomplete="off" sequence="3"  id="txtDropOffDate" :placeholder='expressions.date_placeholder' maxlength='10' class='text_formFieldValue w-full'  >
                         </div>  
                     </div>  
 
@@ -95,7 +95,7 @@
                 <!-- time -->
                 <div class="flex w-[30%]">  
                   <div class='flex flex-col w-full'  >
-                      <input type="text" autocomplete="off" sequence="4"  id="txtDropOffHour" :placeholder='expressions.hour_placeholder' maxlength='5' class='text_formFieldValue w-full' @focus="$event.target.select()" >
+                      <input type="text" autocomplete="off" sequence="4"  id="txtDropOffHour" :placeholder='expressions.hour_placeholder' maxlength='5' class='text_formFieldValue w-full'  >
                   </div>
                 </div>  
                 
@@ -107,7 +107,7 @@
           <div class='w-full pb-2'>{{ expressions.driver_name }}:</div>
           <div class="flex flex-row w-full ">  
                 <div class="flex flex-col w-full">  
-                  <input type="text" autocomplete="off" sequence="5"  id="txtDriverName" maxlength='50' class='text_formFieldValue w-full' @focus="$event.target.select()" >
+                  <input type="text" autocomplete="off" sequence="5"  id="txtDriverName" maxlength='50' class='text_formFieldValue w-full'  >
                 </div>
           </div>
         </div>
@@ -138,7 +138,7 @@
 
 <script setup>
 import { onMounted, ref  } from 'vue';
-import { makeWindowDraggable, slidingMessage, dateToIsoStringConsideringLocalUTC, formatDate  } from './assets/js/utils.js'
+import { makeWindowDraggable, slidingMessage, dateToIsoStringConsideringLocalUTC, formatDate, selectAllContentOnFocus  } from './assets/js/utils.js'
 const emit = defineEmits( ['showLoading', 'hideLoading', 'closeBookingForm'] );
 
 import moment from 'moment';
@@ -160,7 +160,7 @@ onMounted( () => {
 
     carId.value = currentCard.replace(/^\D+/g, '')   // numeric part   
 
-    // display in the booking form, the image thats being displayed along with the selected car (CarsBrowser)
+    /// capture the image of the currently selected car (CarsBrowser) and put it in the booking form
     let imgSrc = $('.carCardSelected').css('backgroundImage')
     imgSrc = imgSrc.substring( imgSrc.indexOf("https://"),  imgSrc.lastIndexOf('")') )
 
@@ -249,6 +249,7 @@ const putFocusInFirstInputText_AndOthersParticularitiesOfTheBookingForm = () => 
   }, 500);
 
   makeWindowDraggable('divWINDOW_TOP', 'bookingForm')
+  selectAllContentOnFocus('bookingForm')
 }
 
 /********************************************************************************************************************************************************
@@ -423,7 +424,7 @@ async function  saveBooking()  {
     if (!response.ok) {
       return response.text().then(text => {
         if ($.trim(text)=='time_or_car_occupied')
-          throw new Error('Time/car already reserved')
+          throw new Error('Time/car already reserved / carro/horário já reservados')
         else
           throw new Error(`HTTP error! ${response.status}|` + text+'|')
       })  

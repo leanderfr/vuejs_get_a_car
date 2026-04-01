@@ -1198,6 +1198,16 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
 }
 
+.border-blue-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(29 78 216 / var(--tw-border-opacity, 1));
+}
+
+.border-blue-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 58 138 / var(--tw-border-opacity, 1));
+}
+
 .border-blue-950 {
   --tw-border-opacity: 1;
   border-color: rgb(23 37 84 / var(--tw-border-opacity, 1));
@@ -1543,7 +1553,7 @@ video {
 }
 
 .bg-icon-left-arrow {
-  background-image: url("data:image/svg+xml,<svg width='54px' height='54px' viewBox='0 -0.5 17 17' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='si-glyph si-glyph-arrow-thick-left' fill='rgb(0,0,0)'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <title>1210</title> <defs> </defs> <g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'> <path d='M0.133,8.367 L6.073,13.713 C6.307,13.924 6.687,13.922 6.922,13.711 L6.927,9.983 L14.951,9.983 C15.504,9.983 15.951,9.544 15.951,9.001 L15.951,7.035 C15.951,6.492 15.504,6.053 14.951,6.053 L6.931,6.053 L6.936,2.243 C6.705,2.034 6.324,2.035 6.088,2.246 L0.134,7.603 C-0.099,7.816 -0.102,8.156 0.133,8.367 L0.133,8.367 Z' fill='rgb(128, 128, 128)' class='si-glyph-fill'> </path> </g> </g></svg>");
+  background-image: url("data:image/svg+xml,<svg fill='gray' version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 400.004 400.004' xml:space='preserve'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g> <path d='M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757 c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072 c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315 C400.004,190.438,392.251,182.686,382.688,182.686z'></path> </g> </g></svg>");
 }
 
 .bg-icon-magnifying {
@@ -1580,6 +1590,10 @@ video {
 
 .bg-\[size\:40px_40px\] {
   background-size: 40px 40px;
+}
+
+.bg-\[size\:45px_45px\] {
+  background-size: 45px 45px;
 }
 
 .bg-auto {
@@ -2408,7 +2422,7 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   cursor: pointer;
   background-color: transparent;
   background-image: url('https://leanderdev.com.br/vuejs_get_a_car/images/_calendar.png');
-  background-size: 40px 40px;
+  background-size: 45px 45px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -2417,7 +2431,23 @@ find out why the flex div (rightCarsBrowserContainer) is overflowing its contain
   /* icon-all-cars is defined in tailwind.config.js */
   width: 130px;
   cursor: pointer;
+  border-width: 3px;
   border-color: transparent;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,<svg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='navy'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g id='Interface / Filter_Off'> <path id='Vector' d='M13 4H18.4C18.9601 4 19.2409 4 19.4548 4.10899C19.6429 4.20487 19.7948 4.35774 19.8906 4.5459C19.9996 4.75981 20 5.04005 20 5.6001V6.3448C20 6.58444 20 6.70551 19.9727 6.81942C19.9482 6.92146 19.9072 7.01893 19.8524 7.1084C19.7906 7.20931 19.7043 7.2958 19.5314 7.46875L18 9.00012M7.49961 4H5.59961C5.03956 4 4.75981 4 4.5459 4.10899C4.35774 4.20487 4.20487 4.35774 4.10899 4.5459C4 4.75981 4 5.04005 4 5.6001V6.33736C4 6.58195 4 6.70433 4.02763 6.81942C4.05213 6.92146 4.09263 7.01893 4.14746 7.1084C4.20928 7.20928 4.29591 7.29591 4.46875 7.46875L9.53149 12.5315C9.70443 12.7044 9.79044 12.7904 9.85228 12.8914C9.90711 12.9808 9.94816 13.0786 9.97266 13.1807C10 13.2946 10 13.4155 10 13.6552V18.411C10 19.2682 10 19.6971 10.1805 19.9552C10.3382 20.1806 10.5814 20.331 10.8535 20.3712C11.1651 20.4172 11.5487 20.2257 12.3154 19.8424L13.1154 19.4424C13.4365 19.2819 13.5966 19.2013 13.7139 19.0815C13.8176 18.9756 13.897 18.8485 13.9453 18.7083C14 18.5499 14 18.37 14 18.011V13.6626C14 13.418 14 13.2958 14.0276 13.1807C14.0521 13.0786 14.0926 12.9809 14.1475 12.8915C14.2091 12.7909 14.2952 12.7048 14.4669 12.5331L14.4688 12.5314L15.5001 11.5001M15.5001 11.5001L5 1M15.5001 11.5001L19 15' stroke='navy' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path> </g> </g></svg>");
+  background-size: 40px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.btnBOOKING_ALL_CARS_CLICKED {
+  /* icon-all-cars is defined in tailwind.config.js */
+  width: 130px;
+  cursor: pointer;
+  border-width: 3px;
+  border-color: transparent;
+  --tw-border-opacity: 1;
+  border-color: rgb(30 58 138 / var(--tw-border-opacity, 1));
   background-color: transparent;
   background-image: url("data:image/svg+xml,<svg width='64px' height='64px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' stroke='navy'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g id='Interface / Filter_Off'> <path id='Vector' d='M13 4H18.4C18.9601 4 19.2409 4 19.4548 4.10899C19.6429 4.20487 19.7948 4.35774 19.8906 4.5459C19.9996 4.75981 20 5.04005 20 5.6001V6.3448C20 6.58444 20 6.70551 19.9727 6.81942C19.9482 6.92146 19.9072 7.01893 19.8524 7.1084C19.7906 7.20931 19.7043 7.2958 19.5314 7.46875L18 9.00012M7.49961 4H5.59961C5.03956 4 4.75981 4 4.5459 4.10899C4.35774 4.20487 4.20487 4.35774 4.10899 4.5459C4 4.75981 4 5.04005 4 5.6001V6.33736C4 6.58195 4 6.70433 4.02763 6.81942C4.05213 6.92146 4.09263 7.01893 4.14746 7.1084C4.20928 7.20928 4.29591 7.29591 4.46875 7.46875L9.53149 12.5315C9.70443 12.7044 9.79044 12.7904 9.85228 12.8914C9.90711 12.9808 9.94816 13.0786 9.97266 13.1807C10 13.2946 10 13.4155 10 13.6552V18.411C10 19.2682 10 19.6971 10.1805 19.9552C10.3382 20.1806 10.5814 20.331 10.8535 20.3712C11.1651 20.4172 11.5487 20.2257 12.3154 19.8424L13.1154 19.4424C13.4365 19.2819 13.5966 19.2013 13.7139 19.0815C13.8176 18.9756 13.897 18.8485 13.9453 18.7083C14 18.5499 14 18.37 14 18.011V13.6626C14 13.418 14 13.2958 14.0276 13.1807C14.0521 13.0786 14.0926 12.9809 14.1475 12.8915C14.2091 12.7909 14.2952 12.7048 14.4669 12.5331L14.4688 12.5314L15.5001 11.5001M15.5001 11.5001L5 1M15.5001 11.5001L19 15' stroke='navy' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'></path> </g> </g></svg>");
   background-size: 40px 40px;
