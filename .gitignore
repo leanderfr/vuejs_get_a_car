@@ -1,30 +1,30 @@
 .DS_Store
-frontend_vue/node_modules
-frontend_vue/dist
+vue_frontend/node_modules
+vue_frontend/dist
 
 # local env files
-frontend_vue/.env.local
-frontend_vue/.env.*.local
+vue_frontend/.env.local
+vue_frontend/.env.*.local
 
 # Log files
-frontend_vue/npm-debug.log*
-frontend_vue/yarn-debug.log*
-frontend_vue/yarn-error.log*
-frontend_vue/pnpm-debug.log*
+vue_frontend/npm-debug.log*
+vue_frontend/yarn-debug.log*
+vue_frontend/yarn-error.log*
+vue_frontend/pnpm-debug.log*
 
 # Editor directories and files
-frontend_vue/.idea
-frontend_vue/.vscode
-frontend_vue/*.suo
-frontend_vue/*.ntvs*
-frontend_vue/*.njsproj
-frontend_vue/*.sln
-frontend_vue/*.sw?
-frontend_vue/src/tailwind_output.css
+vue_frontend/.idea
+vue_frontend/.vscode
+vue_frontend/*.suo
+vue_frontend/*.ntvs*
+vue_frontend/*.njsproj
+vue_frontend/*.sln
+vue_frontend/*.sw?
+vue_frontend/src/tailwind_output.css
 
 # php passwords 
-backend_php/setup.php
+php_backend/setup.php
 
 # nodejs passwords 
-backend_node_js/config/config.json
-backend_node_js/node_modules
+sequelize_nodejs_backend/config/config.json
+sequelize_nodejs_backend/node_modules
