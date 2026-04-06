@@ -25,6 +25,9 @@ vue_frontend/src/tailwind_output.css
 # php passwords 
 php_backend/setup.php
 
-# nodejs passwords 
+# nodejs sequelize passwords 
 sequelize_nodejs_backend/config/config.json
 sequelize_nodejs_backend/node_modules
+
+# nodejs prisma passwords 
+prisma_nodejs_backend/.env
