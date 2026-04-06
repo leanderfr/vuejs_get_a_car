@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model bookings {
+  id               Int       @id @default(autoincrement())
+  pickup_datetime  DateTime? @db.Timestamp(0)
+  car_id           Int?      @db.SmallInt
+  dropoff_datetime DateTime? @db.Timestamp(0)
+  driver_name      String?   @db.VarChar(50)
+  created_at       DateTime? @db.Timestamp(0)
+  updated_at       DateTime? @db.Timestamp(0)
+  deleted_at       DateTime? @db.Timestamp(0)
+
+  @@index([id], map: "Index 1")
+}
+
+model cars {
+  id          Int       @id @default(autoincrement())
+  description String?   @db.VarChar(50)
+  plate       String?   @db.VarChar(10)
+  created_at  DateTime? @db.Timestamp(0)
+  updated_at  DateTime? @db.Timestamp(0)
+  deleted_at  DateTime? @db.Timestamp(0)
+  active      Int?      @db.TinyInt
+
+  @@index([id], map: "Index 1")
+}
+
+model expressions {
+  id         Int       @id @default(autoincrement())
+  item       String?   @db.VarChar(200)
+  portuguese String?   @db.VarChar(200)
+  english    String?   @db.VarChar(200)
+  active     Int?      @db.TinyInt
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+  deleted_at DateTime? @db.Timestamp(0)
+
+  @@index([id], map: "Index 1")
+}
