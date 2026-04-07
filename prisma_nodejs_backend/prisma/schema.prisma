@@ -7,9 +7,11 @@ datasource db {
   provider = "mysql"
 }
 
+
+
 model bookings {
   id               Int       @id @default(autoincrement())
-  pickup_datetime  DateTime? @db.Timestamp(0)
+  pickup_datetime  DateTime? @db.Timestamp(0) 
   car_id           Int?      @db.SmallInt
   dropoff_datetime DateTime? @db.Timestamp(0)
   driver_name      String?   @db.VarChar(50)
