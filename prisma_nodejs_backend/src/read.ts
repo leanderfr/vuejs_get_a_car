@@ -16,7 +16,6 @@ const adapter = new PrismaMariaDb({
   database: process.env.DATABASE_NAME,
   port:  3306,
   connectionLimit: 5,
-
 });
 
 const prisma = new PrismaClient({ adapter });
@@ -25,20 +24,17 @@ async function main() {
 
   try {
 
-    const res = await prisma.bookings.createMany({
+    const res = await prisma.bookings.findMany({
 
-      data: [{ 
-        pickup_datetime: moment("2026-04-22 15:00:00", "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DDTHH:mm:ss.SSS[Z]"), 
-        dropoff_datetime: moment("2026-04-28 11:00:00", "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DDTHH:mm:ss.SSS[Z]"), 
-        created_at: moment().format("YYYY-MM-DDTHH:mm:ss.SSS[Z]"), 
-        updated_at: moment().format("YYYY-MM-DDTHH:mm:ss.SSS[Z]"), 
-        car_id: utils.getRandomInt(1,5), 
-        driver_name: 'Fabian Fruchting',
-      }], 
-      skipDuplicates: true
+      where: {
+        driver_name: {contains: 'Leander'},
+      },
+      include: {
+        cars: true
+      }
 
     })
-    console.log('sucesso= '+res)
+    console.log('sucesso= '+ JSON.stringify(res))
   }
   catch (err) {
     console.log('erro= '+err)

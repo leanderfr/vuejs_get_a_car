@@ -1,25 +1,11 @@
 generator client {
   provider = "prisma-client-js"
   output   = "../node_modules/.prisma/client"
+  previewFeatures = ["relationJoins"] // Enables DB-level joins
 }
 
 datasource db {
   provider = "mysql"
-}
-
-
-
-model bookings {
-  id               Int       @id @default(autoincrement())
-  pickup_datetime  DateTime? @db.Timestamp(0) 
-  car_id           Int?      @db.SmallInt
-  dropoff_datetime DateTime? @db.Timestamp(0)
-  driver_name      String?   @db.VarChar(50)
-  created_at       DateTime? @db.Timestamp(0)
-  updated_at       DateTime? @db.Timestamp(0)
-  deleted_at       DateTime? @db.Timestamp(0)
-
-  @@index([id], map: "Index 1")
 }
 
 model cars {
@@ -30,9 +16,30 @@ model cars {
   updated_at  DateTime? @db.Timestamp(0)
   deleted_at  DateTime? @db.Timestamp(0)
   active      Int?      @db.TinyInt
+  bookings    bookings[]
 
   @@index([id], map: "Index 1")
 }
+
+
+model bookings {
+  id               Int       @id @default(autoincrement())
+  pickup_datetime  DateTime? @db.Timestamp(0) 
+  //car_id           Int?      @db.SmallInt
+
+  cars   cars? @relation(fields: [car_id], references: [id]) 
+  car_id Int?  @db.SmallInt
+
+
+  dropoff_datetime DateTime? @db.Timestamp(0)
+  driver_name      String?   @db.VarChar(50)
+  created_at       DateTime? @db.Timestamp(0)
+  updated_at       DateTime? @db.Timestamp(0)
+  deleted_at       DateTime? @db.Timestamp(0)
+
+  @@index([id], map: "Index 1")
+}
+
 
 model expressions {
   id         Int       @id @default(autoincrement())
