@@ -1,5 +1,5 @@
 
-import * as utils from './utils'
+import * as utils from './utils.ts'
 import "dotenv/config";
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 import { PrismaClient } from '@prisma/client';
