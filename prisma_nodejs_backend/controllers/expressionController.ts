@@ -19,10 +19,6 @@ export const getByCountry = async (req: express.Request, res: express.Response) 
       return
     }
 
-    let fieldsToSelect = []
-    let where = []
-    let filterSearchbox = []
-
 
     /* when "resultformat=='reference'" =>  response will be  simple keyed json, only active records, based on the language passed in
     example:
@@ -34,19 +30,7 @@ export const getByCountry = async (req: express.Request, res: express.Response) 
       "app_header_title": "Car Reservation_",
       .........
     }
-    */
-    if (req.params.resultformat=='reference') {
-      fieldsToSelect.push( 'item' )
 
-      if (req.params.country === 'usa') {
-        fieldsToSelect.push( ['english', 'language'] );
-      }
-      if (req.params.country === 'brazil') {
-        fieldsToSelect.push( ['portuguese', 'language'] );
-      }
-
-      where.push( {active: true} )
-    }
 
     /* when "resultformat=='json'" =>  response will be an array of json, filtering the active/inactive, searchbox if filled up, etc
     example:
@@ -67,90 +51,84 @@ export const getByCountry = async (req: express.Request, res: express.Response) 
         },    
       ...........
     */
+    let records
 
-    if (req.params.resultformat=='json') {
-      fieldsToSelect.push( 'id', 'active', 'english', 'portuguese' );
+    // if user specified a text to search (req.params.searchbox), seek it
+    // if fetch only active or inactive (req.params.active), filter it
 
-      // search box at the top left corner of datatable
-      if (req.params.searchbox) {
-        filterSearchbox.push({ item: { 'contains': `%${req.params.searchbox}%`}  });
-        filterSearchbox.push({ portuguese: { 'contains': `%${req.params.searchbox}%`}  });
-        filterSearchbox.push({ english: { 'contains': `%${req.params.searchbox}%`}  });
-      }
 
-      if (req.params.active=='active') where.push( {active: {equals: true}} )
-      if (req.params.active=='inactive') where.push( {active: {equals: false}} )
-    }
-
-let records
+    // for the prisma dont use that comom moron "1=0" condition, the OR has to have an oposite condition
+    // tough it is stupid, its needed to use  '{id: {gte: 1}}'
+    // thats what I call a moron orm, GORM from goland is way way clever
 
     res.setHeader('Content-Type', 'application/json');
     try {
        records = await prisma.expressions.findMany({
         where: {
+          ...(req.params.active=='active' ? {active: {equals: 1}} : {}),
+          ...(req.params.active=='inactive' ? {active: {equals: 0}} : {}),
           OR: [
-            (filterSearchbox ? {item: {contains: `%${req.params.searchbox}%`}} : {}),
-            (filterSearchbox ? {portuguese: {contains: `%${req.params.searchbox}%`}} : {}),
-            (filterSearchbox ? {english: {contains: `%${req.params.searchbox}%`}} : {}),
-          ]
+            (req.params.searchbox ? {
+              item: {contains: `%${req.params.searchbox}%`},
+              english: {contains: `%${req.params.searchbox}%`},
+              portuguese: {contains: `%${req.params.searchbox}%`}
+            } : {id: {gte: 1}}),
+          ],
         },
         orderBy: {item: 'asc'}
 
       })
-      //res.status(200).json(records);
 
-//...(req.params.resultformat=='json' ? {item: true, id: true, active: true, english: true, portuguese:true} : {}),
     }
     catch (err) {
       res.status(500).send(err)
+      process.exit(1)  // error
     }
     finally {
-      async() => {
-        await prisma.$disconnect()
-        //process.exit(0)
-      }
 
 
 
+          //***********************************************************************************************
+          // if returns the records in a simpler way (reference), transform the json into a keye interface
+          //***********************************************************************************************
+          if (req.params.resultformat=='reference') {
 
+            interface keyedArray {
+              [key: string]: string;
+            }
 
-    //***********************************************************************************************
-    if (req.params.resultformat=='reference') {
+            // type guards kills a lot of time
+            // typescript is a burden 
+            if (typeof records!='undefined')  {
+              let expressions:keyedArray = {};
 
-      interface keyedArray {
-        [key: string]: string;
-      }
-
-      // type guards kills a lot of time
-      // typescript is a burden 
-      if (typeof records!='undefined')  {
-        let expressions:keyedArray = {};
-
-        for (const expression of records) {
-          if (expression.item!=null && expression.portuguese!=null && expression.english!=null ) {
-            if (req.params.country === 'usa') {
-              expressions[expression.item] = expression.english
-            } 
-            if (req.params.country === 'brazil') {
-              expressions[expression.item] = expression.portuguese
-            } 
+              for (const expression of records) {
+                if (expression.item!=null && expression.portuguese!=null && expression.english!=null ) {
+                  if (req.params.country === 'usa') {
+                    expressions[expression.item] = expression.english
+                  } 
+                  if (req.params.country === 'brazil') {
+                    expressions[expression.item] = expression.portuguese
+                  } 
+                }
+              }
+              res.status(200).json(expressions);
           }
-        }
 
-        res.status(200).json(expressions);
-      
-      return
-    }
+          //***********************************************************************************************
+          // if returns the records in json , just return it
+          //***********************************************************************************************
+          } else {
+            res.status(200).json(records);
+          }
 
-    } else {
-
-res.status(200).json(records);
-}
-
-
-
+          async() => {
+            await prisma.$disconnect()
+            process.exit(0) // success
+          }
 
 
+          
     }
 
 

@@ -6,8 +6,5 @@
     "types": ["node"],
     "noEmit": true, 
     "allowImportingTsExtensions": true,
-        "lib": [
-            "es5", "es6", "dom", "dom.iterable"
-        ],
   }
 }

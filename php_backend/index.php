@@ -41,6 +41,8 @@ $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 // remove disposable url string
 $path = str_replace('/vuejs_get_a_car/backend_php', '', $path);
 
+//die("path= $path");
+
 // prepare handlers
 $handlerExpressions = new Expressions;
 $handlerCars = new Cars;
@@ -60,16 +62,20 @@ $deleteRequest = $_SERVER['REQUEST_METHOD']==='DELETE';
 // get record(s)
 if ($getRequest) {
 
+//die("sim chegou 333");
+
+  // no searchbox
+  $router->Get("/expression/list/{resultformat}/{country}/{status}", function($resultformat, $country, $status) use($handlerExpressions) {  
+    $handlerExpressions->getExpressions($resultformat, $country, $status, '');
+  });
+
   // resultformat =>  json , returns as an array of json,     reference, returns as a simple keyed array,  expressions.tablename, expresssions.title, etc
   // with searchbox
   $router->Get("/expression/list/{resultformat}/{country}/{status}/{searchbox}", function($resultformat, $country, $status, $searchbox) use($handlerExpressions) {  
     $handlerExpressions->getExpressions($resultformat, $country, $status, $searchbox);
   });
 
-  // no searchbox
-  $router->Get("/expression/list/{resultformat}/{country}/{status}", function($resultformat, $country, $status) use($handlerExpressions) {  
-    $handlerExpressions->getExpressions($resultformat, $country, $status, '');
-  });
+
 
 
   $router->Get("/expression/{id}", function($id) use($handlerExpressions)  {  

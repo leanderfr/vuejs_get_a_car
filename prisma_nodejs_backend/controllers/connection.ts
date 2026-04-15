@@ -14,7 +14,14 @@ const adapter = new PrismaMariaDb({
 });
 
 
-const prisma = new PrismaClient({ adapter });
+// log: ['query'] shows the queries
+const prisma = new PrismaClient({ adapter, log: [{emit: 'event', level: 'query'}] });
+
+prisma.$on('query', (e) => {
+  console.log('Query: ' + e.query)
+  console.log('Params: ' + e.params) // the missing values thaht didnt appear in the query
+  //console.log('Duration: ' + e.duration + 'ms')
+})
 
 export default prisma
 
