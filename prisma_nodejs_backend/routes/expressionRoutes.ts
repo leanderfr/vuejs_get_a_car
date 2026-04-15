@@ -1,7 +1,7 @@
 
 import express from 'express'
 
-const expressionController = require('../controllers/expressionController')
+import * as expressionController from '../controllers/expressionController.ts'
 
 const expressionRouter = express.Router()
 

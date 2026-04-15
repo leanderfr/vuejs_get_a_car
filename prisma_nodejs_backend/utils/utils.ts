@@ -1,16 +1,7 @@
 
-//************************************************************************************
-//************************************************************************************
-
-export const isStringInteger = (str: string | any) => {
-  const parsedValue = parseInt(str, 10);
-  return !isNaN(parsedValue) && Number.isInteger(parsedValue);
-}
-
 
 //************************************************************************************
 //************************************************************************************
-
 
 export const isValidDateYYYYMMDD = (dateString: string) => {
   // 1. Regular expression to check the format yyyy-mm/dd
@@ -50,3 +41,9 @@ export const isValidDateYYYYMMDD = (dateString: string) => {
   );
 }
 
+//************************************************************************************
+//************************************************************************************
+
+export const isPositiveInteger = (n: any) => {
+    return n >>> 0 === parseFloat(n);
+}

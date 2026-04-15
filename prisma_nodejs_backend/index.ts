@@ -11,7 +11,7 @@ import "dotenv/config";
 
 
 import carRoutes from './routes/carRoutes.ts'
-//import expressionRoutes from './routes/expressionRoutes.ts'
+import expressionRoutes from './routes/expressionRoutes.ts'
 //import bookingRoutes from './routes/bookingRoutes.ts'
 
 const app = express()
@@ -27,34 +27,15 @@ app.use(cors());
 const upload = multer(); // For parsing text-only form-data
 
 app.use('/car', carRoutes)
-//app.use('/expression', upload.none(), expressionRoutes)
+app.use('/expression', upload.none(), expressionRoutes)
 //app.use('/booking',  bookingRoutes)
 
 app.use((req, response) => {
-  response.status(404).send('Sorry, that route does not edddxist!');
+  response.status(404).send('Sorry, that route does not exist!');
   return
 });
 
 
 app.listen(3000)
 
-console.log('RODANDO...')
-/*
-const prisma = new PrismaClient({ adapter });
-
-try {
-  await prisma.$connect();
-}
-catch(e) {
-console.log('erro='+e)
-}
-finally {
-  console.log('sucesso AO CONECTAR')
-  app.listen(3000)
-}
-
-
-
-
-
-*/
+console.log('app begins running ...')

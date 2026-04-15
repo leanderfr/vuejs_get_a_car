@@ -260,7 +260,8 @@
 
   // it changes depending if the app is running as a container (AWS EC2) or locally
   //const backendUrl = ref('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8073')  
-  const backendUrl = ref('https://leanderdev.com.br/vuejs_get_a_car/backend_php')  
+  //const backendUrl = ref('https://leanderdev.com.br/vuejs_get_a_car/backend_php')  
+  const backendUrl = ref('localhost:3000')  
 
   //const imagesUrl = ref('https://devs-app.s3.sa-east-1.amazonaws.com/hiring_machine/')  
   const imagesUrl = ref('https://leanderdev.com.br/vuejs_get_a_car/backend_php/car_images/')  

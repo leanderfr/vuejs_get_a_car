@@ -1,25 +1,10 @@
 
 
-//const { Sequelize, Op } = require('sequelize');
-
-import {isStringInteger} from '../utils/utils.ts';
+import {isPositiveInteger} from '../utils/utils.ts';
 import * as express from 'express'
 
-import { PrismaMariaDb } from "@prisma/adapter-mariadb";
-import { PrismaClient } from '@prisma/client';
-
-
-const adapter = new PrismaMariaDb({
-  host: process.env.DATABASE_HOST,
-  user: process.env.DATABASE_USER,
-  password: process.env.DATABASE_PASSWORD,
-  database: process.env.DATABASE_NAME,
-  port:  3306,
-  connectionLimit: 5,
-});
-
-
-//import _ from "lodash";
+// shared prisma
+import prisma from "./connection.ts";
 
 
 //************************************************************************************
@@ -35,12 +20,6 @@ export const getAll = async (req: express.Request, res: express.Response) => {
 
     res.setHeader('Content-Type', 'application/json');
 
-    // generates random string to concatenate with the link to the car image and avoid browser cache
-    //let tempLink = _.random(10000,99999)
-
-
-
-//    res.status(200).send('TESTE QQ, RECEBIDO ID '+req.params.id)
 };  
 
 
@@ -52,49 +31,28 @@ export const getAll = async (req: express.Request, res: express.Response) => {
 export const getById = async (req: express.Request, res: express.Response) => {
 
     // the minimum required for the route
-    if ( ! isStringInteger( req.params.id ) ) {
-      res.status(500).send('Invalid route')
+    if ( ! isPositiveInteger( req.params.id ) ) {
+      res.status(500).send('Invalid route parameter')
       return
     }
 
-    // generates random string to concatenate with the link to the car image and avoid browser cache
-    //let tempLink = _.random(10000,99999)
-
-//    res.status(200).json(car);
-//    res.status(200).send('TESTE QQ, RECEBIDO ID '+req.params.id)
-
-
-
-const prisma = new PrismaClient({ adapter });
-
-  try {
-    const records = await prisma.bookings.findMany({
-
-      where: {
-        id: {equals: Number(req.params.id)},
-      },
-      include: {
-        cars: true
-      }
-
-    })
-    res.send('sucesso= '+ JSON.stringify(records))
-
-
-  }
-  catch (err) {
-    res.send('erro= '+err)
-
-  }
-  finally {
-console.log('FECHOU APP MESMO...')
-
-    async() => {
-      await prisma.$disconnect()
-      process.exit(0)
+    res.setHeader('Content-Type', 'application/json');
+    try {
+      const records = await prisma.cars.findFirst({
+        where: {
+          id: {equals: Number(req.params.id)},
+        },
+      })
+      res.status(200).json(records);
     }
-
-
-  }
+    catch (err) {
+      res.status(500).send(err)
+    }
+    finally {
+      async() => {
+        await prisma.$disconnect()
+        process.exit(0)
+      }
+    }
 
 }

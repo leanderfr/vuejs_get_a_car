@@ -1,6 +1,6 @@
 
 import {isPositiveInteger} from '../utils/utils.ts';
-import * as express  from 'express'
+import {Request, Response} from 'express'
 
 // shared prisma
 import prisma from "./connection.ts";
@@ -9,7 +9,8 @@ import prisma from "./connection.ts";
 //************************************************************************************
 //************************************************************************************
 
-export const getByCountry = async (req: express.Request, res: express.Response) => {
+//export const getByCountry = async (req: Request, res: Response) => {
+export const getByCountry = async (req, res) => {
 
     // the minimun required for the route
     if ( (req.params.resultformat!='reference' && req.params.resultformat!='json') || 
@@ -82,101 +83,11 @@ export const getByCountry = async (req: express.Request, res: express.Response) 
       if (req.params.active=='inactive') where.push( {active: {equals: false}} )
     }
 
-let records
-
     res.setHeader('Content-Type', 'application/json');
     try {
-       records = await prisma.expressions.findMany({
+      const records = await prisma.expressions.findMany({
         where: {
-          OR: [
-            (filterSearchbox ? {item: {contains: `%${req.params.searchbox}%`}} : {}),
-            (filterSearchbox ? {portuguese: {contains: `%${req.params.searchbox}%`}} : {}),
-            (filterSearchbox ? {english: {contains: `%${req.params.searchbox}%`}} : {}),
-          ]
-        },
-        orderBy: {item: 'asc'}
-
-      })
-      //res.status(200).json(records);
-
-//...(req.params.resultformat=='json' ? {item: true, id: true, active: true, english: true, portuguese:true} : {}),
-    }
-    catch (err) {
-      res.status(500).send(err)
-    }
-    finally {
-      async() => {
-        await prisma.$disconnect()
-        //process.exit(0)
-      }
-
-
-
-
-
-    //***********************************************************************************************
-    if (req.params.resultformat=='reference') {
-
-      interface keyedArray {
-        [key: string]: string;
-      }
-
-      // type guards kills a lot of time
-      // typescript is a burden 
-      if (typeof records!='undefined')  {
-        let expressions:keyedArray = {};
-
-        for (const expression of records) {
-          if (expression.item!=null && expression.portuguese!=null && expression.english!=null ) {
-            if (req.params.country === 'usa') {
-              expressions[expression.item] = expression.english
-            } 
-            if (req.params.country === 'brazil') {
-              expressions[expression.item] = expression.portuguese
-            } 
-          }
-        }
-
-        res.status(200).json(expressions);
-      
-      return
-    }
-
-    } else {
-
-res.status(200).json(records);
-}
-
-
-
-
-
-    }
-
-
-
-};  
-
-
-
-
-//************************************************************************************
-//************************************************************************************
-
-export const getById = async (req: express.Request, res: express.Response) => {
-
-
-    // the minimum required for the route
-    if ( ! isPositiveInteger( req.params.id ) ) {
-      res.status(500).send('Invalid route parameter')
-      return
-    }
-
-    res.setHeader('Content-Type', 'application/json');
-    try {
-      const records = await prisma.expressions.findFirst({
-        where: {
-          id: {equals: Number(req.params.id)},
+          ...(filterSearchbox ? filterSearchbox : {}),
         },
       })
       res.status(200).json(records);
@@ -191,6 +102,25 @@ export const getById = async (req: express.Request, res: express.Response) => {
       }
     }
 
+
+
+    //***********************************************************************************************
+    if (req.params.resultformat=='reference') {
+      let keyedArray = []
+
+      // converts to a simpler keyed json
+      for (const expression of expressions) {
+        keyedArray[expression.dataValues.item] = expression.dataValues.language
+      }
+      res.status(200).send( json = Object.assign({}, keyedArray) );
+      return
+    }
+
+    //***********************************************************************************************
+    if (req.params.resultformat=='json') {
+      res.status(200).json(expressions);
+      return
+    }
 };  
 
 
@@ -199,7 +129,39 @@ export const getById = async (req: express.Request, res: express.Response) => {
 //************************************************************************************
 //************************************************************************************
 
-export const update = async (req: express.Request, res: express.Response) => {
+//export const getById = async (req: Request, res: Response) => {
+export const getById = async (req, res) => {
+
+    // the minimun required for the route
+    if ( ! isStringInteger( req.params.id ) ) {
+      res.status(500).send('Invalid route')
+      return
+    }
+
+    // run the mounted query
+    const expression = await Expression.findOne({
+      where: { id: req.params.id },
+      attributes: ['item', 'english', 'portuguese'], 
+    })
+
+    res.setHeader('Content-Type', 'application/json');
+
+    if (expression==null)  {
+      res.status(500).send('Invalid route')
+      return
+    }
+
+    res.status(200).json(expression);
+};  
+
+
+
+
+//************************************************************************************
+//************************************************************************************
+
+//export const update = async (req: Request, res: Response) => {
+export const update = async (req, res) => {
 
     // the minimun required for the route
     if ( ! isStringInteger( req.params.id ) ) {
